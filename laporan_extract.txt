@@ -1,0 +1,5626 @@
+
+[[PAGE 0]]
+IMPLEMENTASI METODE SIMPLE 
+MULTI-ATTRIBUTE RATING TECHNIQUE 
+(SMART) PADA SISTEM INFORMASI 
+PEGAWAI PT.ALIKA JAYA PERKASA 
+UNTUK PENILAIAN KINERJA PEGAWAI 
+ 
+ 
+Proposal Tugas Akhir 
+Diajukan Dalam Memenuhi Syarat Pengajuan Tugas Akhir Program Studi Teknik 
+Informatika Fakultas Teknik Universitas Suryakancana Cianjur 
+ 
+ 
+ 
+Disusun oleh 
+5520122093 
+ISMA MEINAWATI 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Program Studi Teknik Informatika 
+Fakultas Teknik 
+Universitas Suryakancana 
+Cianjur 
+2026
+
+
+[[PAGE 1]]
+i 
+ 
+LEMBAR PERSETUJUAN LAPORAN  
+TUGAS AKHIR 
+ 
+ 
+Telah disetujui untuk disidangkan pada Sidang Tugas Akhir pada Program Sarjana 
+Strata-1 (s1), Program Studi Teknik Informatika Fakultas Teknik  Universitas 
+Suryakancana.  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Nama  : Isma Meinawati 
+NPM : 5520122093 
+Program Studi : Teknik Informatika 
+Judul : Implementasi Metode Simple Multi -Attribute Rating 
+Technique (SMART) Pada Sistem Informasi Pegawai 
+PT.Alika Jaya Perkasa Untuk Penilaian Kinerja 
+Karyawan 
+ 
+Pembimbing Tugas Akhir Pembimbing Lapangan 
+ 
+ 
+ 
+ 
+ 
+Tarmin Abdulghani, S.T., M.T. 
+ 
+         NIDN : 0401087501 
+Dian Bastian 
+ 
+
+[[PAGE 2]]
+ii 
+ 
+LEMBAR PENGESAHAN LAPORAN  
+TUGAS AKHIR 
+ 
+Telah disidangkan dan dinyatakan Lulus Sidang Tugas Akhir pada Program Sarjana Strata-1 
+(S1), Program Studi Teknik Informatika, Fakultas Teknik Universitas Suryakancana pada 
+tanggal   
+ 
+Tim Penguji             Tanda Tangan 
+1. Ketua sidang                                        
+Tarmin Abdulghani, S.T., M.T.  ___________________   
+                              
+2. Anggota Penguji 1 
+          ___________________     
+ 
+3. Anggota Penguji 2 
+          ___________________     
+ 
+                  
+Mengetahui : 
+Ketua Program Studi 
+Teknik Informatika  
+ 
+ 
+ 
+M.Kany Legiawan., ST., M.Kom. 
+NIDN. 0415018402 
+Nama  : Isma Meinawati 
+NPM : 5520122093 
+Program Studi : Teknik Informatika 
+Judul : Implementasi Metode Simple Multi -Attribute Rating 
+Technique (SMART) Pada Sistem Informasi Pegawai 
+PT.Alika Jaya Perkasa Untuk Penilaian Kinerja 
+Karyawan 
+
+[[PAGE 3]]
+iii 
+ 
+LEMBAR PERNYATAAN KEASLIAN 
+ LAPORAN TUGAS AKHIR 
+ 
+Nama  : Isma Meinawati 
+NPM : 5520122093 
+Program Studi : Teknik Informatika 
+Judul : Implementasi Metode Simple Multi-Attribute Rating 
+Technique (SMART) Pada Sistem Informasi Pegawai 
+PT.Alika Jaya Perkasa Untuk Penilaian Kinerja 
+Karyawan 
+ 
+Dengan ini saya menyatakan bahwa dalam laporan penelitian ini tidak terdapat 
+karya yang pernah diajukan untuk memperoleh kelulusan Tugas Akhir ataupun 
+gelar sarjana disuatu Perguruan Tinggi, dan sepanjang pengetahuan saya juga 
+tidak terdapat karya atau pendapat yang pernah ditulis atau diterbitkan oleh orang 
+lain, kecuali yang secara tertulis diacu dalam naskah ini dan disebutkan dalam 
+daftar pustaka. 
+ 
+ 
+Cianjur, 09 Juni 2026 
+ 
+ 
+ 
+Isma Meinawati 
+ NPM. 5520122093 
+ 
+
+[[PAGE 4]]
+iv 
+ 
+KATA PENGANTAR 
+  
+ Puji syukur penulis panjatkan atas kehadirat Allah SWT, karena berkat Rahmat 
+dan hidayahnya sehingga penulis dapat menyelesaikan laporan Tugas Akhir yang 
+berjudul “Implementasi Metode Simple Multi-Attribute Rating Technique (SMART) 
+Pada Sistem Informasi Pegawai PT.Alika Jaya Perkasa Untuk Penilaian Kinerja 
+Karyawan”. 
+Penyusunan laporan Tugas Akhir ini tidak lepas dari bantuan berbagai pihak yang 
+telah memberikan dukungan, bimbingan, serta saran yang sangat berarti. Oleh 
+karena itu, penulis ingin mengucapkan terima kasih yang sebesar-besarnya kepada: 
+1. Allah SWT. Yang telah memberikan rahmat untuk mempermudah penulis dalam 
+menyusun laporan ini. 
+2. Kedua Orang Tua serta Keluarga penulis karena telah memberikan do’a dan 
+dukungan dalam menyusun laporan ini.  
+3. Bapak M. Kany Legiawan., ST., M.Kom., selaku Ketua Program Studi Teknik 
+Informatika Universitas Suryakancana.  
+4. Bapak Tarmin Abdulghan i S.T., M.T., selaku pembimbing yang telah 
+memberikan arahan dan bimbingan dalam proses penyusunan dokumen ini.  
+5. Bapak Agus Suheri., ST., M.Kom selaku Koordinator Tugas Akhir.  
+6. Bapak Dian Bastian selaku pembimbing lapangan.  
+7. Teman-teman dan rekan-rekan yang telah memberikan dukungan moral maupun 
+material selama proses penyusunan dokumen ini.  
+8. Semua pihak yang tidak dapat penulis sebutkan satu per satu yang telah 
+membantu dalam penyusunan laporan Tugas Akhir ini.  
+Penulis menyadari bahwa dalam penyusunan laporan Tugas Akhir ini masih 
+terdapat kekurangan dan ketidaksempurnaan. Oleh karena itu, penulis sangat 
+mengharapkan masukkan berupa saran dari semua pihak. Penulis harap laporan  ini 
+dapat bermanfaat bagi perkembangan Teknologi saat ini. 
+ 
+
+[[PAGE 5]]
+v 
+ 
+DAFTAR ISI 
+LEMBAR PERSETUJUAN LAPORAN  TUGAS AKHIR .................................... i 
+LEMBAR PENGESAHAN LAPORAN  TUGAS AKHIR.................................... ii 
+LEMBAR PERNYATAAN KEASLIAN  LAPORAN TUGAS AKHIR ............. iii 
+KATA PENGANTAR ........................................................................................... iv 
+DAFTAR ISI ........................................................................................................... v 
+DAFTAR GAMBAR ........................................................................................... viii 
+DAFTAR SIMBOL ................................................................................................ xi 
+BAB I PENDAHULUAN ....................................................................................... 1 
+1.1. Latar Belakang.............................................................................................. 1 
+1.2. Rumusan Masalah ........................................................................................ 3 
+1.3. Maksud dan Tujuan ...................................................................................... 3 
+1.4. Manfaat Penelitian ........................................................................................ 4 
+1.5. Batasan Masalah ........................................................................................... 5 
+1.6. Metode Penelitian ......................................................................................... 6 
+1.6.1. Teknik Pengumpulan Data..................................................................... 6 
+1.6.2. Metode Penyelesaian Produk ................................................................. 7 
+1.6.3. Jadwal Penelitia ................................................................................... 11 
+1.7. Sistematika Penulisan ................................................................................. 12 
+BAB II TINJAUAN PUSTAKA ........................................................................... 14 
+2.1. PT.Alika Jaya Perkasa ................................................................................ 14 
+2.2. Metode SMART (Simple Multi Attribute Ranting Technique) ................. 14 
+2.3. Sistem Informasi ......................................................................................... 19 
+2.4. Sistem Informasi Kepegawaian .................................................................. 23 
+2.5. Penilaian Kinerja Pegawai .......................................................................... 23 
+2.5.1. Pegawai ................................................................................................ 23 
+2.5.2. Pengertian Penilaian Kinerja Pegawai ................................................. 24 
+2.5.3. Tujuan Penilaian Kinerja ..................................................................... 25 
+2.5.4. Dasar Hukum Penilaian Kinerja Pegawai ............................................ 25 
+2.5.5. Pengertian Key Performance Index (KPI) ........................................... 27 
+
+[[PAGE 6]]
+vi 
+ 
+2.5.6. Indikator Penilaian Kinerja Pegawai ................................................... 28 
+2.6. Sistem Cerdas ............................................................................................. 30 
+2.6.1. Pengertian Sistem Cerdas .................................................................... 30 
+2.6.2. Konsep Dasar Sistem Cerdas ............................................................... 30 
+2.7. Sistem Pendukung Keputusan .................................................................... 31 
+2.7.1. Komponen Sistem Pendukung Keputusan ........................................... 32 
+2.7.2. Tahapan Pengambilan Keputusan ........................................................ 34 
+2.8. Perancangan Sistem .................................................................................... 34 
+2.8.1. UML (Unified Modeling Language) ................................................... 34 
+2.9. Pengujian Sistem ........................................................................................ 39 
+2.10. Penelitian Terdahulu ................................................................................. 39 
+BAB III ANALISIS DAN PERANCANGAN ..................................................... 42 
+3.1. Communication........................................................................................... 42 
+3.1.1. Wawancara........................................................................................... 42 
+3.2. Analisis Sistem ........................................................................................... 47 
+3.2.1. Analisis Kebutuhan Fungsional ........................................................... 47 
+3.2.2. Analisis Kebutuhan Non Fungsional ................................................... 51 
+3.2.3. Analisis Pengguna................................................................................ 52 
+3.3. Analisi Metode SMART............................................................................. 54 
+3.3.1. Alur Kerja Metode SMART ................................................................ 54 
+3.3.2. Langkah-Langkah Perhitungan Metode SMART ................................ 19 
+3.3.3. Penentuan Kriteria dan Sub Kriteria Penilaian Kinerja Pegawai 
+(Lapangan) ...................................................... Error! Bookmark not defined. 
+3.3.4. Penentuan Kriteria dan Sub Kriteria Penilaian Kinerja Pegawai 
+(Kelompok Kerja Kantor) ............................... Error! Bookmark not defined. 
+3.3.5. Contoh Perhitungan Metorde SMART ................................................ 81 
+3.3.1. Rekomendasi Keputusan Berdasarkan Skor SMART ......................... 88 
+
+[[PAGE 7]]
+vii 
+ 
+3.4. Perancangan Sistem (UML) ....................................................................... 89 
+3.4.1. Use Case Diagram ............................................................................... 90 
+3.4.2. Activity Diagram ................................................................................. 91 
+3.4.3. Sequence Diagram ............................................................................. 106 
+3.4.4. Class Diagram .................................................................................... 121 
+3.4.5. Entity Relationships Diagram ............................................................ 123 
+3.4.6. Perancangan Antar Muka (Interface) ................................................ 124 
+3.4.7. Deployment ........................................................................................ 129 
+Daftar Pustaka ..................................................................................................... 131 
+Data Pengusul Laporan Tugas Akhir .................................................................. 134 
+ 
+ 
+
+[[PAGE 8]]
+viii 
+ 
+DAFTAR GAMBAR 
+ 
+Gambar 1. 1 Metode Waterfall ............................................................................... 7 
+Gambar 2. 1 Komponen Sistem Pendukung Keputusan  ...................................... 33 
+Gambar 2. 2 Contoh Use Case .............................................................................. 35 
+Gambar 2. 3 Activity Diagram .............................................................................. 36 
+Gambar 2. 4 Sequence Diagram............................................................................ 37 
+Gambar 2. 5 Class Diagram .................................................................................. 37 
+Gambar 2. 6 ERD .................................................................................................. 38 
+Gambar 3. 1 Alur Kerja Metode SMART ............................................................. 54 
+Gambar 3. 2 Use Case Diagram ............................................................................ 90 
+Gambar 3.3 Activity Diagram Login .................................................................... 91 
+Gambar 3. 4 Activity Diagram Data Pegawai ....................................................... 92 
+Gambar 3. 5 Kelola Data Kehadiran ..................................................................... 94 
+Gambar 3. 6 Cetak Laporan .................................................................................. 95 
+Gambar 3. 7 Laporan Penilaian ............................................................................. 95 
+Gambar 3. 8 Kelola Pengguna .............................................................................. 96 
+Gambar 3. 9 Sub Kriteria ...................................................................................... 98 
+Gambar 3. 10 Kelola Bobot .................................................................................. 99 
+Gambar 3. 11 Kelola Periode .............................................................................. 100 
+Gambar 3. 12 Input Penilaian Kinerja................................................................. 102 
+Gambar 3. 13 Hasil Perangkingan ...................................................................... 103 
+Gambar 3. 14 Cetak Laporan .............................................................................. 104 
+Gambar 3. 15 Sequence Data Pegawai ............................................................... 106 
+Gambar 3. 16 Data Kehadiran ............................................................................. 108 
+Gambar 3. 17 Sequence Diagram Lihat Hasil Perangkingan Pegawai ............... 109 
+Gambar 3. 18 Sequence Diagram Cetak Laporan Penilaian ............................... 111 
+Gambar 3. 19 cetak Laporan Penilaian Manajer ................................................. 111 
+Gambar 3. 20 Kelola Pengguna .......................................................................... 113 
+Gambar 3. 21 Sequence Input Penilaian Kinerja ................................................ 114 
+Gambar 3. 22 Lihat Hasil Penilaian .................................................................... 115 
+Gambar 3. 23 Sequence Diagram Periode .......................................................... 116 
+Gambar 3. 24 Data Kriteria ................................................................................. 118 
+Gambar 3. 25 Bobot ............................................................................................ 120 
+Gambar 3. 26 Class Diagram .............................................................................. 121 
+Gambar 3. 27 ERD .............................................................................................. 123 
+Gambar 3. 28 Login Admin ................................................................................ 124 
+Gambar 3. 29 Anatarmuka Kelola Data Pegawai admin .................................... 125 
+Gambar 3. 30 Antarmuka Data Kehadiran .......................................................... 125 
+Gambar 3. 31 Hasil Perangkingan ...................................................................... 126 
+Gambar 3. 32 Halaman Riwayat Penilaian ......................................................... 126 
+Gambar 3. 33 Laporan Penilaian ......................................................................... 127 
+Gambar 3. 34 Kelola Pengguna .......................................................................... 127 
+
+[[PAGE 9]]
+ix 
+ 
+Gambar 3. 35 Input Penilaian Kinerja................................................................. 128 
+Gambar 3. 36 Riwayat Penilaian ......................................................................... 128 
+Gambar 3. 37 Pimpinan Hasil Perangkingan ...................................................... 129 
+Gambar 3. 38 Deployment .................................................................................. 129 
+ 
+ 
+
+[[PAGE 10]]
+x 
+ 
+DAFTAR TABEL 
+Tabel 1. 1 Jadwal Kegiatan Penelitian Tugas Akhir ............................................. 11 
+Tabel 1. 2 Penelitian Terdahulu ............................................................................ 39 
+Tabel 3. 1 Wawancara dan Proses Sistem yang Berjalan ..................................... 42 
+Tabel 3. 2 Wawancara Kebutuhan Sistem ............................................................ 45 
+Tabel 3. 3 Analisis Kebutuhan Fungsional ........................................................... 48 
+Tabel 3. 4 Perangkat Keras ................................................................................... 51 
+Tabel 3. 5 Perangkat Lunak .................................................................................. 51 
+Tabel 3. 6 Analisis Pengguna ................................................................................ 52 
+Tabel 3. 7 Penentuan Kriteria................................. Error! Bookmark not defined. 
+Tabel 3. 8 Indikator Jumlah Pekerjaan (C1) .......... Error! Bookmark not defined. 
+Tabel 3. 9 Kualitas Pekerjaan (C2) ........................ Error! Bookmark not defined. 
+Tabel 3. 10 Indikator Ketepatan Waktu (C3) ......... Error! Bookmark not defined. 
+Tabel 3. 11 Indikator Kehadiran (C4) .................... Error! Bookmark not defined. 
+Tabel 3. 12 Indikator Kemampuan Kerjasama (C5) ............ Error! Bookmark not 
+defined. 
+Tabel 3. 13 Indikator Keselamatan (C6) ................ Error! Bookmark not defined. 
+Tabel 3. 14 Penentuan Bobot ................................. Error! Bookmark not defined. 
+Tabel 3. 15 Tabel Data Pegawai ............................ Error! Bookmark not defined. 
+Tabel 3. 16 Total Bobot Keseluruhan .................... Error! Bookmark not defined. 
+Tabel 3. 17 Rekomendasi Keputusan .................................................................... 88 
+ 
+ 
+
+[[PAGE 11]]
+xi 
+ 
+DAFTAR SIMBOL 
+ 
+A. Use Case Diagram 
+NO GAMBAR NAMA KETERANGAN 
+1  
+ 
+Actor Menspesifikasikan himpunan 
+peran yang pengguna mainkan 
+ketika berinteraksi dengan Use 
+case. 
+3 
+ 
+Use Case Sebuah fungsi system yang dapat 
+dinamakan dengan kata kerja dan 
+kata benda. 
+4 
+ 
+Generalization Hubungan generalisasi adalah 
+hubungan antara induk dan anak 
+pada usecase. 
+5 
+ 
+Boundary 
+System 
+Merupakan Batasan sistem yang 
+didalam 
+nya digunakan untuk masing-
+masing 
+fungsi bisnis. 
+6  Extend 
+Relationship 
+Simbol ini Menggambarkan 
+dengan panah terarah yang 
+memiliki garis putus-putus. Ujung 
+mata panah menunjuk ke kasus 
+penggunaan dasar dan kasus 
+penggunaan anak terhubung di 
+dasar panah. Stereotip 
+"<<extends>>" diidentifikasikan 
+
+
+[[PAGE 12]]
+xii 
+ 
+NO GAMBAR NAMA KETERANGAN 
+sebagai hubungan yang 
+diperpanjang 
+7  Include 
+Relationship 
+Digambarkan dengan panah 
+terarah yang memiliki garis putus-
+putus. Ujung panah menunjuk ke 
+kasus penggunaan anak dan kasus 
+penggunaan orang tua yang 
+terhubung di dasar panah. 
+Stereotipe "<<include>>" 
+mengidentifikasi hubungan 
+sebagai hubungan termasuk. 
+ 
+B. Activity Diagram 
+No Nama Simbol Gambar Keterangan 
+1 Activity 
+ 
+Digunakan untuk mewakili 
+serangkaian Tindakan 
+2 Action 
+ 
+Digunakan untuk Sebuah tugas yang 
+harus dilakukan 
+3 Control Flow 
+ 
+Digunakan untuk Menunjukkan 
+urutan eksekusi 
+4 Initial Node 
+ 
+Menggambarkan awal dari 
+serangkaian tindakan atau aktivitas 
+
+
+[[PAGE 13]]
+xiii 
+ 
+No Nama Simbol Gambar Keterangan 
+5 
+Final Node 
+ 
+Digunakan untuk menghentikan 
+semua aliran kontrol dan aliran objek 
+dalam suatu aktivitas (atau tindakan) 
+6 
+Deccission 
+Node 
+ 
+Digunakan untuk mewakili kondisi 
+pengujian untuk memastikan bahwa 
+aliran kontrol atau aliran objek hanya 
+turun satu jalur 
+7 
+Merge Node 
+ 
+Simbol ini dinamakan merge node 
+digunakan untuk menyatukan jalur 
+keputusan berbeda yang dibuat 
+menggunakan node keputusan. 
+8 Swimlane And 
+Partition 
+ 
+Digunakan untuk mengelompokkan 
+aktivitas yang dilakukan oleh aktor 
+yang sama pada diagram aktivitas 
+atau mengelompokkan aktivitas dalam 
+satu rangkaian 
+ 
+ 
+
+
+[[PAGE 14]]
+xiv 
+ 
+C. Sequence Diagram 
+No Nama 
+Simbol Gambar Keterangan 
+1 Aktor  
+ 
+Menggambarkan seseorang atau sesuatu 
+(seperti perangkat, sistem lain) yang 
+berinteraksi dengan sistem. 
+2 Boundary   
+ 
+ 
+Menggambarkan inte raksi antara satu 
+atau lebih actor dengan sistem, 
+memodelkan bagian dari sistem yang 
+bergantung pada pihak lain disekitarnya 
+dan merupakan pembatas sistem dengan 
+dunia luar. 
+3 Control  
+ 
+Menggambarkan “perilaku
+ mengatur”, mengkoordinasikan 
+perilaku sistem, menangani tugas utama 
+dan mengontrol alur kerja suatu sistem. 
+4 Entity  
+ 
+Menggambarkan informasi yang harus 
+disimpan oleh sistem (struktur data dari 
+sebuah sistem). 
+5 Object 
+Message 
+ 
+ 
+Menggambarkan pesan/hubungan antar 
+objek, yang menunjukan urutan kejadian 
+yang terjadi. 
+6 Message to 
+Self 
+  
+ 
+Menggambarkan pesan/hubungan objek 
+itu sendiri, yang menunjukan urutan 
+kejadian yang terjadi. 
+7 Object 
+ 
+ 
+Menggambarkan abstraksi dari sebuah 
+entitas nyata atau tidak nyata yang 
+informasinya harus disimpan. 
+ 
+ 
+
+
+[[PAGE 15]]
+xv 
+ 
+D. Class Diagram 
+ 
+No 
+Nama Simbol  
+Gambar 
+ 
+Keterangan 
+1 Kelas  
+ 
+Kelas pada struktur sistem. 
+2 Asosiasi / 
+association 
+ 
+ 
+Relasi antar kelas dengan 
+makna umum, asosiasi 
+biasanya juga disertai 
+dengan multiplicity. 
+3 Agregasi / 
+aggregation 
+ 
+ 
+Relasi antar kelas dengan 
+makna semuabagian 
+(whole-part). 
+4 Komposisi 
+ 
+ 
+Relasi antar kelas yang 
+saling berhubungan kuuat 
+7 Object 
+ 
+ 
+Menggambarkan abstraksi 
+dari sebuah entitas nyata atau 
+tidak nyata yang 
+informasinya harus disimpan. 
+ 
+E. Entity Diagram 
+No Nama Simbol Gambar Keterangan 
+1  
+ 
+Atribut Kunci 
+Primer 
+Field atau kolom data yang 
+butuh disimpan dalam 
+suatu entitas dan 
+digunakan sebagai kunci 
+akses, record yang 
+diinginkan; biasanya 
+berupa id, kunci primer 
+dapat lebih dari 1 kolom, 
+asalkan kombinasi dari 
+
+
+[[PAGE 16]]
+xvi 
+ 
+No Nama Simbol Gambar Keterangan 
+beberapa kolom tersebut 
+dapat bersifat unik 
+(berbeda tanpa ada yang 
+sama). 
+2 
+ 
+ 
+Atribut 
+Multinilai / 
+multivalue 
+Field atau kolom data yang 
+butuh disimpan dalam 
+suatu entitas yang dapat 
+memiliki nilai lebih dari 
+satu. 
+3 
+ 
+ 
+Relasi Relasi yang dihubungkan 
+antar entitas; biasanya 
+diawali dengan kata kerja 
+4  
+ 
+Asosiasi / 
+Association 
+Penghubung antara relasi 
+dan entitas dimana di 
+kedua ujungnya memiliki 
+multiplicity kemungkinan 
+jumlah pemakai. 
+Kemungkinan jumlah 
+maksimum keterhubungan 
+antara entitas 1 dengan 
+entitas yang lain disebut 
+dengan kardinalitas, 
+misalkan ada kardinalitas 1 
+ke N atau sering disebut 
+dengan One to Many 
+menghubungkan entitas A 
+dengan entitas B. 
+ 
+ 
+
+
+[[PAGE 17]]
+1 
+ 
+BAB I 
+PENDAHULUAN 
+1.1. Latar Belakang 
+Perkembangan teknologi informasi memberikan dampak besar terhadap 
+pengelolaan sumber daya manusia di perusahaan.  Menurut (Santoso dkk., 2025) 
+Sistem informasi merupakan kombinasi dari teknologi, manusia, dan proses yang 
+dirancang untuk mengumpulkan, memproses, menyimpan, dan menyebarkan guna 
+mendukung pengambilan keputusan, koordinasi, analisis, dan kontrol dalam suatu 
+organisasi. Penerapan sistem informasi kepegawaian berperan penting dalam 
+pengelolaan data pegawai, penilaian kinerja, pemberian insentif, promosi jabatan, 
+presensi hingga penyajian laporan secara efektif dan efisien. Pegawai adalah orang 
+yang bekerja pada suatu lembaga dan mendapatkan imbalan kerja sesuai dengan 
+yang telah ditetapkan  sebelumnya (Wati & Frasiska, 2025) . Dalam proses 
+pengambilan keputusan, penilaian perlu dilakukan secara objektif berdasarkan 
+kriteria tertentu. Salah satu metode yang dapat digunakan adalah SMART (Simple 
+Multi Attribute Rating Technique) yaitu model pengambilan keputusan yang multi 
+attribute yang dikembangkan oleh Edward pada tahun 19 77. Metode ini bekerja 
+dengan menggunakan beberapa kriteria untuk setiap alternatif. Setiap alternatif ini 
+memiliki nilai, dan kriterinya memiliki bobot untuk menilai setiap alternatif yang 
+terbaik (Setiawan & Witanti, 2021).  
+PT. Alika Jaya Perkasa merupakan perusahaan yang bergerak di bidang jasa 
+konstruksi dan memiliki pekerja lapangan maupun tenaga administrasi yang perlu 
+dinilai kinerjanya secara berkala. Penilaian kinerja pegawai diperlukan sebagai 
+bahan evaluasi untuk men getahui kualitas kerja dan kompetensi setiap pegawai. 
+Hasil penilaian tersebut digunakan oleh pihak manajemen sebagai dasar dalam 
+pengambilan keputusan seperti pemberian bonus, promosi jabatan, penentuan 
+pegawai terbaik, serta pemanggilan kembali pekerja k ontrak pada proyek 
+selanjutnya. Namun, proses penilaian kinerja pegawai di PT. Alika Jaya Perkasa 
+saat ini masih dilakukan Berdasarkan hasil observasi dan wawancara yang 
+dilakukan di PT. Alika Jaya Perkasa, proses penilaian kinerja pegawai masih 
+dilakukan secara manual menggunakan dokumen dan spreadsheet. Penilaian belum 
+
+[[PAGE 18]]
+2 
+ 
+memiliki standar yang baku sehingga setiap manajer dapat memberikan penilaian 
+berdasarkan pertimbangannya masing -masing. Selain itu, perusahaan belum 
+menerapkan pembobotan terhadap setiap kriteria sehingga seluruh aspek penilaian 
+diperlakukan memiliki ting kat kepentingan yang sama. Kondisi tersebut 
+menyebabkan HRD mengalami kesulitan dalam membandingkan hasil penilaian 
+antar pegawai, menentukan peringkat pegawai terbaik, serta menjadikan hasil 
+penilaian sebagai dasar yang objektif dalam pemberian bonus, promosi jabatan, dan 
+pemanggilan kembali pekerja kontrak. Di sisi lain, proses rekapitulasi nilai yang 
+masih dilakukan secara  manual juga meningkatkan risiko kesalahan perhitungan 
+serta menyulitkan penyimpanan riwayat penilaian sebagai bahan evaluasi kinerja 
+pegawai dari waktu ke waktu. 
+Permasalahan tersebut dapat diselesaikan dengan membangun sistem 
+informasi menggunakan metode SMART sebagai inti sistem cerdas dalam proses 
+penilaian kinerja pegawai. Sistem yang dibangun mampu melakukan pengolahan 
+data dan penilaian secara otomatis dengan menerapkan pembobotan multi -kriteria 
+untuk menghasilkan keputusan yang leb ih objektif dan terukur. Selain itu, sistem 
+informasi pegawai yang dibangun dapat mengelola data secara terpusat sehingga 
+mempermudah proses pencarian data, pengolahan data, dan penyajian laporan 
+secara lebih efektif dan efisien. Sistem ini dibangun menggunakan MySQL sebagai 
+basis data, dijalankan melalui Apache Web Server  menggunakan XAMPP, serta 
+dikembangkan menggunakan HTML, CSS, JavaScript, dan framework Laravel 
+berbasis bahasa pemrograman PHP. 
+Berdasarkan permasalahan yang telah diuraikan, penelitian ini mengambil 
+judul "Implementasi Metode SMART pada Sistem Informasi Pegawai PT. Alika 
+Jaya Perkasa untuk Penilaian Kinerja Pegawai". Pemilihan judul ini didasarkan 
+pada sasaran utama yaitu objektif dalam menghasilkan penilaian berbasis data 
+menggunakan metode SMART, efisien dalam mengotomatiskan proses penilaian 
+yang sebelumnya dilakukan secara manual, efektif sebagai dasar pengambil an 
+keputusan bagi HRD, Manajer, Direktur, dan pegawai, serta transparan dalam 
+menyajikan hasil penilaian yang dapat dipertanggungjawabkan oleh seluruh 
+pemangku kepentingan di PT. Alika Jaya Perkasa. 
+
+[[PAGE 19]]
+3 
+ 
+1.2. Rumusan Masalah 
+Berdasarkan latar belakang yang telah diuraikan, maka rumusan masalah 
+dalam penelitian ini adalah bagaimana merancang dan membangun "Implementasi 
+Metode SMART pada Sistem Informasi Pegawai PT. Alika Jaya Perkasa untuk 
+Penilaian Kinerja Pegawai" yang mampu menghasilkan penilaian kinerja secara 
+objektif berdasarkan kriteria jumlah pekerjaan, kualitas pekerjaan, ketepatan waktu, 
+kehadiran, kemampuan kerjasama  dan keselamatan. dengan mengotomatiskan 
+proses penilaian yang sebelumnya dilakukan secara manual, efektif sebagai dasar 
+pengambilan keputusan bagi HRD, Manajer, dan Direktur, serta transparan dalam 
+menyajikan hasil penilaian yang dapat diakses dan dipertanggungjawabkan ol eh 
+seluruh pemangku kepentingan. 
+1.3. Maksud dan Tujuan 
+Maksud dari penelitian ini adalah merancang dan membangun "Implementasi 
+Metode SMART pada Sistem Informasi Pegawai PT. Alika Jaya Perkasa untuk 
+Penilaian Kinerja Pegawai" yang mengimplementasikan metode SMART sebagai 
+sistem cerdas dalam Sistem Pendukung Keputusan sehingga proses penilaian 
+kinerja pegawai dapat dilakukan secara objektif berbasis data, efisien melalui 
+otomatisasi proses penilaian, efektif sebagai alat bantu pengambilan keputusan bagi 
+seluruh pemangku kepentingan, serta transparan dalam penyajian hasil penilaian 
+yang dapat dipertanggungjawab kan. Berdasarkan rumusan masalah yang telah 
+diuraikan, tujuan dari penelitian ini adalah : 
+1. Membangun sistem informasi pegawai yang mampu mengelola data 
+pegawai, data penilaian kinerja, dan data pendukung lainnya secara 
+terintegrasi pada PT. Alika Jaya Perkasa. 
+2. Mengimplementasikan metode SMART pada sistem informasi pegawai 
+PT.Alika Jaya Perkasa untuk membantu proses penilaian kinerja pegawai  
+yang objektif berdasarkan kriteria   
+
+[[PAGE 20]]
+4 
+ 
+3. Mengotomatiskan proses penilaian kinerja pegawai yang sebelumnya 
+dilakukan secara manual sehingga pengolahan data menjadi lebih efisien 
+dan tidak membutuhkan waktu lama. 
+4. Menghasilkan rekomendasi pegawai terbaik secara otomatis sebagai bahan 
+pendukung pengambilan keputusan yang efektif bagi pihak manajemen 
+perusahaan dalam pemberian bonus, promosi jabatan, dan evaluasi kinerja 
+pegawai. 
+5. Menyajikan hasil penilaian kinerja secara transpa ran sehingga setiap 
+pegawai dapat melihat dan memahami  hasil penilaian sendiri, serta 
+mempermudah pihak manajemen dalam pencarian data dan penyusunan 
+laporan secara terstruktur. 
+1.4.  Manfaat Penelitian 
+Penelitian ini diharapkan dapat memberikan manfaat baik secara akademis 
+maupun praktis bagi perusahaan dan pihak terkait lainnya. Adapun manfaat 
+penelitian ini adalah sebagai berikut: 
+1. Manfaat Akademis  
+1) Penelitian ini memberikan pemahaman bahwa metode SMART (Simple  
+Multi-Attributte Rating Technique ) dalam pengambilan keputusan 
+penilaian kinerja pegawai banyak dikaji secara teoritis dan dapat 
+diimplementasikan secara nyata ke sistem informasi berbasis web.  
+Pembuktiannya mecakup penentuan kriteria dan bobot , normaliasasi nilai, 
+perhitungan skor akhir, hingga perangkingan alternatif secara otomatis. 
+2) Menghubungkan konsep akademik dengan kebutuhan dunia kerja. 
+3) Menghasilkan karya ilmiah yang dapat menjadi rujukan untuk 
+mengembangkan sistem serupa  serta bisa menjadi perbandingan dengan 
+metode lain untuk menghasilkan rekomendasi yang lebih akurat. 
+4) Menunjukan intergrasi antar sistem infomasi operasional perusahaan 
+dengan sistem pendukung keputusan. 
+ 
+
+[[PAGE 21]]
+5 
+ 
+2. Manfaat untuk Kemasyarakat   
+1) Mempermudah dalam menentukan pekerja yang akan direkrut kembali pada 
+proyek selanjutnya, promosi jabatan, dan pemberian insentif secara objektif. 
+2) Biaya proyek menjadi efisien karena kuliatas dalam pembangunan 
+insfrastruktur meningkat. 
+3) Meningkatkan efisiensi perekrukatan tenaga kerja  yang sering berubah -
+ubah. 
+4) Menyedikan riwayat performa kerja sehingga dapat digunakan sebagai 
+bahan keputusan. 
+1.5. Batasan Masalah 
+Agar penelitian yang dilakukan lebih terarah dan tidak menyimpang dari 
+tujuan penelitian, maka diperlukan batasan masalah sebagai berikut: 
+1. Penelitian ini berfokus pada pengimplementasian metode SMART pada  
+sistem informasi penilaian kerja pegawai sebagai bahan keputusan untuk 
+pemberian bonus, evaluasi kinerja, pemanggilan kembali pegawai kontrak 
+untuk dipakai di proyek selanjutnya,   promosi jabatan, evaluasi kebutuhan 
+pelatihan, dan penugasan proyek strategis.  
+2. Data pegawai digunakan dalam prose s penilaian adalah data pegawai 
+lapangan maupun tenaga administrasi yang aktif bekerja di PT.Alika Jaya 
+Perkasa. 
+3. Sistem informasi ini dibangun hanya mencakup pengeloaan data pegawai,  
+pencatatan dan rekap penilaian kinerja, manajemen periode penilaian. 
+4. Sistem ini  tidak menyediakan fitur pencatatan absensi harian secara 
+otomatis. Data kehadiran pegawai diperoleh dari rekap absensi yang telah 
+ada sebelumnya di perusahaan dan diinput secara manual oleh Admin/HRD 
+ke dalam sistem sebagai nilai kriteria kehadiran. 
+5. Proses penilain mengacu pada enam kriteria  jumlah pekerjaan, kualitas 
+pekerjaan, ketepatan waktu, kehadiran, kemampuan kerjasama , dan 
+keselamatan. 
+6. Sistem informasi penila ian kinerja pegawai ini memberikan hasil 
+rekomendasi pegawai terbaik berdasarkan skor akhir metode SMART.  
+
+[[PAGE 22]]
+6 
+ 
+1.6.  Metode Penelitian 
+Penelitian ini menggunakan metode SMART (Simple Multi-Attribute Rating 
+Technique) dalam sistem pengambilan keputusannya. Metode SMART merupakan 
+bagian dari pendukung keputusan multi-kriteria yang dalam prosesnya itu setiap 
+alternatif memiliki beberpa kriteria yang masing masing alternatif memiliki nilai 
+dan setap kriterian memiliki bobot ini sebagai pembanding dari setiap kriteria mana 
+yang terbaik (Shafira dkk.,2023). Penilaian dilakukan berdasarkan beberapa kriteria 
+yang telah ditentukan oleh perusahaan, seperti  jumlah pekerjaan, kualitas 
+pekerjaan, ketepatan waktu, kehadiran, dan kemampuan kerjasama. Setiap kriteria 
+diberikan bobot sesuai tingkat kepentingannya, kemudian dihitung menggunakan 
+metode SMART untuk menghasilkan nilai akhir yang dapat digunakan sebagai 
+dasar dalam menentukan pegawai dengan kinerja terbaik serta mendukung 
+pengambilan keputusan manajemen secara lebih efektif dan transparan. 
+ 
+1.6.1. Teknik Pengumpulan Data 
+Untuk memperoleh data dan informasi yang dibutuhkan dalam penelitian ini, 
+penulis menggunakan beberapa teknik pengumpulan data yang dilakukan secara 
+langsung maupun tidak langsung terhadap objek penelitian. 
+1. Observasi  
+Melakukan observasi, wawancara langsung mengenai proses bisnis absensi, 
+pemberian insentif gaji, mekanisme  penilaian pegawai untuk mengukur tingkat 
+kepentingan setiap kriteria. Penilaian menurut sudut pandang pemilik perusahaan, 
+pegawai dan manajemen, mengetahui tingkat kepuasan terhadap proses penilaian 
+yang selama ini berjalan, serta mengidentifikasi fitur -fitur sistem yang paling 
+dibutuhkan oleh pengguna. Data hasil survei ini digunakan sebagai bahan validasi 
+terhadap hasil wawancara sekaligus menjadi dasar penetapan bobot kriteria 
+penilaian dalam metode SMART yang telah disepakati bersama pihak manajemen 
+perusahaan. 
+2. Studi Pustaka 
+Studi pustaka dilakukan dengan mengumpulkan, membaca, dan mengkaji 
+referensi ilmiah berupa buku teks, jurnal dan penelitian terdahulu yang berkaitan 
+
+[[PAGE 23]]
+7 
+ 
+langsung dengan topik penelitian ini. Referensi yang dikumpulkan mencakup 
+konsep dasar sistem informasi manajemen, teori sistem pendukung keputusan . 
+Seluruh referensi yang diperoleh melalui studi pustaka berfungsi sebagai landasan 
+teori yang memperkuat dasar ilmiah penelitian. Pada tabel dibawah ini merupakan 
+penelitian terdahulu mengenai sistem pendukung keputusan penilaian kinerja 
+pegawai.  
+ 
+1.6.2.  Metode Penyelesaian Produk 
+Metode penyelesaian produk yang digunakan dalam penelitian ini adalah 
+metode Waterfall. Metode Waterfall dipilih karena memiliki tahapan 
+pengembangan sistem yang terstruktur dan sistematis, mulai dari tahap analisis 
+kebutuhan, perancangan sistem, implementasi, pengujian, hingga pemeliharaan 
+sistem. Tahapan metode Waterfall yang digunakan dalam penelitian ini dapat 
+dilihat pada Gambar dibawah ini. 
+ 
+ 
+Gambar 1. 1 Metode Waterfall (Pressman & Roger S., 2010) 
+a) Communication (Komunikasi) 
+ Tanap Communication merupakan tahap awal dalam metode Waterfall yang 
+bertujuan untuk mengidentifikasi dan mengumpulkan kebutuhan sistem melalui 
+observasi dan wawancara dengan pihak PT. Alika Jaya Perkasa. Pada tahap ini 
+dilakukan project initiation untuk memahami kondisi perusahaan dan requirements 
+gathering untuk memperoleh kebutuhan sistem. Analisis yang dilakukan meliputi 
+kebutuhan fungsional, seperti pengelolaan data pegawai, proses penilaian kinerja, 
+perhitungan metode SMART, dan hak akses pengguna, serta kebutuhan 
+nonfungsional sistem. Selain itu, pada tahap ini ditentukan kriteria penilaian 
+
+
+[[PAGE 24]]
+8 
+ 
+kinerja, yaitu jumlah pekerjaan, kualitas pekerjaan, ketepatan waktu, kehadiran, 
+kemampuan kerja sama, dan keselamatan  beserta bobot dan skala penilaiannya 
+sebagai dasar perhitungan metode SMART. 
+b) Planning (Perencanaan)  
+Tahap Planning merupakan tahap perencanaan setelah kebutuhan sistem 
+berhasil dikumpulkan. Pada tahap ini dilakukan estimating, scheduling, dan 
+tracking untuk memperkirakan sumber daya, menyusun jadwal pengembangan, 
+serta memantau pelaksanaan proyek. Selain  itu, ditentukan teknologi yang 
+digunakan, yaitu Laravel, MySQL, phpMyAdmin, dan XAMPP, serta direncanakan 
+fitur utama sistem yang meliputi pengelolaan data pegawai, penilaian kinerja 
+menggunakan metode SMART, dan laporan hasil perangkingan pegawai. 
+c) Modeling (Permodelan) 
+Tahap Modeling merupakan tahap penerjemahan kebutuhan sistem yang telah 
+diperoleh ke dalam bentuk rancangan sistem yang siap diimplementasikan. Tahap 
+ini terdiri dari dua kegiatan utama yaitu analysis dan design. Pada kegiatan analisis, 
+dilakukan kajian mendalam terhadap alur proses bisnis penilaian kinerja, hak akses 
+pengguna, serta alur perhitungan menggunakan metode SMART berdasarkan enam 
+kriteria yang telah ditentukan. Pada kegiatan perancangan (design), dilakukan 
+perancangan Use Case Diagram dan Activity Diagram untuk menggambarkan 
+interaksi pengguna serta alur proses sistem.  Selain itu, dirancang Entity 
+Relationship Diagram (ERD) dan struktur basis data yang digunakan untuk 
+mengelola data pegawai, kriteria, penilaian, dan hasil perhitungan.  Tahap ini juga 
+mencakup perancangan alur perhitungan metode SMART serta desain antarmuka 
+pengguna yang meliputi halaman dashboard, pengelolaan data, proses penilaian, 
+dan laporan hasil perangkingan pegawai. 
+ 
+d) Construction (Kontruksi) 
+Tahap Construction merupakan tahap pembangunan sistem yang terdiri dari dua 
+kegiatan utama yaitu code (pengkodean) dan test (pengujian). Pada kegiatan 
+pengkodean, seluruh rancangan sistem yang telah dibuat pada tahap Modeling 
+
+[[PAGE 25]]
+9 
+ 
+diimplementasikan menjadi program yang dapat dijalankan. Sistem dibangun 
+menggunakan framework Laravel sebagai backend dan MySQL sebagai basis data 
+yang dikelola melalui phpMyAdmin serta dijalankan menggunakan XAMPP. 
+Antarmuka sistem dikembangkan menggunak an HTML, CSS, dan JavaScript. 
+Implementasi mencakup fitur pengelolaan data pegawai, proses penilaian kinerja, 
+perhitungan metode SMART secara otomatis, penyajian hasil perangkingan 
+pegawai, serta pengaturan hak akses pengguna sesuai peran masing -masing dalam 
+sistem. Setelah proses pengkodean selesai, dilakukan pengujian sistem 
+menggunakan metode Black Box Testing untuk menguji seluruh fungsi sistem 
+seperti login, pengelolaan data pegawai, proses penilaian kinerja, perhitungan 
+metode SMART, dan tampilan hasil perangkingan. Selain itu, dilakukan verifikasi 
+hasil perhitungan SMART dengan membandingkan hasil sistem terhadap 
+perhitungan manual untuk memastikan keakuratan perhitungan. Pengujian  juga 
+mencakup hak akses setiap pengguna sesuai perannya, serta perbaikan terhadap 
+kesalahan atau kekurangan yang ditemukan selama proses pengujian. 
+ 
+e) Deployment (Penerapan) 
+Tahap Deployment merupakan tahap akhir dalam metode Waterfall yang 
+mencakup penerapan sistem ke lingkungan operasional perusahaan serta 
+pemeliharaan sistem secara berkelanjutan. Tahap ini terdiri dari tiga kegiatan utama 
+yaitu delivery, support, dan feedba ck. Pada kegiatan delivery, dilakukan instalasi 
+dan konfigurasi sistem pada server PT. Alika Jaya Perkasa, serta pengisian data 
+awal yang meliputi data pegawai, kriteria penilaian, dan bobot kriteria. Selain itu, 
+dilakukan sosialisasi dan pelatihan kepada pengguna sistem agar dapat 
+mengoperasikan sistem dengan baik, serta penyerahan dokumentasi sistem sebagai 
+panduan penggunaan dan pemeliharaan di masa mendatang. 
+Kegiatan support mencakup pemantauan kinerja sistem, perbaikan kesalahan 
+yang ditemukan selama operasional, serta pencadangan data secara berkala untuk 
+menjaga keamanan dan ketersediaan data. Sedangkan kegiatan feedback dilakukan 
+dengan mengumpulkan masuka n dari pengguna sebagai bahan evaluasi dan 
+pengembangan sistem lebih lanjut apabila terdapat kebutuhan baru dari PT. Alika 
+
+[[PAGE 26]]
+10 
+ 
+Jaya Perkasa, seperti perubahan kriteria penilaian, bobot penilaian, maupun 
+penambahan fitur yang mendukung proses penilaian kinerja pegawai. 
+ 
+
+[[PAGE 27]]
+11 
+ 
+1.6.3.  Jadwal Penelitia 
+Tabel 1. 1 Jadwal Kegiatan Penelitian Tugas Akhir 
+Kegiatan 
+2026 
+Maret April Mei Juni Juli 
+1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4 
+Proposal                     
+Pengumpulan 
+Data 
+                    
+Analisis Sistem                      
+Perancangan 
+Sistem 
+                    
+Seminar                     
+Implementasi 
+Sistem 
+                    
+Pengujian Sistem                     
+Demo Produk                     
+Sidang                      
+Pengumpulan 
+Laporan Akhir 
+                    
+ 
+
+[[PAGE 28]]
+12 
+ 
+1.7. Sistematika Penulisan 
+BAB I PENDAHULUAN 
+Bab ini berisi uraian mengenai latar belakang masalah yang mendasari penelitian, 
+rumusan masalah, maksud dan tujuan penelitian, manfaat penelitian, batasan 
+masalah, serta metode penelitian yang digunakan dalam proses pengumpulan data 
+dan pengembangan siste m. Bab ini menjadi dasar dalam menentukan arah dan 
+ruang lingkup penelitian yang dilakukan. 
+ 
+BAB II LANDASAN TEORI 
+Bab ini berisi teori -teori yang mendukung penelitian, meliputi konsep Sistem 
+Informasi, Sistem Informasi Kepegawaian, Sistem Pendukung Keputusan (SPK), 
+Sistem Cerdas, Metode SMART (Simple Multi Attribute Rating Technique), 
+Penilaian Kinerja Pegawai, serta teori -teori lain yang berkaitan dengan 
+pembangunan sistem. Selain itu, pada bab ini juga disajikan hasil penelitian 
+terdahulu yang relevan sebagai bahan perbandingan dan pendukung penelitian. 
+ 
+BAB III ANALISIS DAN PERANCANGAN 
+Bab ini membahas hasil analisis terhadap kebutuhan sistem yang akan dibangun 
+berdasarkan permasalahan yang terdapat di PT. Alika Jaya Perkasa. Analisis 
+meliputi analisis sistem berjalan, analisis kebutuhan fungsional dan nonfungsional, 
+analisis metode SMART, serta analisis kebutuhan pengguna. Pada bab ini juga 
+dijelaskan perancangan sistem yang meliputi Use Case Diagram, Activity Diagram, 
+Entity Relationship Diagram (ERD), struktur basis data, perancangan antarmuka 
+pengguna (User Interface), serta perancangan proses perhitungan metode SMART. 
+ 
+BAB IV IMPLEMENTASI DAN PENGUJIAN SISTEM 
+Bab ini menjelaskan proses implementasi sistem yang telah dirancang, mulai dari 
+persiapan perangkat keras dan perangkat lunak, pembangunan basis data, 
+pengkodean program menggunakan framework Laravel, hingga penerapan metode 
+SMART pada sistem informasi pegawai. Selain itu, bab ini juga membahas proses 
+
+[[PAGE 29]]
+13 
+ 
+pengujian sistem menggunakan metode Black Box Testing untuk menguji 
+fungsionalitas sistem serta pengujian perhitungan metode SMART dengan 
+membandingkan hasil sistem terhadap perhitungan manual. Hasil pengujian 
+kemudian dianalisis untuk mengetahui tingkat k eberhasilan dan kesesuaian sistem 
+terhadap kebutuhan pengguna. 
+ 
+BAB V PENUTUP 
+Bab ini berisi simpulan yang diperoleh berdasarkan hasil analisis, perancangan, 
+implementasi, dan pengujian sistem yang telah dilakukan. Selain itu, bab ini juga 
+memuat saran -saran yang dapat digunakan sebagai bahan pengembangan sistem 
+pada penelitian selanjutnya agar sistem dapat menjadi lebih baik dan sesuai dengan 
+kebutuhan perusahaan. 
+ 
+
+[[PAGE 30]]
+14 
+ 
+BAB II  
+TINJAUAN PUSTAKA 
+2.1. Profil PT.Alika Jaya Perkasa 
+PT. Alika Jaya Perkasa merupakan perusahaan yang bergerak di bidang 
+jasa konstruksi. Perusahaan ini memiliki pekerja lapangan maupun tenaga 
+administrasi yang perlu dinilai kinerjanya secara berkala. Dalam menjalankan 
+operasionalnya, PT. Alika Jaya Perkasa memiliki beberapa divisi yang masing-
+masing dipimpin oleh seorang manajer yang bertanggung jawab terhadap 
+kinerja pegawai di bawahnya. 
+Penilaian kinerja pegawai di PT. Alika Jaya Perkasa merupakan proses 
+yang penting karena hasil penilaian tersebut digunakan oleh pihak manajemen 
+sebagai dasar pengambilan keputusan, seperti pemberian bonus, promosi 
+jabatan, penentuan pegawai terbaik, serta  pemanggilan kembali pegawai 
+kontrak pada proyek selanjutnya. 
+2.1.1.  Struktur Organisasi PT.Alika Jaya Perkasa 
+ 
+Gambar 2. 1 Struktur Organisasi Perusahaan 
+Berdasarkan struktur organisasi diatas berikut ini merupakan tugas dan 
+tanggungnya :  
+
+
+[[PAGE 31]]
+15 
+ 
+1. Direktur Utama  
+1) Mempimpin dan bertanggung jawab menjalankan perusahaan 
+2) Bertanggung jawab terhadap kerugian dan keuntungan yang dialami 
+perusahaan 
+3) Merencanakan, merumuskan, dan memutuskan, kebijakan, dalam 
+perusahaan 
+4) Menyusun dan menetapkan berbagai strategi sehingga bisa mencapai 
+visi dan misi perusahaan 
+5) Mengkoordinasikan dan mengawasi semua kegiatan di perusahaan, 
+mulai bidang administrasi, kepegawaian, hingga pengadaan barang. 
+6) Mengangkat dan memberhentikan pegawai perusahaan, 
+7) Menjadi perwakilan perusahaan dalam hubungan dengan dunia luar 
+perusahaan 
+ 
+2. Direktur 
+1) Mengelola bisnis dan menyusun strategi bisnis untuk kemajuan 
+perusahaan 
+2) Melakukan evaluasi terhadap kinerja pegawai di perusahaan sehingga 
+seluruh kinerja pegawai bisa ditingkatkan atau dipertahankan 
+3) Menentukan dan memilih staf-staf yang membantu dalam perusahaan 
+4) Menyetujui anggaran belanja perusahaan 
+5) Mengirim laporan secara rutin ke para pemegang saham 
+6) Melakukan pengadaan rapat dengan semua jajaran pada perusahaan 
+7) Menerapkan visi misi perusahaan 
+ 
+3. General Manager 
+1) Menetapkan kebijakan perusahaan dengan menentukan rencana dan 
+tujuan perusahaan baik jangka pendek maupun jangka panjang 
+2) Merencanakan, mengimplementasikan, mengkoordinasikan  , 
+memantau, dan menganalisis seluruh kegiatan komersil perusahaan  
+3) Mengelola operasional perusahaan  
+
+[[PAGE 32]]
+16 
+ 
+4) Menjalankan perusahaan sesuai visi dan misi perusahaan 
+5) Menetapkan standar proses dan standar bisnis  
+6) Mengembangkan rencana strategis dengan menyesuaikan teknologi 
+dan keuangan 
+7) Bertanggung jawab atas bagian dalam dan luar perusahaan 
+ 
+4. Manager Operasional 
+1) Mengawasi kualitas produk dalam perusahaan 
+2) Mengkoordinasikan dan memantau aktivitas produksi -distribusi unit 
+operasional perusahaan 
+3) Mengevaluasi laporan operasional dan SOP perusahaan 
+4) Mengawasi persediaan barang/jasa dan letak fasilitas operasional 
+5) Melakukan eliminasi/pengurangan terhadap pengeluaran operasional 
+yang tidak penting/di luar standar 
+ 
+5. Divisi Keuangan 
+1) Mengkoordinasikan dan mengontrol perencanaan, pelaporan, serta 
+pembayaran kewajiban pajak perusahaan agar efisien, akurat, tepat 
+waktu, dan sesuai peraturan pemerintah. 
+2) Merencanakan dan mengkoordinasikan penyusunan anggaran 
+perusahaan serta mengontrol penggunaanya secara efektif dan efisien 
+3) Mengelola fungsi  akuntansi dalam memproses data dan informasi 
+keuangan untuk menghasilkan laporan akuntansi yang akurat. 
+4) Merencanakan dan mengkoordinasikan pengembangan sistem serta 
+prosedur keuangan dan akuntansi, serta mengontrol pelaksanaannya. 
+5) Merencanakana dan mengkonsolidasikan perpajakan seluruh 
+perusahaan untuk memastikan efisiensi biaya dan kepatuhan terhadap 
+peraturan perpajakan. 
+ 
+6. Divisi SPV Kontruksi 
+1) Memahami desain kontruksi dan teknisnya. 
+
+[[PAGE 33]]
+17 
+ 
+2) Menyusun kembali metode pelaksanaan kontruksi yang sesuai dengan 
+kondisi lapangan bersama engineering kontruksi.  
+3) Memimpin pelaksanaan tugas lapangan sesuai biaya, mutu, serta waktu 
+pengerjaan sesuai desain kerja. 
+4) Membuat program kerja (mingguan) untuk mengarahkan pekerjaan staf 
+di bawahnya setiap harinya. 
+5) Mengandakan evaluasi dan pembuatan laporan kepada atasan sesuai 
+kondisi dan progress di lapangan . 
+ 
+7. Divisi SPV Piping 
+1) Melakukan peninjauan dan penugasan pekerjaan piping 
+2) Memberikan arahan kepada bawahannya 
+3) Melakukan kontrol dan evaluasi 
+4) Memberikan umpan balik konstruktif 
+5) Membuat laporan tepat waktu dan akurat  
+ 
+8. Divisi SPV Electrical 
+1) Mengkoordinasikan pekerjaan di lapangan dari segi perbaikan dan 
+perawatan mesin produksi kepada bawahan. 
+2) Menginformasikan perkembangan di lapangan dari segi safety atau 
+masalah mesin produksi kepada atasan . 
+3) Menjaga performa mesin produksi dan performa kerja di lingkup area 
+kerja bersama tim . 
+4) Membawahi seluruh pegawai pada jabata n di bawahnya, seperti 
+foreman, leader, dan operator. 
+5) Menjaga dan menciptakan pola pikir bawahan agar peduli dan tanggap 
+terhadap aturan dasar bekerja sesuai teknis electrical. 
+ 
+ 
+ 
+ 
+
+[[PAGE 34]]
+18 
+ 
+9. Divisi Staff Civil 
+1) Pemeliharaan dan pengop erasian peralatan pada bagian civil gedung 
+(dinding, plafon, pintu, atap) serta perbaikan yang bersifat sipil 
+bangunan. 
+2) Melakukan evaluasi sistem pemeliharaan dan operasional untuk 
+meningkatkan efisiensi kerja di lapangan. 
+3) Melakukan pemeriksaan dan memastikan pelaksanaan pekerjaan telah 
+diselesaikan dengan baik. 
+4) Memeriksa laporan tiap shift (log book) untuk memastikan inspeksi 
+harian dilaksanakan sesuai rencana. 
+5) Melakukan pencatatan dan pendataan sipil equipment 
+6) Memonitor penggunaan peralatan dan memastikan seluruhnya dalam 
+kondisi baik 
+7) Mengkomunikasikan dan mengkoordinasikan masalah yang terjadi di 
+lapangan dengan atasan 
+ 
+10. Divisi HSE  
+1) Meningkatkan kepercayaan pegawai  
+2) Mencegah hilangnya pendapatan akibat kecelakaan/insiden kerja 
+3) Memelihara kebersihan, kesehatan, serta ketertiban di lingkungan 
+kerja. 
+4) Mencegah dan mengendalikan penyakit akibat pekerjaan fisik atau 
+paparan senyawa kimia berbahaya/biohazard 
+5) Mencegah dan mengendalikan kotoran, gas, asap, dan gangguan 
+kesehatan lainnya di lokasi kerja. 
+ 
+11. Divisi Gudang  
+1) Pengawasan dan pengelolaan operasional gudang 
+2) Merencanakan pengadaan logistik dan distribusi 
+3) Pengawasan keluar masuk tool gudang sesuai SOP 
+4) Konfirmasi jumlah dan kondisi barang sesuai SOP 
+
+[[PAGE 35]]
+19 
+ 
+2.2. Metode SMART (Simple Multi Attribute Rating Technique) 
+(Ahmad Fauzi & Dani, 2025)  Metode SMART (Simple Multi -Attribute 
+Rating Technique) adalah salah satu metode dalam s istem pendukung 
+keputusan (SPK) yang digunakan untuk membantu pengambilan keputusan 
+Ketika terdapat beberapa alternatif dan kriteria yang harus dipertimbangkan 
+secara simultan.  Metode ini menyederhanakan proses evaluasi alternatif 
+dengan memberikan bobot pada tiap kriteria, menilai alternatif pada kriteria 
+tersebut, kemudian menghitung skor akhir berdasarkan bobot nilai yang sudah 
+dinormalisasikan.  
+Metode SMART diperkenalkan oleh Edward pada tahun 1977 sebagai 
+salah satu pendekatan dalam pengambilan keputusan multi-kriteria. Metode ini 
+dikembangkan untuk membantu pengambilan keputusan memilih alternatif 
+terbaik ketika terdapat beberapa kriteria yang harus dipertimbangkan secara 
+bersamaan (Setiawan & Witanti, 2021). Berdasarkan penelitian (Abdurrahman 
+& Pratama, 2025)  metode SMART dapat menghasilkan evaluasi yang lebih 
+akurat, objektif, dan sesuai dengan harapan manajemen . 
+Metode SMART bekerja dengan menggunakan beberapa kriteria untuk 
+mengevaluasi setiap alternatif yang ada  (Setiawan & Witanti, 2021) . Setiap 
+alternatif diberikan nilai berdasarkan masing -masing kriteria, dan setiap 
+kriteria diberikan bobot yang mencerminkan tingkat kepentingannya relatif 
+terhadap kriteria lainnya. Nilai akhir setiap alternatif kemudian dihitung 
+dengan menjumlahkan perk alian antara nilai alternatif pada setiap kriteria 
+dengan bobot kriteria yang telah dinormalisasi.  SMART lebih banyak 
+digunakan karena kesederhanaanya dalam merespon kebutuhan pembuat 
+keputusan dan caranya menganalisa respon (Safrizal, 2015). 
+2.2.1. Langkah-Langkah Perhitungan Metode SMART 
+Berdasarkan (Sari, 2025)  tahapan yang dilakukan dalam 
+penyelesaian menggunakan metode SMART antara lain : 
+1. Normalisasi Kriteria dan Bobot Kriteria 
+Pada tahap ini, tetapkan kriteria yang relevan dan berikan bobot 
+untuk setiap kriteria berdasarkan tingkat kepentingannya. 
+
+[[PAGE 36]]
+20 
+ 
+Rumus normalisasi bobot: 
+ 
+𝑤𝑗
+∑ 𝑤𝑗
+..................................................................................... (1) 
+ 
+Keterangan : 
+𝑤𝑗 = bobot untuk kriteria ke-j 
+∑ 𝑤𝑗 = total bobot dari semua kriteria 
+Normalisasi ini memastikan total bobot menjadi 1, sehingga setiap 
+kriteria memiliki pengaruh proposional. 
+ 
+2. Penilaian Alternatif dan Perhitungan Nilai Utility 
+Berikan nilai pada setiap alternatif berdasarkan kriteria yang sudah 
+ditetapkan, baik mengggunakan data kuantitatif maupun kualitatif. Lalu, 
+hitung nilai utility untuk setiap alternatif. 
+Rumus perhitungan nilai utility :  
+ 
+ 
+𝑢𝑖(𝑎𝑖) =
+(𝐶𝑜𝑢𝑡−𝐶𝑚𝑖𝑛)
+(𝐶𝑚𝑎𝑥−𝐶𝑚𝑖𝑛) ..................... Untuk Kriteria 
+Benefit........................ (2)  
+𝑢𝑖(𝑎𝑖) =
+(𝐶𝑚𝑎𝑥−𝐶𝑜𝑢𝑡)
+(𝐶𝑚𝑎𝑥−𝐶𝑚𝑖𝑛) ......................Untuk Kriteria 
+Cost............................(3) 
+ 
+Keterangan :          
+ 𝓊𝑖(𝔞𝑖) : nilai utility kriteria ke-1 untuk kriteria ke-i 
+ Cmax  : nilai kriteria maksimal  
+ Cmin  : nilai kriteria minimal 
+ Cout : nilai kriteria ke-1 
+Benefit Criteria (Kriteria Keuntungan): 
+Digunakan untuk kriteria di mana nilai yang lebih tinggi dianggap lebih 
+baik. Contohnya: kecepatan, kualitas, efisiensi, kepuasan pelanggan. 
+
+[[PAGE 37]]
+21 
+ 
+Cost Criteria (Kriteria Biaya): 
+Digunakan untuk kriteria di mana nilai yang lebih rendah dianggap lebih 
+baik. Contohnya: biaya, waktu, energi, konsumsi bahan bakar. 
+ 
+3. Hitung Skor Akhir untuk Setiap Alternatif 
+Setelah nilai utility diperoleh, hitung skor akhir setiap alternatif 
+menggunakan rumus: 
+ 
+𝑆𝑘𝑜𝑟 𝐴𝑘ℎ𝑖𝑟 = ∑(𝑁𝑖𝑙𝑎𝑖 𝑈𝑡𝑖𝑙𝑖𝑡𝑦 × 𝑁𝑜𝑟𝑚𝑎𝑙𝑖𝑠𝑎𝑠𝑖 𝐵𝑜𝑏𝑜𝑡) .....................(4) 
+ 
+Keterangan :  
+Nilai Utility : hasil perhitungan pada langkah sebelumnya. 
+Normalisasi Bobot : bobot yang telah dinormalisasi untuk setiap kriteria. 
+Rumus ini menjumlahkan hasil perkalian nilai utility dengan bobot untuk 
+memberikan skor akhir. 
+4. Pilih Alternatif Terbaik 
+Bandingkan skor akhir dari semua alternatif. Alternatif dengan skor 
+tertinggi dianggap sebagai pilihan terbaik, karena memenuhi kriteria dengan 
+bobot yang diberikan secara optimal. Metode SMART memberikan 
+pendekatan yang terstruktur dan terukur untuk penga mbilan keputusan 
+berdasarkan kriteria yang telah ditentukan. 
+Nilai akhir diperoleh dari penjumlahan hasil perkalian antara bobot 
+kriteria dengan nilai utility masing -masing kriteria. Alternatif yang 
+memiliki nilai akhir terbesar akan menempati peringkat tertinggi dan 
+direkomendasikan sebagai alternatif terbaik. 
+2.3. Sistem Informasi  
+Sistem menurut arti kata adalah kesatuan atau kumpulan dari elemen -
+elemen atau komponen -komponen atau subsistem -subsistem yang saling 
+berinteraksi untuk mencapai tujuan tertentu (Fithrie Soufitri, 2023). Informasi 
+adalah data yang di olah menjadi bentuk yang lebih berguna dan lebih 
+
+[[PAGE 38]]
+22 
+ 
+bermanfaat bagi pengguna atau pemakainnya. Pada defenisi informasi selalu 
+terhubung dengan kata kata data (Marsa dkk., 2023). 
+Sistem informasi merupakan kombinasi dari teknologi, manusia, dan 
+proses yang dirancang untuk mengumpulkan, memproses, menyimpan, dan 
+menyebarkan guna mendukung pengambilan keputusan, koordinasi, analisis, 
+dan kontrol dalam suatu organisasi  (Santoso dkk., 2025)   
+Berdasarkan definisi di atas, dapat disimpulkan bahwa sistem informasi 
+merupakan suatu kesatuan yang terdiri dari berbagai komponen yang saling 
+berinteraksi, meliputi manusia, teknologi, dan prosedur kerja untuk mengolah 
+data menjadi informasi yang bermanf aat. Informasi tersebut digunakan untuk 
+mendukung proses pengambilan keputusan, koordinasi, pengendalian, serta 
+membantu kegiatan operasional dalam suatu organisasi agar tujuan yang telah 
+ditetapkan dapat tercapai secara efektif dan efisien.  
+Menurut (Putra, 2020) sistem informasi memiliki beberapa komponen 
+seperti di bawah ini: 
+a) Komponen  input : Data yang masuk ke dalam sistem informasi. 
+b) Komponen model : Kombinasi prosedur, logika, dan model matematika 
+yang memproses data yang tersimpan pada basis data dengan cara yang 
+sudah ditentukan untuk menghasilkan keluaran yang diinginkan. 
+c) Komponen output : Hasil informasi yang berkualitas dan dokumentasi 
+yang berguna untuk semua tingkatan manajemen serta semua pemakai 
+sistem. 
+d) Komponen teknologi : Alat dalam sistem informasi, teknologi 
+digunakan dalam menerima input, menjalankan model, menyimpan dan 
+mengakses data, menghasilkan dan mengirimkan output, serta 
+memantau pengendalian sistem. 
+e) Komponen basis data: Kumpulan data yang saling berhubungan yang 
+tersimpan di dalam komputer dengan menggunakan software database. 
+f) Komponen kontrol: Komponen yang mengendalikan gangguan terhadap 
+sistem informasi. 
+
+[[PAGE 39]]
+23 
+ 
+2.4. Sistem Informasi Kepegawaian  
+Sistem Informasi Kepegawaian (SIMPEG) merupakan sebuah perangkat 
+lunak yang membantu dalam proses pengolahan data kepegawaian, 
+memudahkan dalam melakukan fungsi analisis dan pengawasan kepegawaian. 
+SIMPEG berperan dalam mendukung pengelolaan data pegawai seperti data 
+jabatan, presensi, penilaian kinerja, hingga penyajian laporan secara lebih 
+efektif dan efisien sehingga dapat membantu pihak manajemen dalam proses 
+pengambilan keputusan (Wati & Frasiska, 2025). 
+Sejalan dengan hal tersebut h asil penelitian dari Marsa dkk (  2023) 
+Sistem Informasi kepegawaian bisa membantu pengelolaan data pegawai pada 
+sebuah instansi dengan lebih baik, mulai dari penyimpanan data ke database, 
+penggunaan dan pemanggilan data dari database, sampai dengan perekapan data 
+untuk pelaporan ke pimpinan bisa diakomodasi oleh sebuah sistem yang sudah 
+dirancang menjadi sebuah aplikasi.  
+Berdasarkan kedua sumber tersebut, dapat disimpulkan bahwa sistem 
+informasi kepegawaian merupakan sistem yang dirancang untuk mengelola data 
+pegawai secara terstruktur, mulai dari penyimpanan, pengolahan, hingga 
+penyajian informasi kepegawaian. Sistem ini berperan penting dalam 
+membantu organisasi meningkatkan efektivitas dan efisiensi pengelolaan 
+kepegawaian, serta mendukung pimpinan dalam pengambilan keputusan yang 
+lebih baik dan akurat terkait pengelolaan sumber daya manusia.  
+Penelitian dari (Faqih & Basysyar, 2022)  menjelaskan sistem 
+kepegawaian yang dibangun mencakup pengelolaan data pegawai, absensi, dan 
+laporan kepegawaian secara terpusat dan terintegrasi. Hasil penelitian 
+menunjukkan bahwa sistem informasi kepegawaian berbasis web mampu 
+meningkatkan efisiensi pengelolaan data pegawai dan mempermudah 
+penyusunan laporan.   
+2.5. Penilaian Kinerja Pegawai 
+2.5.1. Pegawai 
+
+[[PAGE 40]]
+24 
+ 
+Pegawai merupakan seseorang yang bekerja pada suatu lembaga, 
+instansi, atau perusahaan dengan memberikan tenaga dan pikirannya untuk 
+melaksanakan pekerjaan tertentu serta memperoleh imbalan berupa gaji atau 
+upah sesuai dengan ketentuan yang telah ditetapkan (Wati & Frasiska, 2025).  
+2.5.2. Pengertian Penilaian Kinerja Pegawai 
+Penilaian kinerja merupakan proses terstruktur yang bertujuan untuk 
+mengevaluasi dan menilai kontribusi pegawai terhadap organisasi, baik dari 
+segi hasil kerja, perilaku, maupun pencapaian dalam periode tertentu  (Rambe, 
+2025).  
+Sejalan dengan hal tersebut, kinerja pegawai dapat diukur dengan 
+berbagai metode termasuk evaluasi kinerja, penilaian oleh atasan, feedback 
+dari rekan kerja, dan pengukuran terhadap pencapaian target atau indikator 
+yang telah ditetapkan (Lestari, 2023). P endekatan tersebut menunjukkan 
+bahwa penilaian kinerja tidak hanya berfungsi sebagai alat untuk mengukur 
+hasil kerja pegawai, tetapi juga menjadi dasar dalam pengambilan keputusan 
+manajemen. 
+Pendapat tersebut diperkuat oleh Nadhiyatul Aulia Putri dkk. (2025) 
+penilaian kinerja adalah suatu proses atau kegiatan yang dilakukan oleh 
+perorangan atau kelompok  dalam  sebuah  perusahaan  untuk  mengevaluasi  
+dan  mengomunikasikan  bagaimana pegawai  melakukan  pekerjaan  dengan  
+cara  membandingkan  hasil  pekerjaannya  dengan seperangkat  standar  yang  
+telah  dibuat  dalam  suatu  periode  tertentu  yang  digunakan  sebagai dasar 
+pertimbangan suatu kegiatan.  
+Menurut  Kasmir  dalam  (Ainnisya  &  Susilowati,  2018)  penilaian  
+kinerja  dilakukan dengan melalui dari yang paling rendah sampai yang paling 
+tinggi. Penilaian didasarkan pada pendapat para  penilai.  Pada  umumnya  
+penilai  diberi  formulir,  yang  berisi  sejumlah  sifat  dan ciri-ciri  hasil  kerja   
+yang  harus  diisi.  Penilaian  pada  umumnya  diisi  oleh  atasan   yang 
+memutuskan pendapat apa yang paling sesuai untuk setiap tingkatan hasil 
+kerja. 
+
+[[PAGE 41]]
+25 
+ 
+Berdasarkan beberapa pendapat di atas, dapat disimpulkan bahwa 
+penilaian kinerja merupakan proses evaluasi terstruktur yang membandingkan 
+hasil kerja pegawai dengan standar yang telah ditetapkan, guna mengetahui 
+tingkat keberhasilan pegawai dalam melaksana kan tugas dan tanggung 
+jawabnya.  
+ 
+2.5.3. Tujuan Penilaian Kinerja  
+Penilaian kinerja merupakan suatu proses yang dilakukan oleh 
+organisasi untuk menilai dan mengevaluasi kinerja pegawainya. Tujuan 
+dilakukannya penilaian kinerja secara umum adalah memberikan umpan balik 
+kepada pegawai sebagai upaya untuk memperbaiki kinerj a serta meningkatkan 
+produktivitas organisasi. Selain itu, hasil penilaian kinerja dapat dijadikan dasar 
+dalam pengambilan berbagai kebijakan sumber daya manusia, seperti promosi 
+jabatan, kenaikan gaji, pemberian penghargaan, serta penyusunan program 
+pendidikan dan pelatiha (Huseno, 2016).  
+Melalui proses penilaian tersebut, organisasi dapat mengidentifikasi 
+kekuatan dan kelemahan setiap pegawai sehingga dapat menentukan langkah 
+pengembangan yang tepat. Pegawai yang memiliki kinerja baik dapat diberikan 
+penghargaan atau kesempatan pengembangan karier, sedangkan pegawai yang 
+menunjukkan kinerja kurang optimal dapat diberikan pembinaan, pelatihan, 
+atau tindakan evaluatif sesuai dengan kebijakan perusahaan  (Maulida, 2025). 
+Dengan demikian, penilaian kinerja tidak hanya berfungsi sebagai alat evaluasi, 
+tetapi juga sebagai dasar pengambilan keputusan yang mendukung peningkatan 
+kualitas sumber daya manusia dan pencapaian tujuan organisasi 
+ 
+2.5.4. Dasar Hukum Penilaian Kinerja Pegawai  
+Di Indonesia, pelaksanaan penilaian kinerja pegawai didukung oleh 
+berbagai peraturan perundang-undangan yang mengatur hubungan kerja antara 
+perusahaan dan tenaga kerja . Udang-Undang No 13 Tahun 2003 tentang 
+Ketenagakerjaan sebagai dasar hukum yang mengatur hubungan kerja, hak, dan 
+
+[[PAGE 42]]
+26 
+ 
+kewajiban tenaga kerja. UU ini menjadi kerangka hukum dalam pengelolaan 
+sumber daya manusia termasuk dalam penilaianan kinerja pegawai.  
+Dalam pasal 1 angka 25 UU Nomor 13 Tahun 2003 menjelaskan tentang 
+pemutusan hubungan kerja hal ini berkaitan dengan kinerja atau prestasi kerja 
+pegawai yang memenuhi standar yang ditetapkan oleh perusahaan. Lebih lanjut, 
+dalam Pasal 35 ayat (2) UU Nomor 13  Tahun 2003 ini menyebutkan bahwa 
+kesejahteraan, keselamatan, dan kesehatan mental dan fisik merupakan 
+perlindungan yang wajib diberikan oleh perusahaan bagi pegawai. Selain itu, 
+ketentuan dalam Pasal 88 UU Nomor 13 Tahun 2003 yang mengatur sistem 
+pengupahan turut berkaitan dengan penilaian kinerja. Dalam Ayat (1) pasal 
+tersebut menyebutkan bahwa setiap pekerja/buruh berhak memperoleh 
+penghasilan yang memenuhi penghidupan yang layak bagi kemanusiaan.  
+Pemerintah semakin memperkuat regulasi ketenagakerjaan melalui 
+Undang-Undang Nomor 11 Tahun 2020 tentang Cipta Kerja yang merevisi 
+sejumlah ketentuan dalam UU Ketenagakerjaan. Perubahan tersebut mencakup 
+pengaturan hubungan kerja yang lebih fleksibel serta peningkatan perlindungan 
+bagi tenaga kerja.  
+Penilaian kinerja pegawai pada instansi pemerintah dan Badan Usaha 
+Milik Negara (BUMN) diatur secara khusus dalam Peraturan Pemerintah 
+Nomor 30 Tahun 2019 tentang Penilaian Kinerja Pegawai Negeri Sipil. 
+Regulasi tersebut mengharuskan setiap instansi pemeri ntah melaksanakan 
+penilaian kinerja PNS secara berkala dengan mempertimbangkan dua 
+komponen utama, yaitu Sasaran Kinerja Pegawai (SKP) dan Perilaku Kerja. 
+Walaupun PT. Alika Jaya Perkasa merupakan perusahaan swasta yang bergerak 
+di bidang konstruksi, prinsip-prinsip yang terkandung dalam peraturan tersebut 
+dapat dijadikan acuan dalam merancang sistem penilaian kinerja yang 
+sistematis, berkelanjutan, dan didasarkan pada indikator yang terukur. 
+Berdasarkan ketentuan peraturan perundang -undangan yang mengatur 
+hubungan kerja dan pengelolaan sumber daya manusia, perusahaan perlu 
+melakukan penilaian kinerja pegawai secara objektif, transparan, dan terukur. 
+Prinsip-prinsip tersebut kemudian dijadikan dasar dalam penyusunan kriteria 
+
+[[PAGE 43]]
+27 
+ 
+penilaian kinerja pada penelitian ini. Kriteria yang digunakan meliputi jumlah 
+pekerjaan, kualitas pekerjaan, ketepatan waktu, kehadiran, kemampuan kerja 
+sama, dan keselamatan. Keenam kriteria tersebut dipilih karena dinilai mampu 
+merepresentasikan aspek produktivitas, disiplin, tanggung jawab, dan 
+kemampuan berkolaborasi yang dibutuhkan dalam pelaksanaan pekerjaan di 
+PT. Alika Jaya Perkasa. 
+ 
+2.5.5. Pengertian Key Performance Index (KPI) 
+Key Performance Indicator (KPI) merupakan parameter atau metrik yang 
+digunakan untuk mengukur kinerja karyawan secara terukur dalam jangka waktu 
+tertentu, yang berfungsi memberikan arah dan tolok ukur yang sama bagi seluruh 
+pihak yang terlibat dalam proses  penilaian, sehingga standar penilaian tidak 
+berbeda-beda antarbagian dan ekspektasi terhadap pegawai menjadi lebih jelas. 
+Sebuah KPI yang baik umumnya disusun dengan mengacu pada prinsip SMART 
+(Specific, Measurable, Achievable, Relevant, Time -bound), sehingga indikator 
+yang ditetapkan bersifat spesifik, dapat diukur, realistis untuk dicapai, relevan 
+dengan tujuan perusahaan, dan memiliki batas waktu evaluasi yang jelas 
+(Parmenter, 2019). 
+Perlu ditegaskan bahwa prinsip SMART yang dimaksud di atas 
+merupakan kriteria penyusunan KPI yang baik, dan berbeda konsep dengan 
+Metode SMART (Simple Multi -Attribute Rating Technique) yang digunakan 
+sebagai metode Sistem Pendukung Keputusan pada penelitian ini. Kedua istilah 
+tersebut kebetulan memiliki nama yang sama, namun tidak berkaitan secara teori 
+maupun fungsi. 
+Indikator kinerja dalam penilaian KPI dapat dikelompokkan menjadi dua 
+jenis, yaitu indikator kuantitatif yang dapat diukur secara pasti dengan angka 
+seperti jumlah pekerjaan, tingkat kehadiran, dan ketepatan waktu penyelesaian 
+tugas, serta indikator kualitatif yang penilaiannya bersifat subjektif berdasarkan 
+pengamatan pihak berwenang seperti kualitas hasil kerja, kemampuan kerja 
+sama tim, dan keselamatan kerja. Penilaian indikator kualitatif umumnya 
+menggunakan skala penilaian (rating scale) untuk mengonve rsi penilaian 
+
+[[PAGE 44]]
+28 
+ 
+subjektif menjadi data yang dapat diproses secara sistematis. Setiap divisi pada 
+memiliki KPI yang berbeda -beda indikator p enilaian dan bobot nya berbeda 
+setiap divisi nya. 
+ 
+2.5.6. Indikator Penilaian Kinerja Pegawai 
+Menurut Parmenter (2022) , Indikator penilaian kinerja merupakan 
+aspek-aspek yang digunakan untuk mengukur tingkat keberhasilan seorang 
+pegawai atau organisasi dalam melaksanakan tugas dan tanggung jawabnya. 
+Indikator tersebut menjadi dasar bagi perusahaan dalam melakukan evaluasi 
+kinerja secara objektif dan terukur. Berbagai ahli manajemen sumber daya 
+manusia telah mengemukakan kriteria yang dapat digunakan dalam penilaian 
+kinerja pegawai. Indikator penilaian kinerja pada teori yang dikemukakan oleh  
+(Narulita Syarweny dkk., 2024)  menggunakan enam indikator yaitu jumlah 
+pekerjaan, kualitas pekerjaan, ketepatan waktu, kehadiran, kemampuan kerja 
+sama, dan keselamatan.  
+Moeheriono (2014:113) dalam (Ahmad Bairizki, 2020) menggolongkan 
+indikator penilaian kinerja ke dalam enam kategori yaitu, efektif, efisien, 
+kualitas, ketepatan waktu, produktivitas, dan keselamatan. Menurut Kasmir 
+dalam Halim (2017) penilaian kinerja pegawai dapat di lakukan dengan beberapa 
+indikator yaitu, kualitas, kuantitas, waktu, penekanan biaya, pengawasan, dan 
+hubungan antar karyawan (Sihombing, 2023).   
+Berdasarkan beberapa pendapat tersebut, dapat disimpulkan bahwa 
+setiap ahli memiliki indikator yang berbeda sesuai dengan tujuan dan kebutuhan 
+organisasi. Pada penelitian ini, indikator penilaian kinerja yang digunakan 
+mengacu pada teori Narulita Syarweny dkk. (2024) dan Moeheriono (2014:113) 
+yaitu jumlah pekerjaan, kualitas pekerjaan, ketepatan waktu, kehadiran, 
+kemampuan kerja sama,  dan keselamatan,  karena indikator tersebut dinilai 
+sesuai dengan kebutuhan penilaian kinerja pegawai pada objek penelitian serta 
+dapat mendukung proses pengambilan keputusan menggunakan metode 
+SMART. 
+Berikut ini adalah penjelasan dari setiap indikator nya : 
+
+[[PAGE 45]]
+29 
+ 
+1. Jumlah pekerjaan 
+   Dimensi ini menunjukkan jumlah pekerjaan yang dihasilkan individu atau 
+kelompok sebagai persyaratan yang menjadi standar pekerjaan. Setiap pekerjaan 
+memiliki persyaratan yang berbeda sehingga menuntut pegawai harus memenuhi 
+persyaratan tersebut baik pengetahuan, keterampilan, maupun kemampuan yang 
+sesuai. Berdasarkan persyaratan pekerjaan tersebut dapat diketahui jumlah 
+pegawai yang dibutuhkan untuk dapat mengerjakannya, atau setiap pegawai 
+dapat mengerjakan berapa unit pekerjaan. 
+2. Kualitas Pekerjaan 
+Setiap pegawai dalam perusahaan harus memenuhi persyaratan tertentu 
+untuk dapat menghasilkan pekerjaan sesuai kualitas yang dituntut suatu 
+pekerjaan tertentu. Setiap pekerjaan mempunyai standar kualitas tertentu yang 
+harus disesuaikan oleh pegawai untuk dap at mengerjakannya sesuai ketentuan. 
+Pegawai memiliki kinerja baik bila dapat menghasilkan pekerjaan sesuai 
+persyaratan kualitas yang dituntut pekerjaan tersebut. 
+3. Ketepatan waktu 
+Setiap pekerjaan memiliki karakteristik yang berbeda, untuk jenis pekerjaan 
+tertentu harus diselesaikan tepat waktu, karena pada suaatu bagian tertentu tidak 
+selesai tepat waktu akan menghambat pekerjaan pada bagian lain, sehingga 
+mempengaruhi jumlah dan k ualitas hasil pekerjaan. Demikian pula, suatu 
+pekerjaan harus diselesaikan tepat waktu karena batas waktu pesanan pelanggan 
+dan penggunaan Kasil produksi. 
+4. Kehadiran 
+Suatu jenis pekerjaan tertentu menuntut kehadiran pegawai dalam 
+mengerjakannya sesuai waktu yang ditentukan. Ada tipe pekerjaan yang 
+menuntut kehadiran pegawai selama delapan jam sehari untuk lima hari kerja 
+seminggu. Kinerja pegawai ditentukan oleh tingka t kehadiran pegawai dalam 
+mengerjakannya 
+5. Kemampuan Kerjasama 
+Tidak semua pekerjaan dapat diselesaikan oleh satu orang pegawai saja. 
+Untuk jenis pekerjaan tertentu mungkin harus diselesaikan oleh dua orang 
+
+[[PAGE 46]]
+30 
+ 
+pegawai atau lebih, sehingga membutuhkan kerjasama antarpegawai sangat 
+dibutuhkan. Kinerja pegawai dapat dinilai dari kemampuannya bekerjasama 
+dengan rekan sekerja lainnya. 
+6. Keselamatan 
+Mengukur kesehatan organisasi secara keseluruhan serta lingkungan kerja 
+para karyawannya ditinjau dari aspek keselamatannya.  
+ 
+2.6. Sistem Cerdas 
+2.6.1. Pengertian Sistem Cerdas 
+(Tarmin Abdulghani, 2026)  menjelaskan bahwa kecerdasan buatan 
+merupakan cabang ilmu komputer yang berupaya mengembangkan sistem 
+yang dapat meniru kemampuan kognitif manusia dalam berpikir, belajar, 
+bernalar, dan mengambil keputusan. Berbeda dengan perangkat lunak 
+konvensional yang  hanya menjalankan instruksi tetap, sistem berbasis AI 
+dirancang agar dapat berkembang secara mandiri melalui proses pembelajaran 
+dari data dan pengalaman. 
+ 
+2.6.2. Konsep Dasar Sistem Cerdas 
+Menurut (Sudirwo dkk., 2025)  ada beberapa ruang lingkup 
+Kecerdasan Buatan yaitu sebagai berikut : 
+1) Sistem Pakar (Expert Systems) 
+Sistem yang meninsru kemampuan pengambilan keputusan seorang pakar 
+dalam bidang tertentu dengan menggunakan basis pengetahuan yang luas. 
+2) Pembelajaran Mesin (Machine Learning) 
+Teknik yang memungkinkan komputer belajar dari data dan 
+meningkatkan kinerjanya seiring waktu tanpa diprogram secara eksplisit 
+untuk tugas tertentu. 
+3) Jaringan Saraf Tiruan (Artificial Neural Networks) 
+Model komputasi yang terinspirasi oleh jaringan saraf biologis manusia, 
+digunakan untuk mengenali pola dan memproses informasi yang kompleks. 
+
+[[PAGE 47]]
+31 
+ 
+4) Pengolahan Bahasa Alami (Natural Language Processing) 
+Kemampuan sistem untuk memahami, menafsirkan, dan menghasilkan 
+bahasa manusia secara alami, memungkinkan interaksi yang lebih intuitif 
+antara manusia dan mesin. 
+5) Robotika 
+Bidang yang menggabungkan AI dengan teknik mesin untuk menciptakan 
+robot yang dapat melakukan tugas -tugas fisik secara otonom atau semi -
+otonom. 
+(Tarmin Abdulghani, 2026)  menambahkan bahwa pengambilan 
+keputusan berbasis data merupakan salah satu tujuan utama pengembangan 
+AI. Hal ini sejalan dengan konsep Sistem Pendukung Keputusan (Decision 
+Support System/DSS) yang memanfaatkan kemampuan AI dalam 
+menganalisis multi-kriteria untuk menghasilkan rekomendasi yang objektif 
+dan terukur. Dalam penelitian ini, metode SMART yang diterapkan 
+merupakan wujud nyata dari integrasi antara konsep AI dan sistem 
+pendukung keputusan.  
+Sistem yang dapat dikategorikan sebagai sistem cerdas adalah sistem 
+yang memiliki kemampuan belajar (learning), penalaran (reasoning), 
+pemecahan masalah (problem solving), persepsi (perception), adaptasi 
+(adaptation), serta komunikasi (communication) menggunakan bahasa alami 
+(Tarmin Abdulghani, 2026). 
+2.7. Sistem Pendukung Keputusan  
+Menurut (Marsa dkk., 2023) salah satu jenis sistem informasi ialah 
+sebagai sistem pendukung keputusan dimana ia mendefinisakan bahwa 
+sistem pendukung keputusan (SPK)  atau Decision Support System (DSS)  
+adalah sebuah sistem yang dirancang untuk membantu manajer dalam 
+profesional dalam pengambilan keputusan yang lebih baik, terutama dalam 
+konteks keputusan yang kompleks dan tidak terstruktur. SPK 
+mengintegrasikan data, alat analisis, dan model pemecahan masalah untuk 
+menyediakan informasi yang relevan dan wawasan yang mendalam.   
+
+[[PAGE 48]]
+32 
+ 
+Sistem pendukung keputusan adalah sebuah system yang akan dapat 
+membantu untuk mengambil keputusan yang dilengkapi dengan sebuah 
+informasi melalui data yang telah diproses dengan secara relevan serta baik, 
+serta dibutuhkan dalam pengambilan keputusan untuk sebuah permasalahan 
+dengan akurat dan efisien Waktu (Kharisma dkk., 2023).  
+Tujuan utama dari penggunaan sistem pendukung keputusan adalah 
+untuk meningkatkan efektivitas dan efisiensi pengambilan keputusan 
+(Sarwandi dkk., 2023). Dengan adanya sistem ini, pengambilan keputusan 
+yang tepat dengan cepat pula. Berdasarkan karakteristik dan sumber 
+informasi yang digunakan, sistem pendukung keputusan memiliki beberapa 
+jenis. Jenis-jenis DSS (Decision Support System ) meliputi DSS berbasis 
+model ( model-driven DSS), DSS berbasis data ( data-driven DSS), DSS 
+berbasis pengetahuan ( knowledge-driven DSS), DSS berbasis komunikasi 
+(communication-driven DSS), dan DSS berbasis dokumen ( document-
+driven DSS) (Sampebua Rante Mingset dkk., 2025). 
+Berdasarkan uraian di atas, dapat disimpulkan bahwa sistem 
+pendukung keputusan merupakan alat bantu yang sangat penting dalam 
+mendukung pengambilan keputusan yang kompleks dan tidak terstruktur. 
+ 
+2.7.1. Komponen Sistem Pendukung Keputusan 
+Menurut (Norhikmah dkk,.2024) ada beberapa komponen sistem 
+pendukung keputusan yaitu sebagai berikut: 
+1) Database, berfungsi sebagai penyimpanan data yang ada di dalam 
+database dap at berupa data historis, data taransaksi, atau data dari 
+sumber external yang relevan.  Data inilah yang nantinya diolah dan 
+dianalisis oleh sistem. 
+2) Model Base adalah komponen matematis dan analisis yang berfungsi 
+mengevaluasi pilihan yang tersedia sehingga keputusan dapat diambil 
+berdasarkan data dan model analitik yang solid.  Dalam konteks 
+penelitian ini, metode SMART termasuk ke dalam komponen ini karena 
+
+[[PAGE 49]]
+33 
+ 
+SMART merupakan model perhitungan untuk menghasilkan 
+rekomendasi keputusan. 
+3) User Interface adalah jembatan antara pengguna dan sistem agar dapat 
+memanfaatkan SPK dengan efektif tanpa memerlukan keterampilan 
+teknik yang mendalam. 
+4) Knowledge Based berfungsi sebagai gudang pengetahuan yang berisi 
+aturan, fakta, dan prosedur yang relevan dengan pengambilan 
+keputusan. dengan menggunakan teknologi kecerdasan buatan yang 
+dapat mengetahui pengetahuan dan pola sebelumnya. 
+ 
+Gambar 2. 2 Komponen Sistem Pendukung Keputusan (Norhikmah 
+dkk,. 2024) 
+Proses kerja sistem pendukung keputusan dimulai ketika pengguna 
+memasukkan data melalui User Interface. Data yang diinputkan tersebut 
+kemudian dikirimkan dan disimpan ke dalam Database untuk selanjutnya 
+diproses oleh sistem. Knowledge Based kemudian mengam bil data dari 
+Database dan memvalidasinya berdasarkan aturan serta pengetahuan yang telah 
+tersimpan di dalamnya, guna memastikan bahwa data yang akan diolah telah 
+sesuai dengan domain permasalahan yang ada. 
+Setelah data tervalidasi, Model Base mengambil data tersebut dari 
+Database dan mengolahnya menggunakan model perhitungan yang telah 
+
+
+[[PAGE 50]]
+34 
+ 
+ditentukan. Dalam penelitian ini, model yang digunakan adalah metode SMART 
+(Simple Multi-Attribute Rating Technique) yang akan menghitung nilai kinerja 
+setiap pegawai berdasarkan kriteria -kriteria yang telah ditetapkan. Hasil 
+perhitungan dari Model Base ke mudian dikembalikan ke Database untuk 
+disimpan sebagai output sistem. 
+Selanjutnya, Knowledge Based mengevaluasi hasil perhitungan tersebut 
+dan menghasilkan rekomendasi keputusan yang kemudian diteruskan ke User 
+Interface. Pada tahap akhir ini, User Interface menampilkan hasil rekomendasi 
+penilaian kinerja pegawai kepada pengguna dalam bentuk informasi yang mudah 
+dipahami, sehingga manajer atau pimpinan dapat mengambil keputusan secara 
+lebih objektif, akurat, dan efisien. 
+ 
+2.7.2. Tahapan Pengambilan Keputusan   
+Menurut Herbert A. Simon dalam seperti yang dikutip dalam (Sihontang, 
+2022), tahap -tahap yang harus dilalui proses pengambilan keputusan adalah 
+sebagi berikut: 
+1. Tahap Pemahaman (Intelligent  Phace), mengidentifikasi masalah yang 
+kemudian datanya akan proses dan diuji. 
+2. Tahap Perancangan (Design  Phace), pencarian dan pengembangan 
+alternatif tindakan atau solusi yang dapat diambil. 
+3. Tahap Pemilihan (Choice Phace), pemilihan diantara berbagai alternatif 
+untuk tujuan yang ingin dicapai berdasarkan kriteria tertentu. 
+4. Implementasi (Implementation Phace) penerapan rancangan sistem 
+setelah melewati tahapan perancangan dan pemilihan. 
+2.8. Perancangan Sistem  
+2.8.1. UML (Unified Modeling Language) 
+UML Unified Modeling Language (UML) adalah bahasa pemodelan 
+standar yang digunakan untuk memvisualisasikan, merancang, dan  
+mendokumentasikansistem perangkat lunak melalui berbagai jenis diagram. 
+UML merupakan sebuah  standar penulisan atau semacam blueprint dimana 
+
+[[PAGE 51]]
+35 
+ 
+didalamnya termasuk sebuah bisnis proses, penulisan kelas-kelas dalam sebuah 
+bahasa yang spesifik (Ramdany,2024). 
+1. Use Case Diagram 
+Use Case Diagram digunakan untuk menggambarkan hubungan antara 
+aktor (pengguna atau sistem eksternal) dengan fungsi -fungsi utama yang ada 
+dalam sistem. Diagram ini membantu dalam mengidentifikasi kebutuhan 
+sistem dari sudut pandang pengguna, sehingga lebih berfokus pada apa yang 
+dilakukan sistem, bukan bagaimana cara sistem melakukannya (Hasanah, 
+2020). 
+  
+2. Activity Diagram 
+ 
+Gambar 2. 3 Contoh Use Case 
+
+[[PAGE 52]]
+36 
+ 
+Activity diagram digunakan untuk mengambarkan alur aktivitas dari 
+proses bisnis atau dari  sebuah use case secara berurutan. Diagram ini juga 
+digunakan untuk mengambarkan  action (tindakan) yang akan dieksekusi 
+ketika suatu proses sedang berjalan dan beserta hasil  dari proses eksekusi 
+tersebut  (Juliartha dkk., 2022) .   
+3. Sequence Diagram 
+Sequence  diagramadalah  diagram  UML  paling  umum  kedua  yang  
+merepresentasikan bagaimana  objek  berinteraksi  dan  bertukar  pesan  dari  
+waktu  ke  waktu  (over  time). Sequence diagrammenggambarkanbagaimana 
+peristiwa (aktivitas)dalam use caseyang d ipetakan ke dalam operasi  kelas  
+objek  dalam class  diagram.  Penerimaan  umum sequence  diagramdapat  
+dikaitkan dengan sifatnya yang relatif intuitif dan kemampuan untuk 
+menggambarkan perilaku parsial (Wahyadi & Ruziq, 2023) 
+ 
+Gambar 2. 4 Activity Diagram 
+
+[[PAGE 53]]
+37 
+ 
+ 
+Gambar 2. 5 Sequence Diagram 
+4. Class Diagram  
+Class diagram adalah diagram yang digunakan untuk 
+merepresentasikan kelas, komponen -komponen dari kelas dan hubungan 
+masing-masing dari kelas,mendeskripsikan jenis -jenis objek dalam sistem  
+(Hamas & Imaduddin, 2019). 
+ 
+ 
+ 
+Gambar 2. 6 Class Diagram 
+5. Entity Relationship Diagram 
+
+
+[[PAGE 54]]
+38 
+ 
+Entity  Relationship  Diagram (ERD)  adalah  suatu  diagram  yang  
+digunakan  untuk  merancang  suatubasis data, dipergunakan untuk 
+memperlihatkan hubungan atau relasi antar entitas atau objek yang 
+terlihatbeserta  atributnya.  Dengan  kata  lain, ERD  menjadi  suatu  
+model.untuk  menjelaskan  hubungan  antar  datad alam basis  data  
+berdasarkan  objek-objek  dasar  data  yang  mempunyai  hubungan  antar  
+relasi (Maulana dkk., 2024) 
+ 
+ 
+Gambar 2. 7 ERD 
+
+[[PAGE 55]]
+39 
+ 
+2.9. Pengujian Sistem 
+Pengujian Black Box adalah proses pengujian yang dilakukan dengan  
+memberikan input tertentu pada aplikasi untuk melihat output yang dihasilkan, 
+guna memastikan bahwa fungsi aplikasi telah bekerja sesuai dengan yang 
+diharapkan atau sesuai dengan kebutuhan sistem (Mintarsih, 2023). 
+ Black  Box  Testing adalah  metode  pengujian  perangkat  lunak  yang  
+berfokus  pada verifikasi fungsionalita  sdari sistem perangkat lunak tanpa 
+memeriksa atau mengetahui struktur kode internalnya. Validitas pengujian 
+dalam Black Box Testingdijamin melalui pemetaan yang konsisten antara 
+spesifikasi sistem dan hasil yang diharapkan. 
+2.10. Penelitian Terdahulu  
+Seluruh referensi yang diperoleh melalui penelitian terdahulu berfungsi 
+sebagai landasan teori yang memperkuat dasar ilmiah penelitian . Pada tabel 
+dibawah ini merupakan penelitian terdahulu mengenai sistem pendukung 
+keputusan penilaian kinerja karyawan.  
+Tabel 1. 2 Penelitian Terdahulu 
+No  Peneliti  Judul  Metode Objek  Hasil 
+1.  (Abdurra
+hman & 
+Pratama, 
+2025) 
+Penerapan 
+metode 
+SMART 
+dalam 
+Sistem 
+Pendukung 
+Keputusan 
+Kinerja 
+Karyawan 
+SMART  Karyawan  Hasil pengujian  
+program  
+menunjukkan  
+bahwa  sistem  
+berjalan  dengan  
+baik,  memiliki  
+akurasi  tinggi  
+dalam 
+perhitungan nilai 
+karyawan, serta 
+menunjukkan 
+responsivitas 
+optimal. 
+
+[[PAGE 56]]
+40 
+ 
+No  Peneliti  Judul  Metode Objek  Hasil 
+ 
+2 Renaldi 
+Dwi 
+Putra, 
+Widya 
+Cholil 
+(2022) 
+Sistem 
+Pendukung 
+Keputusan 
+Penilaian 
+Kinerja 
+Pegawai 
+untuk 
+Kenaikan 
+Jabatan 
+Menggunak
+an Metode 
+SMART  
+SMART pengambila
+n keputusan 
+promosi 
+karyawan 
+ 
+berhasil untuk 
+meningkatkan 
+efisensi 
+pengambilan 
+keputusan 
+sehingga akan 
+membantu pihak 
+tenaga kerja atau 
+karyawan 
+dalam mencapai 
+Tujuan 
+mengevaluasi 
+kinerja 
+karyawan 
+ 
+3.  (Ekawati 
+dkk., ) 
+Simple 
+Multi 
+Attribute 
+Rating 
+Technique 
+(SMART) 
+Pada Sistem 
+Pendukung 
+Keputusan 
+untuk 
+menentukan 
+Pemilihan 
+Pegawai 
+SMART Pegawai 
+Puskesmas 
+sistem yang 
+terbentuk akan 
+memberikan 
+alternatif 
+penilaian bagi 
+para pengambil 
+keputusan untuk 
+menentukan 
+pegawai 
+berprestasi. 
+ 
+
+[[PAGE 57]]
+41 
+ 
+No  Peneliti  Judul  Metode Objek  Hasil 
+Berprestasi 
+pada 
+Puskesmas 
+Separi 
+Tenggarong 
+Seberang 
+ 
+ 
+ 
+
+[[PAGE 58]]
+42 
+ 
+BAB III 
+ANALISIS DAN PERANCANGAN 
+3.1. Communication  
+Pengumpulan data dilakukan melalui wawancara langsung dengan pihak 
+Direktur PT. Alika Jaya Perkasa. Wawancara bertujuan untuk memahami 
+proses penilaian kinerja yang sedang berjalan, mengidentifikasi permasalahan 
+yang dihadapi, serta menggali kebutuhan sistem yang akan dibangun. Berikut 
+adalah profil narasumber yang diwawancarai: 
+Nama  : Dian Bastian 
+Jabatan : Direktur  
+Instansi  : PT.Alika Jaya Perkasa 
+3.1.1. Wawancara 
+1. Wawancara Proses Sistem yang Berjalan  
+Tabel 3. 1 Wawancara dan Proses Sistem yang Berjalan 
+No Pertanyaan Jawaban Narasumber 
+1 Bagaimana proses penilaian 
+kinerja pegawai yang saat ini 
+berjalan di PT. Alika Jaya 
+Perkasa? 
+Selama ini penilaian kinerja 
+dilakukan oleh masing -masing 
+manajer divisi secara langsung 
+kepada pegawai di bawahnya. 
+Prosesnya masih manual, manajer 
+menilai berdasarkanpengamatan 
+sehari-hari lalu hasilnya 
+dilaporkan ke HRD dalam bentuk 
+formulir kertas. 
+ 
+2 Siapa saja pihak yang terlibat 
+dalam proses penilaian kinerja 
+pegawai? 
+Yang terlibat adalah HRD 
+sebagai pengelola data, manajer 
+divisi sebagai penilai langsung, 
+
+[[PAGE 59]]
+43 
+ 
+No Pertanyaan Jawaban Narasumber 
+dan direktur sebagai pihak yang 
+menyetujui hasil akhir penilaian. 
+Pegawai sendiri tidak dilibatkan 
+langsung dalam prosesnya 
+ 
+3 Berapa kali penilaian kinerja 
+dilakukan dalam satu tahun? 
+Apakah ada periode tertentu? 
+ 
+Penilaian dilakukan satu kali 
+dalam setahun, biasanya di akhir 
+tahun atau setelah selesainya 
+proyek besar. Belum ada periode 
+penilaian yang ditetapkan secara 
+resmi dan konsisten. 
+ 
+4 Apa saja kendala atau 
+permasalahan yang selama ini 
+dirasakan dalam proses 
+penilaian kinerja pegawai? 
+Kendalanya cukup banyak. 
+Penilaian sering terasa tidak adil 
+karena terlalu bergantung pada 
+hubungan personal antara 
+manajer dan pegawai. Selain itu 
+prosesnya lama karena semua 
+dilakukan manual, dan hasilnya 
+sulit dibandingkan antar pegawai 
+karena tidak ada  standar yang 
+sama 
+ 
+5 Apakah saat ini sudah ada 
+standar atau kriteria tertentu 
+yang digunakan sebagai acuan 
+Belum ada standar yang baku. 
+Setiap manajer menilai dengan 
+caranya sendiri-sendiri. Ada yang 
+menilai dari kehadiran, ada yang 
+
+[[PAGE 60]]
+44 
+ 
+No Pertanyaan Jawaban Narasumber 
+dalam penilaian kinerja 
+pegawai? 
+lebih ke hasil kerja, jadi hasilnya 
+tidak konsisten antar divisi 
+ 
+6 Bagaimana hasil penilaian 
+kinerja digunakan dalam 
+pengambilan keputusan, 
+seperti pemberian bonus, 
+promosi jabatan, atau 
+pemanggilan kembali pegawai 
+kontrak? 
+Hasil penilaian digunakan 
+sebagai pertimbangan untuk 
+pemberian bonus akhir tahun, 
+promosi jabatan, dan untuk 
+menentukan pegawai kontrak 
+mana yang akan dipanggil 
+kembali di proyek berikutnya. 
+Tapi karena tidak ada sistem yang 
+terukur, keputusannya masih 
+banyak berdasarkan 
+pertimbangan subjektif pimpinan 
+ 
+7 Di mana data pegawai dan 
+hasil penilaian saat ini 
+disimpan? Apakah sudah 
+menggunakan sistem tertentu 
+atau masih manual? 
+Hasil penilaian digunakan 
+sebagai pertimbangan untuk 
+pemberian bonus akhir tahun, 
+promosi jabatan, dan untuk 
+menentukan pegawai kontrak 
+mana yang akan dipanggil 
+kembali di proyek berikutnya. 
+Tapi karena tidak ada sistem yang 
+terukur, keputusannya masih 
+banyak berdasarkan 
+pertimbangan subjektif pimpinan 
+ 
+ 
+
+[[PAGE 61]]
+45 
+ 
+2. Wawancara Kebutuhan Sistem 
+ 
+Tabel 3. 2 Wawancara Kebutuhan Sistem 
+No Pertanyaan Jawaban Narasumber 
+1 Kriteria apa saja yang menurut 
+pihak manajemen paling 
+penting untuk dijadikan acuan 
+dalam penilaian kinerja 
+pegawai? 
+Menurut kami ada lima hal 
+utama yang perlu dinilai dari 
+setiap pegawai, yaitu jumlah 
+pekerjaan yang diselesaikan, 
+kualitas hasil pekerjaannya, 
+ketepatan waktu dalam 
+menyelesaikan tugas, tingkat 
+kehadiran, dan kemampuan 
+kerjasama dengan rekan tim. 
+Kelima hal itu yang paling 
+mencerminkan kinerja pegawai 
+di perusahaan kami 
+ 
+2 Dari kriteria yang telah 
+disebutkan, bagaimana urutan 
+tingkat kepentingannya? 
+Kriteria mana yang dianggap 
+paling penting? 
+Kalau diurutkan, kami rasa 
+kualitas pekerjaan yang paling 
+penting karena di bidang 
+konstruksi hasil kerja yang buruk 
+bisa berdampak besar. Setelah itu 
+jumlah pekerjaan, ketepatan 
+waktu, kemampuan kerjasama, 
+dan terakhir kehadiran. Tapi 
+semua tetap penting, hanya 
+bobotnya saja yang berbeda. 
+ 
+
+[[PAGE 62]]
+46 
+ 
+No Pertanyaan Jawaban Narasumber 
+3 Fitur apa saja yang diharapkan 
+ada dalam sistem informasi 
+penilaian kinerja yang akan 
+dibangun? 
+Yang paling kami butuhkan 
+adalah fitur input penilaian yang 
+mudah digunakan, perhitungan 
+otomatis sehingga tidak perlu 
+hitung manual lagi, tampilan 
+perangkingan pegawai dari yang 
+terbaik, dan fitur cetak laporan 
+penilaian untuk diserahkan ke 
+direktur. Kalau bisa ada juga fitur 
+kelola data pegawai sekalian 
+4 Siapa saja pengguna yang akan 
+mengakses sistem ini? Apakah 
+ada perbedaan hak akses antar 
+pengguna? 
+Penggunanya ada empat pihak. 
+HRD yang mengelola semua data 
+dan administrasi sistem, manajer 
+yang bertugas menginput nilai 
+penilaian pegawai di divisinya, 
+direktur yang hanya perlu 
+melihat hasil akhir dan laporan , 
+serta pegawai itu sendiri. Tentu 
+hak aksesnya harus dibedakan, 
+tidak semua orang bisa melihat 
+atau mengubah semua data 
+ 
+5 Apakah sistem perlu 
+menampilkan hasil penilaian 
+kepada pegawai yang dinilai, 
+atau hanya untuk pihak 
+manajemen saja? 
+Iya, kami ingin pegawai bisa 
+melihat hasil penilaian 
+kinerjanya sendiri. Supaya 
+mereka tahu di mana 
+kekurangannya dan bisa 
+memperbaiki diri. Tapi tentu 
+
+[[PAGE 63]]
+47 
+ 
+No Pertanyaan Jawaban Narasumber 
+pegawai hanya bisa melihat hasil 
+penilaian dirinya sendiri, bukan 
+pegawai lain 
+ 
+6 Apakah dibutuhkan fitur 
+laporan atau rekap hasil 
+penilaian kinerja pegawai? 
+Dalam format apa laporan 
+tersebut dibutuhkan? 
+Sangat dibutuhkan. Laporan 
+rekap penilaian kinerja biasanya 
+kami serahkan ke direktur setiap 
+akhir periode. Kalau bisa 
+laporannya bisa dicetak langsung 
+dari sistem dalam format PDF, 
+karena lebih mudah untuk 
+diarsipkan dan dipresentasikan 
+ke pimpinan 
+ 
+ 
+3.2. Analisis Sistem 
+Analisis sistem berjalan dilakukan untuk memahami proses penilaian 
+kinerja pegawai di PT. Alika Jaya Perkasa. Berdasarkan hasil observasi dan 
+wawancara, diketahui bahwa proses penilaian masih dilakukan secara manual 
+sehingga menimbulkan beberapa permasalah an, seperti penilaian yang 
+subjektif, data yang belum terintegrasi, proses penilaian yang memerlukan 
+waktu lama, serta belum adanya sistem yang mendukung pengambilan 
+keputusan secara objektif. Oleh karena itu, diperlukan sistem informasi pegawai 
+berbasis web dengan metode SMART untuk menghasilkan penilaian yang lebih 
+objektif, efisien, dan transparan. 
+3.2.1. Analisis Kebutuhan Fungsional 
+Kebutuhan fungsional merupakan deskripsi fitur atau layanan yang harus 
+tersedia dan dapat dijalankan oleh sistem.  
+
+[[PAGE 64]]
+48 
+ 
+Tabel 3. 3 Analisis Kebutuhan Fungsional 
+No Aktor Fitur Deskripsi 
+1.   Admin/HRD Login Admin/HRD dapat 
+masuk ke sistem 
+menggunakan username 
+dan password. 
+ 
+2.  
+Admin/HRD Kelola Data 
+Pegawai 
+Admin/HRD dapat 
+menambah, mengubah, 
+menghapus, dan melihat 
+data pegawai. 
+3.  Admin/HRD Kelola Data 
+Divisi & 
+Kelompok Kerja 
+Tambah/ubah/hapus/lihat 
+master divisi, termasuk 
+penetapan kelompok 
+kerja (Lapangan/Kantor) 
+tiap divisi 
+4.  Admin/HRD Kelola Data 
+Kehadiran 
+Admin/HRD dapat 
+menginput dan 
+mengelola rekap data 
+kehadiran pegawai per 
+periode sebagai sumber 
+nilai kriteria Kehadiran 
+(C4) pada penilaian 
+kinerja. atau export data 
+kehadiran dari excel. 
+5.  Admin/HRD Kelola Kriteria & 
+Subkriteria 
+Mengelola kriteria 
+SMART beserta 
+subkriteria dan nilai 
+utility. 
+
+[[PAGE 65]]
+49 
+ 
+No Aktor Fitur Deskripsi 
+6.  Admin/HRD Kelola Bobot 
+Kriteria 
+Mengatur bobot setiap 
+kriteria berdasarkan 
+kelompok kerja. 
+7.  Admin/HRD Kelola Periode 
+Penilaian 
+Membuka dan menutup 
+periode penilaian. 
+8.  Admin/HRD Lihat Hasil 
+Penilaian 
+Admin/HRD dapat 
+melihat hasil 
+perangkingan seluruh 
+pegawai beserta skor 
+SMART, kategori 
+kinerja, dan rekomendasi 
+keputusan yang 
+dihasilkan sistem. 
+9.  Admin/HRD Cetak laporan 
+Penilaian 
+Admin/HRD dapat 
+mencetak laporan 
+penilaian hasil penilaian 
+seluruh pegawai dalam 
+format PDF untuk 
+diserahkan kepada 
+pimpinan. 
+10.  Admin/HRD Kelola Akun 
+Pengguna 
+Admin/HRD dapat 
+mengelola akun 
+pengguna sistem beserta 
+role dan hak aksesnya. 
+
+[[PAGE 66]]
+50 
+ 
+No Aktor Fitur Deskripsi 
+11.  Manajer Login Manajer dapat masuk ke 
+sistem menggunakan 
+username dan password. 
+12.  Manajer Input Penilaian 
+Kinerja 
+Manajer dapat 
+menginput nilai 
+penilaian pegawai di 
+divisinya berdasarkan 
+enam kriteria yang telah 
+ditentukan (skala 1-5) 
+pada setiap periode 
+penilaian. 
+13.  Manajer Lihat Hasil 
+Divisi 
+Manajer dapat melihat 
+hasil penilaian pegawai. 
+14.  Pimpinan Login Pimpinan dapat masuk 
+ke sistem menggunakan 
+username dan password. 
+15.  Pimpinan Lihat Hasil 
+Penilaian 
+Pimpinan dapat melihat 
+hasil perangkingan 
+kinerja seluruh pegawai 
+beserta rekomendasi 
+keputusan otomatis dari 
+sistem sebagai dasar 
+pengambilan keputusan. 
+16.  Pimpinan Cetak laporan 
+penilaian 
+Pimpinan dapat 
+mencetak laporan 
+penilaian hasil penilaian 
+
+[[PAGE 67]]
+51 
+ 
+No Aktor Fitur Deskripsi 
+kinerja seluruh pegawai 
+dalam format PDF. 
+ 
+3.2.2. Analisis Kebutuhan Non Fungsional 
+Analisis kebutuhan nonfungsional bertujuan untuk mengidentifikasi 
+kebutuhan pendukung agar sistem dapat berjalan dengan baik. Kebutuhan ini 
+meliputi perangkat keras, perangkat lunak, keamanan sistem, serta karakteristik 
+sistem yang mendukung proses penilaian kinerja pegawai. 
+1) Perangkat Keras 
+Tabel 3. 4 Perangkat Keras 
+No Komponen Spesifiasi 
+1.  Processor Inter Core i3 atau setara  
+2.  RAM 4 GB 
+3.  Penyimpanan  512 GB 
+4.  Monitor Resolusi minimal 1366 × 768 
+5.  Keyboard dan Mouse  Standar 
+ 
+2) Perangkat Lunak 
+Tabel 3. 5 Perangkat Lunak 
+No Perangkat Lunak 
+1.  Windows 11 
+2.  Visual Paradigma 16.2 
+3.  Balsamiq wireframes 4.7.3 
+
+[[PAGE 68]]
+52 
+ 
+No Perangkat Lunak 
+4.  Xampp Control Panel Version 
+3.3.0 
+5.  PHP 8.2 
+6.  Laravel 12 
+7.  Browser 
+ 
+3.2.3. Analisis Pengguna 
+Analisis pengguna bertujuan untuk mengidentifikasi pengguna yang 
+akan menggunakan sistem beserta hak akses yang dimiliki. Sistem 
+informasi pegawai PT. Alika Jaya Perkasa ini dirancang untuk digunakan 
+oleh tiga jenis pengguna dengan hak akses yang berbeda -beda sesuai 
+fungsi dan tanggung jawabnya. Pegawai yang dinilai tidak memiliki akses 
+login ke sistem, namun tetap mendapatkan informasi hasil penilaian 
+kinerjanya melalui laporan individual tercetak yang diberikan langsung 
+oleh Admin/HRD. 
+Tabel 3. 6 Analisis Pengguna 
+No Pengguna Hak Akses 
+1 Admin/HRD Melakukan login, mengelola akun pengguna, 
+mengelola data pegawai, mengelola data divisi dan 
+kelompok kerja, mengelola data kehadiran, 
+mengelola kriteria dan subkriteria penilaian, 
+mengelola bobot kriteria berdasarkan kelompok 
+kerja, mengelola periode penilaian, melihat hasil 
+penilaian kinerja seluruh pegawai, serta mencetak 
+laporan hasil penilaian. 
+2 Manajer Melakukan login, menginput penilaian kinerja 
+pegawai pada divisinya sesuai kriteria yang telah 
+
+[[PAGE 69]]
+53 
+ 
+No Pengguna Hak Akses 
+ditentukan, serta melihat hasil penilaian pegawai 
+pada divisinya. 
+3 Pimpinan Melakukan login, melihat hasil penilaian dan 
+perangkingan kinerja seluruh pegawai sebagai dasar 
+pengambilan keputusan, serta mencetak laporan hasil 
+penilaian. 
+ 
+ 
+
+[[PAGE 70]]
+54 
+ 
+3.3. Analisi Metode SMART 
+3.3.1. Alur Kerja Metode SMART 
+Berikut adalah diagram alur (flowchart) proses sistem cerdas berbasis 
+metode SMART yang diterapkan pada Sistem Informasi Pegawai PT. Alika Jaya 
+Perkasa : 
+ 
+ 
+Gambar 3. 1 Alur Kerja Metode SMART 
+
+
+[[PAGE 71]]
+55 
+ 
+3.3.2. Indikator Penilaian Pegawai berdasarkan KPI (Key Performance 
+Index) 
+1. General Manajer  
+No 
+Pekerjaan 
+(Bobot) 
+Bukti Verifikator Cara Verifikasi 
+1 
+Mengoordinasik
+an seluruh 
+kegiatan 
+komersial 
+perusahaan 
+(20%) 
+Laporan rekap 
+pencapaian target 
+komersial per 
+periode 
+Pimpinan/D
+irektur 
+Membandingkan 
+laporan rekap 
+dengan rencana 
+komersial awal 
+periode saat rapat 
+evaluasi periodik 
+2 
+Menetapkan 
+kebijakan, 
+rencana, dan 
+tujuan 
+perusahaan 
+(15%) 
+Dokumen 
+kebijakan/RKAT 
+yang disahkan + 
+catatan realisasi 
+Pimpinan 
+Mengecek apakah 
+kebijakan 
+terdokumentasi 
+resmi dan dijalankan 
+sesuai jadwal 
+implementasi 
+3 
+Mengembangkan 
+rencana strategis 
+sesuai teknologi 
+dan keuangan 
+(10%) 
+Proposal/dokume
+n inisiatif 
+pengembangan 
+per periode 
+Pimpinan 
+Menelaah proposal 
+dan mengonfirmasi 
+minimal 1 inisiatif 
+disetujui/diterapkan 
+pada periode 
+berjalan 
+4 
+Mengelola 
+operasional 
+perusahaan 
+sehari-hari 
+(15%) 
+Laporan 
+operasional 
+harian/mingguan 
++ log gangguan 
+operasional 
+Pimpinan/M
+anajer 
+Operasional 
+Meninjau log 
+gangguan periode 
+berjalan; 
+memastikan tidak 
+ada entri gangguan 
+signifikan 
+
+[[PAGE 72]]
+56 
+ 
+ 
+ 
+2. Manajer Operasional: 
+5 
+Menetapkan dan 
+mengawal 
+standar proses & 
+bisnis (15%) 
+Dokumen SOP + 
+hasil audit 
+kepatuhan SOP 
+antar divisi 
+Pimpinan 
+Membandingkan 
+hasil audit kepatuhan 
+tiap divisi dengan 
+standar yang 
+ditetapkan 
+No Pekerjaan (Bobot) Bukti Verifikator Cara Verifikasi 
+1 
+Melakukan 
+eliminasi 
+pengeluaran 
+operasional di luar 
+standar (15%) 
+Laporan 
+realisasi biaya 
+operasional vs 
+anggaran/standa
+r 
+Manajer 
+Keuangan/P
+impinan 
+Membandingkan 
+biaya aktual periode 
+berjalan dengan 
+periode sebelumnya 
+untuk melihat tren 
+penurunan 
+2 
+Mengevaluasi 
+laporan 
+operasional agar 
+sesuai SOP (15%) 
+Sampel laporan 
+operasional 
+Pimpinan 
+Sampel laporan 
+dicocokkan dengan 
+checklist SOP; 
+dicatat jumlah yang 
+sesuai dari total 
+sampel 
+3 
+Mengawasi 
+persediaan 
+barang/jasa dan 
+fasilitas 
+operasional (15%) 
+Laporan stock 
+opname fasilitas 
+operasional 
+Bagian 
+Gudang/Pi
+mpinan 
+Hasil stock opname 
+dibandingkan catatan 
+sistem; dicek selisih 
+kekurangan/kelebiha
+n 
+4 
+Mengawasi 
+kualitas 
+Laporan 
+komplain 
+pelanggan + 
+Pimpinan/Ti
+m QC 
+Data QC dan 
+komplain direkap 
+per periode dan 
+
+[[PAGE 73]]
+57 
+ 
+ 
+3. Gudang  
+produk/hasil kerja 
+operasional (25%) 
+hasil quality 
+control (QC) 
+dibandingkan 
+ambang batas 
+standar 
+5 
+Mengoordinasikan 
+aktivitas produksi-
+distribusi unit 
+operasional (15%) 
+Jadwal distribusi 
++ surat 
+jalan/tanda 
+terima 
+Bagian 
+Gudang/Pi
+mpinan 
+Tanggal pengiriman 
+aktual pada surat 
+jalan dibandingkan 
+jadwal distribusi 
+rencana 
+No Pekerjaan (Bobot) Bukti Verifikator Cara Verifikasi 
+1 
+Mengawasi dan 
+mengelola 
+operasional 
+gudang (15%) 
+Hasil 
+audit/inspeksi 
+gudang berkala 
+Manajer 
+Operasional 
+Laporan audit 
+gudang periode 
+berjalan ditelaah; 
+dicatat ada/tidaknya 
+temuan 
+penyimpangan 
+2 
+Mengawasi 
+keluar-masuk tool 
+gudang sesuai 
+SOP (15%) 
+Form/kartu 
+keluar-masuk 
+tool gudang 
+Manajer 
+Operasional 
+Sampel transaksi 
+dicocokkan dengan 
+form pencatatan; 
+dihitung persentase 
+transaksi tercatat 
+lengkap 
+3 
+Mengonfirmasi 
+jumlah dan 
+kondisi barang 
+sesuai SOP (15%) 
+Berita acara 
+stock opname 
+(stok fisik vs 
+sistem) 
+Manajer 
+Operasional
+/Keuangan 
+Selisih stok fisik-
+sistem pada berita 
+acara dibandingkan 
+standar toleransi 
+yang berlaku 
+
+[[PAGE 74]]
+58 
+ 
+ 
+4. Keuangan 
+4 
+Merencanakan 
+pengadaan logistik 
+dan distribusi 
+barang (40%) 
+Rencana 
+pengadaan 
+(purchase plan) 
++ bukti realisasi 
+kedatangan 
+barang 
+Manajer 
+Operasional
+/Pimpinan 
+Tanggal realisasi 
+kedatangan barang 
+pada PO/surat jalan 
+dibandingkan jadwal 
+rencana pengadaan 
+No Pekerjaan (Bobot) Bukti Verifikator Cara Verifikasi 
+1 
+Mengoordinasikan 
+pelaporan dan 
+pembayaran 
+kewajiban pajak 
+(15%) 
+Bukti setor/lapor 
+pajak (SSP/e-
+Filing) + tanggal 
+jatuh tempo 
+Pimpinan 
+Tanggal 
+pelaporan/pembayar
+an dibandingkan 
+jatuh tempo; dicek 
+ada/tidaknya surat 
+teguran/denda 
+2 
+Menyusun dan 
+mengendalikan 
+anggaran 
+perusahaan (15%) 
+Dokumen RKA 
++ laporan 
+realisasi 
+anggaran 
+Pimpinan 
+Realisasi anggaran 
+dibandingkan RKA; 
+dihitung persentase 
+deviasi 
+3 
+Mengonsolidasika
+n perpajakan 
+seluruh 
+perusahaan (15%) 
+Rekap laporan 
+pajak seluruh 
+unit/divisi 
+Pimpinan 
+Rekap dicek 
+konsistensinya 
+dengan laporan 
+pajak tiap unit saat 
+rekonsiliasi 
+4 
+Mengelola fungsi 
+akuntansi untuk 
+laporan keuangan 
+akurat (25%) 
+Laporan 
+keuangan 
+(neraca/laba 
+rugi) + hasil 
+Pimpinan 
+Rekonsiliasi bank 
+dan neraca dicek 
+untuk memastikan 
+tidak ada selisih 
+
+[[PAGE 75]]
+59 
+ 
+ 
+5. HSE 
+No Pekerjaan (Bobot) Bukti Verifikator Cara Verifikasi 
+1 
+Mencegah dan 
+mengendalikan 
+bahaya 
+kimia/biohazard 
+(15%) 
+Log insiden 
+HSE + hasil 
+inspeksi 
+penyimpanan 
+B3 
+Manajer 
+Operasional 
+Log insiden periode 
+berjalan ditelaah; 
+dicek ada/tidaknya 
+laporan paparan 
+bahan berbahaya 
+2 
+Mencegah dan 
+mengendalikan 
+gas, asap, dan 
+kotoran (15%) 
+Hasil 
+pengukuran 
+kualitas 
+udara/emisi atau 
+inspeksi visual 
+berkala 
+Manajer 
+Operasional 
+Hasil 
+pengukuran/inspeksi 
+dibandingkan ambang 
+batas standar HSE 
+yang berlaku 
+3 
+Memelihara 
+kebersihan, 
+kesehatan, dan 
+ketertiban area 
+kerja (15%) 
+Checklist hasil 
+inspeksi K3 area 
+kerja berkala 
+Manajer 
+Operasional 
+Checklist 
+dibandingkan standar 
+minimal; dicatat skor 
+kepatuhan per 
+inspeksi 
+4 
+Mencegah 
+hilangnya 
+pendapatan akibat 
+insiden kerja 
+(20%) 
+Laporan 
+kerugian akibat 
+insiden K3 + 
+catatan klaim 
+(jika ada) 
+Manajer 
+Keuangan/P
+impinan 
+Rekap kerugian 
+finansial akibat 
+insiden K3 periode 
+berjalan ditelaah; zero 
+loss dikonfirmasi bila 
+tidak ada catatan 
+5 
+Memberikan 
+pertolongan 
+Log waktu 
+respons 
+pertolongan 
+Manajer 
+Operasional 
+Waktu kejadian vs 
+waktu respons pada 
+log dibandingkan; 
+rekonsiliasi 
+bank 
+pencatatan yang 
+belum terjelaskan 
+
+[[PAGE 76]]
+60 
+ 
+kecelakaan kerja 
+(20%) 
+pertama pada 
+insiden kerja 
+dihitung apakah di 
+bawah 5 menit 
+ 
+6. SPV Sipil 
+ 
+No Pekerjaan (Bobot) Bukti Verifikator Cara Verifikasi 
+1 
+Memeriksa 
+laporan shift (log 
+book) tiap hari 
+kerja (15%) 
+Log book shift 
+harian yang 
+ditandatangani 
+Manajer 
+Operasional 
+Jumlah log book 
+terisi lengkap & 
+bertanda tangan 
+dibandingkan jumlah 
+hari kerja pada 
+periode 
+2 
+Mencatat dan 
+mendata sipil 
+equipment (15%) 
+Kartu/daftar 
+inventaris 
+peralatan sipil 
+Manajer 
+Operasional
+/Gudang 
+Data inventaris 
+dicocokkan dengan 
+kondisi fisik 
+peralatan di 
+lapangan (spot 
+check) 
+3 
+Mengomunikasika
+n masalah 
+lapangan kepada 
+atasan (15%) 
+Log laporan 
+masalah 
+lapangan 
+(tanggal 
+kejadian vs 
+tanggal lapor) 
+Manajer 
+Operasional 
+Selisih waktu 
+kejadian-laporan 
+dibandingkan batas 
+waktu 1x24 jam 
+4 
+Memelihara dan 
+mengoperasikan 
+peralatan/banguna
+n sipil (20%) 
+Laporan hasil 
+pekerjaan sipil + 
+log komplain 
+(jika ada) 
+Manajer 
+Operasional 
+Log komplain 
+periode berjalan 
+ditelaah; dicek 
+ada/tidaknya 
+komplain hasil 
+pekerjaan sipil 
+
+[[PAGE 77]]
+61 
+ 
+7. SPV Mechanical 
+ 
+ 
+ 
+ 
+ 
+No Pekerjaan (Bobot) Bukti Verifikator Cara Verifikasi 
+1 
+Memelihara dan 
+mengoperasikan 
+mesin/peralatan 
+mechanical (20%) 
+Laporan 
+maintenance/do
+wntime mesin 
+Manajer 
+Operasional 
+Data downtime 
+akibat kelalaian 
+perawatan 
+dibandingkan data 
+periode sebelumnya 
+2 
+Mematuhi SOP 
+dan keselamatan 
+kerja mekanikal 
+(25%) 
+Log insiden alat 
+mekanikal + 
+hasil inspeksi 
+K3 area 
+mekanikal 
+HSE/Manaj
+er 
+Operasional 
+Log insiden periode 
+berjalan ditelaah 
+bersama tim HSE 
+untuk memastikan 
+tidak ada insiden 
+tercatat 
+3 
+Menyelesaikan 
+pekerjaan 
+mekanikal sesuai 
+spesifikasi dan 
+jadwal (25%) 
+Dokumen 
+spesifikasi 
+teknis + laporan 
+penyelesaian 
+(target vs aktual) 
+Manajer 
+Operasional 
+Tanggal & hasil 
+penyelesaian 
+dibandingkan 
+spesifikasi teknis 
+dan jadwal yang 
+disepakati 
+4 
+Berkoordinasi 
+dengan tim dan 
+melaporkan 
+masalah lapangan 
+(15%) 
+Log koordinasi 
++ laporan 
+masalah 
+lapangan 
+Manajer 
+Operasional 
+Log dicek untuk 
+memastikan setiap 
+masalah punya 
+catatan respons dan 
+tindak lanjut 
+terdokumentasi 
+
+[[PAGE 78]]
+62 
+ 
+8. SPV Electrical 
+No Pekerjaan (Bobot) Bukti Verifikator Cara Verifikasi 
+1 
+Mengoordinasi 
+perbaikan dan 
+perawatan mesin 
+produksi elektrikal 
+(20%) 
+Laporan 
+maintenance + 
+log gangguan 
+mesin produksi 
+Manajer 
+Operasional 
+Frekuensi & durasi 
+gangguan pada log 
+dibandingkan 
+periode sebelumnya 
+untuk menilai 
+konsistensi performa 
+2 
+Menginformasika
+n trouble/masalah 
+elektrikal ke 
+atasan (10%) 
+Log laporan 
+trouble (tanggal 
+kejadian vs 
+tanggal lapor) 
+Manajer 
+Operasional 
+Selisih waktu 
+kejadian-laporan 
+dibandingkan batas 
+waktu kurang dari 1 
+hari 
+3 
+Menjaga 
+kepatuhan tim 
+terhadap aturan 
+dasar & teknis 
+elektrikal (15%) 
+Hasil inspeksi 
+kepatuhan SOP 
+kelistrikan pada 
+tim 
+HSE/Manaj
+er 
+Operasional 
+Hasil inspeksi rutin 
+dicek untuk 
+memastikan tidak 
+ada pelanggaran 
+SOP kelistrikan 
+tercatat 
+4 
+Menjaga 
+performance 
+mesin dan kerja 
+tim di lapangan 
+(20%) 
+Laporan 
+performa mesin 
+produksi (output 
+vs target) 
+Manajer 
+Operasional 
+Data performa pada 
+laporan 
+dibandingkan target 
+performa per periode 
+5 
+Membina 
+bawahan 
+(foreman, leader, 
+operator) (20%) 
+Catatan 
+pembinaan/pelat
+ihan + log 
+kesalahan kerja 
+bawahan 
+Manajer 
+Operasional 
+Log kesalahan kerja 
+bawahan ditelaah 
+untuk melihat 
+ada/tidaknya 
+pengulangan 
+kesalahan yang sama 
+ 
+
+[[PAGE 79]]
+63 
+ 
+9. SPV Piping 
+No Pekerjaan (Bobot) Bukti Verifikator Cara Verifikasi 
+1 
+Meninjau dan 
+menugaskan 
+pekerjaan piping 
+(15%) 
+Dokumen 
+penugasan kerja 
+(work order) + 
+jadwal proyek 
+Manajer 
+Operasional 
+Tanggal penugasan 
+pada work order 
+dibandingkan 
+kebutuhan/jadwal 
+proyek 
+2 
+Melakukan 
+kontrol dan 
+evaluasi 
+pekerjaan piping 
+(15%) 
+Laporan hasil 
+kontrol/inspeksi 
+pekerjaan piping 
+Manajer 
+Operasional 
+Hasil inspeksi 
+dibandingkan 
+rencana kerja untuk 
+menghitung deviasi 
+hasil kerja 
+3 
+Membuat laporan 
+pekerjaan tepat 
+waktu dan akurat 
+(15%) 
+Laporan 
+pekerjaan + 
+tanggal 
+penyerahan + 
+catatan revisi 
+(jika ada) 
+Manajer 
+Operasional 
+Tanggal penyerahan 
+dibandingkan 
+tenggat waktu; dicek 
+ada/tidaknya 
+permintaan revisi 
+4 
+Memberikan 
+arahan kepada 
+bawahan (20%) 
+Catatan 
+arahan/briefing 
++ hasil observasi 
+pelaksanaan 
+tugas bawahan 
+Manajer 
+Operasional 
+Hasil observasi 
+pelaksanaan tugas 
+dibandingkan arahan 
+yang diberikan 
+5 
+Memberikan 
+bimbingan, 
+bantuan, dan 
+umpan balik 
+konstruktif ke tim 
+(20%) 
+Log sesi 
+bimbingan dan 
+umpan balik ke 
+tim 
+Manajer 
+Operasional 
+Log dicek untuk 
+memastikan sesi 
+bimbingan dilakukan 
+rutin dan 
+terdokumentasi 
+tanggal & topiknya 
+ 
+ 
+
+[[PAGE 80]]
+64 
+ 
+10. SPV Kontruksi 
+No 
+Pekerjaan 
+(Bobot) 
+Bukti Verifikator Cara Verifikasi 
+1 
+Memastikan 
+pelaksanaan 
+tugas lapangan 
+sesuai biaya, 
+mutu, waktu / 
+BMW (25%) 
+Laporan proyek 
+(realisasi biaya, 
+hasil mutu, jadwal 
+vs rencana) 
+Pimpinan/M
+anajer 
+Operasional 
+Data realisasi biaya, 
+mutu, dan jadwal 
+dibandingkan 
+rencana awal proyek 
+2 
+Membuat 
+program kerja 
+mingguan untuk 
+staf di bawahnya 
+(10%) 
+Dokumen 
+program kerja 
+mingguan yang 
+terarsip 
+Manajer 
+Operasional 
+Ketersediaan 
+dokumen dicek 
+untuk setiap minggu 
+pada periode 
+penilaian 
+3 
+Memahami dan 
+menerapkan 
+desain 
+konstruksi 
+secara teknis 
+(10%) 
+Dokumen 
+desain/gambar 
+kerja + laporan 
+kesesuaian hasil 
+lapangan 
+Manajer 
+Operasional
+/Engineerin
+g 
+Hasil pekerjaan 
+lapangan dicocokkan 
+dengan gambar 
+kerja/desain 
+4 
+Menyusun 
+metode 
+pelaksanaan 
+sesuai kondisi 
+lapangan (25%) 
+Dokumen method 
+statement + 
+riwayat 
+persetujuan/revisi 
+engineering 
+Manajer 
+Operasional
+/Engineerin
+g 
+Jumlah revisi besar 
+pada method 
+statement dicek dari 
+riwayat persetujuan 
+dokumen 
+5 
+Melakukan 
+evaluasi dan 
+pelaporan 
+progres ke 
+atasan (15%) 
+Laporan progres 
+proyek berkala 
+(mingguan/bulana
+n) 
+Pimpinan/M
+anajer 
+Operasional 
+Kelengkapan dan 
+ketepatan waktu 
+penyerahan laporan 
+progres dicek 
+
+[[PAGE 81]]
+65 
+ 
+terhadap jadwal 
+pelaporan 
+ 
+ 
+ 
+3.3.3. Kriteria dan Bobot Penilaian Kinerja Pegawai 
+1. GENERAL MANAGER 
+No. 
+Key Performance 
+Indicator (KPI) 
+Bobot Target Realisasi Skor 
+Skor 
+Akhir  
+1 
+Mengoordinasikan 
+seluruh kegiatan 
+komersial 
+perusahaan 
+20 
+Target komersial 
+tercapai minimal 
+80% dari rencana 
+   
+2 
+Menetapkan 
+kebijakan, 
+rencana, dan 
+tujuan perusahaan 
+15 
+Kebijakan 
+berjalan sesuai 
+rencana kerja 
+tahunan 
+   
+3 
+Mengembangkan 
+rencana strategis 
+sesuai teknologi 
+dan keuangan 
+10 
+Minimal 1 
+inisiatif 
+pengembangan 
+diterapkan per 
+periode 
+   
+4 
+Mengelola 
+operasional 
+perusahaan sehari-
+hari 
+15 
+Tidak ada 
+gangguan 
+operasional 
+signifikan 
+   
+
+[[PAGE 82]]
+66 
+ 
+No. 
+Key Performance 
+Indicator (KPI) 
+Bobot Target Realisasi Skor 
+Skor 
+Akhir  
+5 
+Menetapkan dan 
+mengawal standar 
+proses & bisnis 
+15 
+SOP diterapkan 
+konsisten di 
+seluruh divisi 
+   
+6 
+Bertanggung 
+jawab atas 
+hubungan internal 
+& eksternal 
+perusahaan 
+10 
+Tidak ada 
+komplain/masalah 
+besar dari pihak 
+luar 
+   
+7 Tingkat kehadiran 7.5 
+Kehadiran 
+minimal 90% per 
+tahun (216 hari 
+dari 240 hari 
+kerja) 
+   
+8 
+Disiplin kehadiran 
+(ketepatan waktu) 
+7.5 
+Keterlambatan 
+maksimal 15% 
+per tahun (36 hari 
+dari 240 hari 
+kerja) 
+   
+JUMLAH = 100  
+JUMLAH 
+NILAI = 
+ 
+ 
+2. MANAJER OPERASIONAL 
+
+[[PAGE 83]]
+67 
+ 
+No. 
+Key Performance 
+Indicator (KPI) 
+Bobot Target Realisasi Skor 
+Skor 
+Akhir  
+1 
+Melakukan 
+eliminasi 
+pengeluaran 
+operasional di luar 
+standar 
+15 
+Pengeluaran di luar 
+standar berkurang 
+tiap periode 
+   
+2 
+Mengevaluasi 
+laporan 
+operasional agar 
+sesuai SOP 
+15 
+100% laporan 
+operasional sesuai 
+SOP 
+   
+3 
+Mengawasi 
+persediaan 
+barang/jasa dan 
+fasilitas 
+operasional 
+15 
+Tidak ada 
+kekurangan/kelebihan 
+stok signifikan 
+   
+4 
+Mengawasi 
+kualitas 
+produk/hasil kerja 
+operasional 
+25 
+Tingkat 
+cacat/komplain di 
+bawah standar yang 
+ditetapkan 
+   
+5 
+Mengoordinasikan 
+aktivitas produksi-
+distribusi unit 
+operasional 
+15 
+Tidak ada 
+keterlambatan 
+distribusi ke unit 
+terkait 
+   
+6 Tingkat kehadiran 7.5 
+Kehadiran minimal 
+90% per tahun (216 
+hari dari 240 hari 
+kerja) 
+   
+
+[[PAGE 84]]
+68 
+ 
+No. 
+Key Performance 
+Indicator (KPI) 
+Bobot Target Realisasi Skor 
+Skor 
+Akhir  
+7 
+Disiplin kehadiran 
+(ketepatan waktu) 
+7.5 
+Keterlambatan 
+maksimal 15% per 
+tahun (36 hari dari 
+240 hari kerja) 
+   
+JUMLAH = 100  
+JUMLAH 
+NILAI = 
+ 
+ 
+ 
+3. Keuangan 
+No. 
+Key Performance 
+Indicator (KPI) 
+Bobot Target Realisasi Skor 
+Skor 
+Akhir  
+1 
+Mengoordinasikan 
+pelaporan dan 
+pembayaran 
+kewajiban pajak 
+15 
+100% tepat 
+waktu, tanpa 
+denda 
+keterlambatan 
+   
+2 
+Menyusun dan 
+mengendalikan 
+anggaran 
+perusahaan 
+15 
+Realisasi 
+anggaran sesuai 
+rencana, deviasi 
+maksimal 10% 
+   
+3 
+Mengonsolidasikan 
+perpajakan seluruh 
+perusahaan 
+15 
+Tidak ada 
+temuan 
+ketidakpatuhan 
+pajak 
+   
+
+[[PAGE 85]]
+69 
+ 
+No. 
+Key Performance 
+Indicator (KPI) 
+Bobot Target Realisasi Skor 
+Skor 
+Akhir  
+4 
+Mengelola fungsi 
+akuntansi untuk 
+laporan keuangan 
+akurat 
+25 
+Laporan 
+akuntansi tanpa 
+selisih/kesalahan 
+pencatatan 
+   
+5 
+Mengembangkan 
+sistem dan 
+prosedur keuangan 
+yang tertib 
+15 
+Seluruh transaksi 
+terdokumentasi 
+sesuai prosedur 
+   
+6 Tingkat kehadiran 7.5 
+Kehadiran 
+minimal 90% per 
+tahun (216 hari 
+dari 240 hari 
+kerja) 
+   
+7 
+Disiplin kehadiran 
+(ketepatan waktu) 
+7.5 
+Keterlambatan 
+maksimal 15% 
+per tahun (36 
+hari dari 240 hari 
+kerja) 
+   
+JUMLAH = 100  
+JUMLAH 
+NILAI = 
+ 
+ 
+ 
+
+[[PAGE 86]]
+70 
+ 
+4. HSE (HEALTH, SAFETY, ENVIRONMENT) 
+No. 
+Key 
+Performance 
+Indicator (KPI) 
+Bobot Target Realisasi Skor 
+Skor 
+Akhir  
+1 
+Mencegah dan 
+mengendalikan 
+bahaya 
+kimia/biohazard 
+15 
+Tidak ada laporan 
+paparan bahan 
+berbahaya 
+   
+2 
+Mencegah dan 
+mengendalikan 
+gas, asap, dan 
+kotoran 
+15 
+Sesuai ambang 
+batas standar HSE 
+yang berlaku 
+   
+3 
+Memelihara 
+kebersihan, 
+kesehatan, dan 
+ketertiban area 
+kerja 
+15 
+Hasil inspeksi K3 
+memenuhi 
+standar minimal 
+   
+4 
+Mencegah 
+hilangnya 
+pendapatan 
+akibat insiden 
+kerja 
+20 
+Tidak ada 
+kerugian akibat 
+kelalaian K3 
+(zero loss) 
+   
+5 
+Memberikan 
+pertolongan 
+kecelakaan 
+kerja 
+20 
+Respon 
+pertolongan 
+pertama kurang 
+   
+
+[[PAGE 87]]
+71 
+ 
+No. 
+Key 
+Performance 
+Indicator (KPI) 
+Bobot Target Realisasi Skor 
+Skor 
+Akhir  
+dari 5 menit sejak 
+insiden 
+6 
+Tingkat 
+kehadiran 
+7.5 
+Kehadiran 
+minimal 90% per 
+tahun (216 hari 
+dari 240 hari 
+kerja) 
+   
+7 
+Disiplin 
+kehadiran 
+(ketepatan 
+waktu) 
+7.5 
+Keterlambatan 
+maksimal 15% 
+per tahun (36 hari 
+dari 240 hari 
+kerja) 
+   
+JUMLAH = 100  
+JUMLAH 
+NILAI = 
+ 
+ 
+ 
+ 
+ 
+
+[[PAGE 88]]
+72 
+ 
+5. LOGISTIK / GUDANG 
+ 
+No. 
+Key 
+Performance 
+Indicator (KPI) 
+Bobot Target Realisasi Skor 
+Skor 
+Akhir  
+1 
+Mengawasi dan 
+mengelola 
+operasional 
+gudang 
+15 
+Tidak ada temuan 
+penyimpangan 
+saat audit gudang 
+   
+2 
+Mengawasi 
+keluar-masuk 
+tool gudang 
+sesuai SOP 
+15 
+100% transaksi 
+tercatat sesuai 
+SOP 
+   
+3 
+Mengonfirmasi 
+jumlah dan 
+kondisi barang 
+sesuai SOP 
+15 
+Selisih stok fisik 
+vs sistem di 
+bawah standar 
+toleransi 
+   
+4 
+Merencanakan 
+pengadaan 
+logistik dan 
+distribusi 
+barang 
+40 
+Barang tersedia 
+sesuai kebutuhan, 
+tanpa 
+keterlambatan 
+pengadaan 
+   
+5 
+Tingkat 
+kehadiran 
+7.5 
+Kehadiran 
+minimal 90% per 
+tahun (216 hari 
+   
+
+[[PAGE 89]]
+73 
+ 
+No. 
+Key 
+Performance 
+Indicator (KPI) 
+Bobot Target Realisasi Skor 
+Skor 
+Akhir  
+dari 240 hari 
+kerja) 
+6 
+Disiplin 
+kehadiran 
+(ketepatan 
+waktu) 
+7.5 
+Keterlambatan 
+maksimal 15% 
+per tahun (36 hari 
+dari 240 hari 
+kerja) 
+   
+JUMLAH = 100  
+JUMLAH 
+NILAI = 
+ 
+ 
+6. SUPERVISOR (SPV) SIPIL 
+No. 
+Key Performance 
+Indicator (KPI) 
+Bobot Target Realisasi Skor 
+Skor 
+Akhir  
+1 
+Memeriksa laporan 
+shift (log book) 
+tiap hari kerja 
+15 
+Log book terisi 
+lengkap 100% 
+tiap shift 
+   
+2 
+Mencatat dan 
+mendata sipil 
+equipment 
+15 
+Data peralatan 
+tercatat akurat 
+sesuai kondisi 
+lapangan 
+   
+
+[[PAGE 90]]
+74 
+ 
+No. 
+Key Performance 
+Indicator (KPI) 
+Bobot Target Realisasi Skor 
+Skor 
+Akhir  
+3 
+Mengomunikasikan 
+masalah lapangan 
+kepada atasan 
+15 
+Masalah 
+lapangan 
+dilaporkan 
+kurang dari 
+1x24 jam 
+   
+4 
+Memelihara dan 
+mengoperasikan 
+peralatan/bangunan 
+sipil 
+20 
+Tidak ada 
+komplain 
+terhadap hasil 
+pekerjaan sipil 
+   
+5 
+Memeriksa dan 
+memastikan 
+pekerjaan selesai 
+dengan baik 
+20 
+Pekerjaan 
+selesai sesuai 
+standar mutu 
+yang ditetapkan 
+   
+6 Tingkat kehadiran 7.5 
+Kehadiran 
+minimal 90% 
+per tahun (216 
+hari dari 240 
+hari kerja) 
+   
+7 
+Disiplin kehadiran 
+(ketepatan waktu) 
+7.5 
+Keterlambatan 
+maksimal 15% 
+per tahun (36 
+hari dari 240 
+hari kerja) 
+   
+
+[[PAGE 91]]
+75 
+ 
+No. 
+Key Performance 
+Indicator (KPI) 
+Bobot Target Realisasi Skor 
+Skor 
+Akhir  
+JUMLAH = 100  
+JUMLAH 
+NILAI = 
+ 
+ 
+7. SUPERVISOR (SPV) MECHANICAL 
+No. 
+Key 
+Performance 
+Indicator (KPI) 
+Bobot Target Realisasi Skor 
+Skor 
+Akhir  
+1 
+Memelihara dan 
+mengoperasikan 
+mesin/peralatan 
+mechanical 
+20 
+Downtime mesin 
+akibat kelalaian 
+perawatan 
+minimal 
+   
+2 
+Mematuhi SOP 
+dan 
+keselamatan 
+kerja mekanikal 
+25 
+Tidak ada insiden 
+terkait alat 
+mekanikal 
+   
+3 
+Menyelesaikan 
+pekerjaan 
+mekanikal 
+sesuai 
+spesifikasi dan 
+jadwal 
+25 
+Pekerjaan sesuai 
+spesifikasi teknis 
+& tepat waktu 
+   
+4 Berkoordinasi 
+dengan tim dan 
+15 Masalah lapangan 
+direspons cepat 
+   
+
+[[PAGE 92]]
+76 
+ 
+No. 
+Key 
+Performance 
+Indicator (KPI) 
+Bobot Target Realisasi Skor 
+Skor 
+Akhir  
+melaporkan 
+masalah 
+lapangan 
+dan 
+terdokumentasi 
+5 
+Tingkat 
+kehadiran 
+7.5 
+Kehadiran 
+minimal 90% per 
+tahun (216 hari 
+dari 240 hari 
+kerja) 
+   
+6 
+Disiplin 
+kehadiran 
+(ketepatan 
+waktu) 
+7.5 
+Keterlambatan 
+maksimal 15% 
+per tahun (36 hari 
+dari 240 hari 
+kerja) 
+   
+JUMLAH = 100  
+JUMLAH 
+NILAI = 
+ 
+ 
+8. SUPERVISOR (SPV) ELECTRICAL 
+No. 
+Key Performance 
+Indicator (KPI) 
+Bobot Target Realisasi Skor 
+Skor 
+Akhir  
+1 
+Mengoordinasi 
+perbaikan dan 
+perawatan mesin 
+produksi elektrikal 
+20 
+Mesin 
+produksi 
+berjalan 
+normal, 
+   
+
+[[PAGE 93]]
+77 
+ 
+gangguan 
+minim 
+2 
+Menginformasikan 
+trouble/masalah 
+elektrikal ke 
+atasan 
+10 
+Masalah 
+elektrikal 
+dilaporkan ke 
+atasan kurang 
+dari 1 hari 
+   
+3 
+Menjaga 
+kepatuhan tim 
+terhadap aturan 
+dasar & teknis 
+elektrikal 
+15 
+Tidak ada 
+pelanggaran 
+SOP 
+kelistrikan oleh 
+tim 
+   
+4 
+Menjaga 
+performance 
+mesin dan kerja 
+tim di lapangan 
+20 
+Target 
+performance 
+mesin produksi 
+tercapai 
+   
+5 
+Membina 
+bawahan 
+(foreman, leader, 
+operator) 
+20 
+Tidak ada 
+kesalahan kerja 
+berulang dari 
+bawahan 
+   
+6 Tingkat kehadiran 7.5 
+Kehadiran 
+minimal 90% 
+per tahun (216 
+hari dari 240 
+hari kerja) 
+   
+7 
+Disiplin kehadiran 
+(ketepatan waktu) 
+7.5 
+Keterlambatan 
+maksimal 15% 
+per tahun (36 
+   
+
+[[PAGE 94]]
+78 
+ 
+hari dari 240 
+hari kerja) 
+JUMLAH = 100  
+JUMLAH 
+NILAI = 
+ 
+ 
+9. SUPERVISOR (SPV) PIPING 
+No. 
+Key 
+Performance 
+Indicator 
+(KPI) 
+Bobot Target Realisasi Skor 
+Skor 
+Akhir  
+1 
+Meninjau 
+dan 
+menugaskan 
+pekerjaan 
+piping 
+15 
+Penugasan sesuai 
+kebutuhan 
+proyek, tanpa 
+keterlambatan 
+   
+2 
+Melakukan 
+kontrol dan 
+evaluasi 
+pekerjaan 
+piping 
+15 
+Deviasi hasil 
+kerja dari 
+rencana minimal 
+   
+3 
+Membuat 
+laporan 
+pekerjaan 
+tepat waktu 
+dan akurat 
+15 
+Laporan tepat 
+waktu 100%, 
+tanpa revisi 
+   
+4 Memberikan 
+arahan 
+20 Bawahan 
+memahami dan 
+   
+
+[[PAGE 95]]
+79 
+ 
+kepada 
+bawahan 
+menjalankan 
+tugas sesuai 
+standar 
+5 
+Memberikan 
+bimbingan, 
+bantuan, dan 
+umpan balik 
+konstruktif 
+ke tim 
+20 
+Bimbingan & 
+umpan balik 
+diberikan rutin 
+dan 
+terdokumentasi 
+   
+6 
+Tingkat 
+kehadiran 
+7.5 
+Kehadiran 
+minimal 90% per 
+tahun (216 hari 
+dari 240 hari 
+kerja) 
+   
+7 
+Disiplin 
+kehadiran 
+(ketepatan 
+waktu) 
+7.5 
+Keterlambatan 
+maksimal 15% 
+per tahun (36 
+hari dari 240 hari 
+kerja) 
+   
+JUMLAH = 100  
+JUMLAH 
+NILAI = 
+ 
+ 
+10. SUPERVISOR (SPV) KONSTRUKSI 
+No. 
+Key 
+Performance 
+Indicator 
+(KPI) 
+Bobot Target Realisasi Skor 
+Skor 
+Akhir  
+
+[[PAGE 96]]
+80 
+ 
+1 
+Memastikan 
+pelaksanaan 
+tugas 
+lapangan 
+sesuai biaya, 
+mutu, waktu 
+(BMW) 
+25 
+Proyek selesai 
+sesuai budget, 
+mutu, dan 
+jadwal yang 
+ditetapkan 
+   
+2 
+Membuat 
+program 
+kerja 
+mingguan 
+untuk staf di 
+bawahnya 
+10 
+Program kerja 
+mingguan 
+tersedia secara 
+rutin 
+   
+3 
+Memahami 
+dan 
+menerapkan 
+desain 
+konstruksi 
+secara 
+teknis 
+10 
+Tidak ada 
+kesalahan 
+penerapan 
+desain di 
+lapangan 
+   
+4 
+Menyusun 
+metode 
+pelaksanaan 
+sesuai 
+kondisi 
+lapangan 
+25 
+Metode kerja 
+disetujui 
+engineering 
+tanpa revisi 
+besar 
+   
+5 
+Melakukan 
+evaluasi dan 
+pelaporan 
+15 
+Laporan 
+progres 
+disampaikan 
+   
+
+[[PAGE 97]]
+81 
+ 
+progres ke 
+atasan 
+rutin dan 
+akurat 
+6 
+Tingkat 
+kehadiran 
+7.5 
+Kehadiran 
+minimal 90% 
+per tahun (216 
+hari dari 240 
+hari kerja) 
+   
+7 
+Disiplin 
+kehadiran 
+(ketepatan 
+waktu) 
+7.5 
+Keterlambatan 
+maksimal 15% 
+per tahun (36 
+hari dari 240 
+hari kerja) 
+   
+JUMLAH = 100  
+JUMLAH 
+NILAI = 
+ 
+ 
+3.3.4. Perhitungan Metode SMART 
+1. Divisi: HSE (Health, Safety, Environment) 
+ Contoh Form KPI (Lampiran) Terisi untuk Pegawai A 
+No. KPI Bobot Target Realisasi Skor Skor 
+Akhir 
+1 
+Mencegah dan 
+mengendalikan 
+bahaya 
+kimia/biohazard 
+15 
+Tidak ada 
+laporan 
+paparan bahan 
+berbahaya 
+Tidak ada 
+laporan paparan 
+selama periode 
+berjalan 
+5 0,1500 
+2 
+Mencegah dan 
+mengendalikan 
+gas, asap, dan 
+kotoran 
+15 
+Sesuai 
+ambang batas 
+standar HSE 
+yang berlaku 
+Hasil 
+pengukuran 
+sesuai ambang 
+batas, ada 
+deviasi minor 
+4 0,1125 
+
+[[PAGE 98]]
+82 
+ 
+No. KPI Bobot Target Realisasi Skor Skor 
+Akhir 
+3 
+Memelihara 
+kebersihan, 
+kesehatan, dan 
+ketertiban area 
+kerja 
+15 
+Hasil inspeksi 
+K3 memenuhi 
+standar 
+minimal 
+Hasil inspeksi 
+K3 100% 
+memenuhi 
+standar 
+5 0,1500 
+4 
+Mencegah 
+hilangnya 
+pendapatan 
+akibat insiden 
+kerja 
+20 
+Tidak ada 
+kerugian 
+akibat 
+kelalaian K3 
+(zero loss) 
+Zero loss 
+tercapai 
+sepanjang 
+periode 
+5 0,2000 
+5 
+Memberikan 
+pertolongan 
+kecelakaan 
+kerja 
+20 
+Respons 
+pertolongan 
+pertama < 5 
+menit sejak 
+insiden 
+Rata-rata waktu 
+respons 3 menit 
+4 0,1500 
+6 
+Tingkat 
+kehadiran 
+7.5 
+Kehadiran 
+minimal 90% 
+per tahun 
+(216/240 hari) 
+Kehadiran 95% 
+(228/240 hari) 
+5 0,0750 
+7 
+Disiplin 
+kehadiran 
+(ketepatan 
+waktu) 
+7.5 
+Keterlambatan 
+maksimal 
+15% per tahun 
+(36/240 hari) 
+Keterlambatan 
+10% (24/240 
+hari) 
+4 0,0563 
+JUMLAH NILAI = 0,8938  Kategori: Sangat Baik 
+ 
+
+[[PAGE 99]]
+83 
+ 
+2. Perhitungan Lengkap 3 Alternatif Pegawai 
+Tabel Alternatif Pegawai 
+No Nama Pegawai K1 K2 K3 K4 K5 K6 K7 
+1 Pegawai A 5 4 5 5 4 5 4 
+2 Pegawai B 4 4 3 4 4 4 4 
+3 Pegawai C 2 3 2 2 3 3 2 
+Bobot: 
+w1 = 0,15  ·  w2 = 0,15  ·  w3 = 0,15  ·  w4 = 0,20  ·  w5 = 0,20  ·  w6 = 0,075  ·  
+w7 = 0,075   (Σ = 1,00) 
+Nilai Utility  u = (Skor − 1) / 4: 
+Pegawai A: 1,00 / 0,75 / 1,00 / 1,00 / 0,75 / 1,00 / 0,75 
+Pegawai B: 0,75 / 0,75 / 0,50 / 0,75 / 0,75 / 0,75 / 0,75 
+Pegawai C: 0,25 / 0,50 / 0,25 / 0,25 / 0,50 / 0,50 / 0,25 
+Skor Akhir: 
+Total A = 
+(0,15×1,00)+(0,15×0,75)+(0,15×1,00)+(0,20×1,00)+(0,20×0,75)+(0,075×1,00)
++(0,075×0,75) 
+Total A = 0,1500+0,1125+0,1500+0,2000+0,1500+0,0750+0,0563 = 0,8938 
+ 
+Total B = 
+(0,15×0,75)+(0,15×0,75)+(0,15×0,50)+(0,20×0,75)+(0,20×0,75)+(0,075×0,75)
++(0,075×0,75) 
+Total B = 0,1125+0,1125+0,0750+0,1500+0,1500+0,0563+0,0563 = 0,7125 
+ 
+Total C = 
+(0,15×0,25)+(0,15×0,50)+(0,15×0,25)+(0,20×0,25)+(0,20×0,50)+(0,075×0,50)
++(0,075×0,25) 
+Total C = 0,0375+0,0750+0,0375+0,0500+0,1000+0,0375+0,0188 = 0,3563 
+Perangkingan : 
+Peringkat Pegawai Skor Kategori 
+1 Pegawai A 0,8938 Sangat Baik 
+2 Pegawai B 0,7125 Baik 
+3 Pegawai C 0,3563 Kurang 
+  
+ 
+ 
+ 
+ 
+
+[[PAGE 100]]
+84 
+ 
+2. Divisi: Logistik / Gudang 
+ Form KPI Terisi untuk Pegawai A 
+No. KPI Bobot Target Realisasi Skor Skor 
+Akhir 
+1 
+Mengawasi dan 
+mengelola 
+operasional 
+gudang 
+15 
+Tidak ada 
+temuan 
+penyimpangan 
+saat audit 
+gudang 
+Audit gudang 
+tanpa temuan 
+penyimpangan 
+5 0,1500 
+2 
+Mengawasi 
+keluar-masuk 
+tool gudang 
+sesuai SOP 
+15 
+100% 
+transaksi 
+tercatat sesuai 
+SOP 
+98% transaksi 
+tercatat sesuai 
+SOP 
+4 0,1125 
+3 
+Mengonfirmasi 
+jumlah dan 
+kondisi barang 
+sesuai SOP 
+15 
+Selisih stok 
+fisik vs sistem 
+di bawah 
+standar 
+toleransi 
+Selisih stok 
+1,5%, masih 
+dalam 
+toleransi 
+4 0,1125 
+4 
+Merencanakan 
+pengadaan 
+logistik dan 
+distribusi barang 
+40 
+Barang 
+tersedia sesuai 
+kebutuhan, 
+tanpa 
+keterlambatan 
+pengadaan 
+Seluruh 
+kebutuhan 
+barang 
+terpenuhi 
+tepat waktu 
+5 0,4000 
+5 Tingkat 
+kehadiran 7.5 
+Kehadiran 
+minimal 90% 
+per tahun 
+(216/240 hari) 
+Kehadiran 
+97% (233/240 
+hari) 
+5 0,0750 
+6 
+Disiplin 
+kehadiran 
+(ketepatan 
+waktu) 
+7.5 
+Keterlambatan 
+maksimal 
+15% per tahun 
+(36/240 hari) 
+Keterlambatan 
+12% (29/240 
+hari) 
+4 0,0563 
+JUMLAH NILAI = 0,9063   Kategori: Sangat Baik 
+2. Perhitungan Lengkap 3 Alternatif Pegawai 
+3.3.5. Tabel Alternatif Pegawai 
+
+[[PAGE 101]]
+85 
+ 
+No Nama Pegawai K1 K2 K3 K4 K5 K6 
+1 Pegawai A 5 4 4 5 5 4 
+2 Pegawai B 4 4 3 4 4 4 
+3 Pegawai C 2 1 2 2 3 2 
+Bobot: 
+w1 = 0,15  ·  w2 = 0,15  ·  w3 = 0,15  ·  w4 = 0,40  ·  w5 = 0,075  ·  w6 = 0,075   
+(Σ = 1,00) 
+Nilai Utility  u = (Skor − 1) / 4: 
+Pegawai A: 1,00 / 0,75 / 0,75 / 1,00 / 1,00 / 0,75 
+Pegawai B: 0,75 / 0,75 / 0,50 / 0,75 / 0,75 / 0,75 
+Pegawai C: 0,25 / 0,00 / 0,25 / 0,25 / 0,50 / 0,25 
+Skor Akhir: 
+Total A = 
+(0,15×1,00)+(0,15×0,75)+(0,15×0,75)+(0,40×1,00)+(0,075×1,00)+(0,075×0,75) 
+Total A = 0,1500+0,1125+0,1125+0,4000+0,0750+0,0563 = 0,9063 
+ 
+Total B = 
+(0,15×0,75)+(0,15×0,75)+(0,15×0,50)+(0,40×0,75)+(0,075×0,75)+(0,075×0,75) 
+Total B = 0,1125+0,1125+0,0750+0,3000+0,0563+0,0563 = 0,7125 
+ 
+Total C = 
+(0,15×0,25)+(0,15×0,00)+(0,15×0,25)+(0,40×0,25)+(0,075×0,50)+(0,075×0,25) 
+Total C = 0,0375+0,0000+0,0375+0,1000+0,0375+0,0188 = 0,2313 
+ 
+Perangkingan 
+Peringkat Pegawai Skor Kategori 
+1 Pegawai A 0,9063 Sangat Baik 
+2 Pegawai B 0,7125 Baik 
+3 Pegawai C 0,2313 Kurang 
+ 
+
+[[PAGE 102]]
+86 
+ 
+6. Divisi: SPV Piping 
+Contoh Form KPI (Lampiran) — Terisi untuk Pegawai A 
+No. KPI Bobot Target Realisasi Skor 
+Skor 
+Akhir 
+1 
+Meninjau dan 
+menugaskan 
+pekerjaan piping 
+15 
+Penugasan 
+sesuai kebutuhan 
+proyek, tanpa 
+keterlambatan 
+Penugasan 
+sesuai 
+kebutuhan, ada 
+revisi minor 
+jadwal 
+4 0,1125 
+2 
+Melakukan 
+kontrol dan 
+evaluasi pekerjaan 
+piping 
+15 
+Deviasi hasil 
+kerja dari 
+rencana minimal 
+Deviasi hasil 
+kerja sangat 
+minim (<2%) 
+5 0,1500 
+3 
+Membuat laporan 
+pekerjaan tepat 
+waktu dan akurat 
+15 
+Laporan tepat 
+waktu 100%, 
+tanpa revisi 
+Laporan tepat 
+waktu, 1x revisi 
+kecil 
+4 0,1125 
+4 
+Memberikan 
+arahan kepada 
+bawahan 
+20 
+Bawahan 
+memahami dan 
+menjalankan 
+tugas sesuai 
+standar 
+Seluruh 
+bawahan 
+menjalankan 
+tugas sesuai 
+standar 
+5 0,2000 
+5 
+Memberikan 
+bimbingan, 
+bantuan, dan 
+umpan balik 
+konstruktif ke tim 
+20 
+Bimbingan & 
+umpan balik 
+diberikan rutin 
+dan 
+terdokumentasi 
+Bimbingan rutin 
+diberikan, 
+dokumentasi 
+belum lengkap 
+seluruhnya 
+4 0,1500 
+6 Tingkat kehadiran 7.5 
+Kehadiran 
+minimal 90% 
+Kehadiran 96% 
+(230/240 hari) 
+5 0,0750 
+
+[[PAGE 103]]
+87 
+ 
+No. KPI Bobot Target Realisasi Skor 
+Skor 
+Akhir 
+per tahun 
+(216/240 hari) 
+7 
+Disiplin kehadiran 
+(ketepatan waktu) 
+7.5 
+Keterlambatan 
+maksimal 15% 
+per tahun 
+(36/240 hari) 
+Keterlambatan 
+13% (31/240 
+hari) 
+4 0,0563 
+JUMLAH NILAI = 0,8563  Kategori: Sangat Baik 
+2. Perhitungan Lengkap 3 Alternatif Pegawai 
+Tabel Alternatif Pegawai 
+No Nama Pegawai K1 K2 K3 K4 K5 K6 K7 
+1 Pegawai A 4 5 4 5 4 5 4 
+2 Pegawai B 4 3 4 4 4 4 3 
+3 Pegawai C 2 2 3 2 3 3 2 
+Bobot: 
+w1 = 0,15  ·  w2 = 0,15  ·  w3 = 0,15  ·  w4 = 0,20  ·  w5 = 0,20  ·  w6 = 0,075  ·  
+w7 = 0,075   (Σ = 1,00) 
+Nilai Utility  u = (Skor − 1) / 4: 
+Pegawai A: 0,75 / 1,00 / 0,75 / 1,00 / 0,75 / 1,00 / 0,75 
+Pegawai B: 0,75 / 0,50 / 0,75 / 0,75 / 0,75 / 0,75 / 0,50 
+Pegawai C: 0,25 / 0,25 / 0,50 / 0,25 / 0,50 / 0,50 / 0,25 
+Skor Akhir: 
+Total A = 
+(0,15×0,75)+(0,15×1,00)+(0,15×0,75)+(0,20×1,00)+(0,20×0,75)+(0,075×1,00)+(
+0,075×0,75) 
+Total A = 0,1125+0,1500+0,1125+0,2000+0,1500+0,0750+0,0563 = 0,8563 
+ 
+
+[[PAGE 104]]
+88 
+ 
+Total B = 
+(0,15×0,75)+(0,15×0,50)+(0,15×0,75)+(0,20×0,75)+(0,20×0,75)+(0,075×0,75)+(
+0,075×0,50) 
+Total B = 0,1125+0,0750+0,1125+0,1500+0,1500+0,0563+0,0375 = 0,6938 
+ 
+Total C = 
+(0,15×0,25)+(0,15×0,25)+(0,15×0,50)+(0,20×0,25)+(0,20×0,50)+(0,075×0,50)+(
+0,075×0,25) 
+Total C = 0,0375+0,0375+0,0750+0,0500+0,1000+0,0375+0,0188 = 0,3563 
+Perangkingan 
+Peringkat Pegawai Skor Kategori 
+1 Pegawai A 0,8563 Sangat Baik 
+2 Pegawai B 0,6938 Baik 
+3 Pegawai C 0,3563 Kurang 
+ 
+3.3.1. Rekomendasi Keputusan Berdasarkan Skor SMART 
+Setelah skor akhir SMART diperoleh, sistem secara otomatis menghasilkan 
+kategori kinerja dan rekomendasi keputusan untuk setiap pegawai. Rekomendasi 
+ini digunakan oleh pimpinan sebagai dasar pengambilan keputusan terkait 
+pemberian bonus, promosi jabatan, p enentuan pegawai terbaik, dan pemanggilan 
+kembali pegawai kontrak pada proyek selanjutnya. Berikut adalah tabel kategori 
+dan rekomendasi berdasarkan rentang skor SMART:  
+Tabel 3. 7 Rekomendasi Keputusan 
+No Rentang Skor 
+Kategori 
+Kinerja 
+Rekomendasi Keputusan 
+1 > 0.80 Sangat Baik Pegawai terbaik, kandidat 
+pemberian bonus, kandidat 
+promosi jabatan, diprioritaskan 
+
+[[PAGE 105]]
+89 
+ 
+No Rentang Skor 
+Kategori 
+Kinerja 
+Rekomendasi Keputusan 
+dipanggil kembali jika pegawai 
+kontrak. 
+2 0.60 - 0.80 Baik Kandidat pemberian bonus, 
+dipertahankan, dapat dipanggil 
+kembali jika pegawai kontrak. 
+3 0.40 - 0.59 Cukup Perlu pembinaan dan 
+peningkatan kinerja, 
+dipertimbangkan untuk 
+dipanggil kembali jika pegawai 
+kontrak. 
+4 < 0.40 Kurang Perlu evaluasi lanjutan, tidak 
+direkomendasikan dipanggil 
+kembali jika pegawai kontrak. 
+ 
+Rekomendasi yang dihasilkan sistem bersifat sebagai bahan pertimbangan 
+objektif bagi pimpinan. Keputusan akhir tetap berada di tangan pimpinan PT. Alika 
+Jaya Perkasa. 
+3.4. Perancangan Sistem (UML) 
+Perancangan sistem dilakukan berdasarkan hasil analisis kebutuhan yang 
+telah diuraikan pada subbab sebelumnya. Perancangan mencakup Use Case 
+Diagram, Activity Diagram, Entity Relationship Diagram (ERD), struktur basis 
+data, dan perancangan antarmuka pengguna 
+
+[[PAGE 106]]
+90 
+ 
+3.4.1. Use Case Diagram 
+ 
+Gambar 3. 2 Use Case Diagram 
+ 
+Keterangan :  
+Use case diagram Sistem Informasi Kepegawaian dengan Metode 
+SMART untuk Penilaian Kinerja Pegawai menggambarkan interaksi antara tiga 
+aktor, yaitu Admin/HRD, Manajer, dan Pimpinan, dengan sistem. Ketiga aktor 
+tersebut harus melakukan proses login terlebih dahulu untuk memverifikasi 
+identitas sebelum dapat mengakses fungsi -fungsi sistem sesuai dengan hak 
+aksesnya masing-masing. Admin/HRD memiliki hak akses untuk mengelola data 
+pegawai, mengelola data kehadiran yang digunakan sebagai salah satu kriteria 
+penilaian, mengelola data pengguna sistem, serta men cetak laporan penilaian 
+kinerja pegawai. Manajer memiliki hak akses untuk melakukan input penilaian 
+kinerja pegawai berdasarkan enam kriteria SMART yang telah ditentukan, yaitu 
+
+
+[[PAGE 107]]
+91 
+ 
+Jumlah Pekerjaan, Kualitas Pekerjaan, Ketepatan Waktu, Kehadiran, dan 
+Kemampuan Kerjasama, serta dapat melihat riwayat penilaian yang pernah 
+dilakukan sebelumnya. Setelah proses penilaian dilakukan oleh Manajer, sistem 
+akan mengolah data tersebut menggunak an perhitungan metode SMART untuk 
+menghasilkan perangkingan pegawai, yang hasilnya dapat dilihat oleh 
+Admin/HRD maupun Pimpinan melalui use case Lihat Hasil Perangkingan 
+Pegawai sebagai dasar pengambilan keputusan terkait kinerja pegawai. 
+3.4.2.  Activity Diagram 
+1) Login 
+ 
+Gambar 3.3 Activity Diagram Login 
+
+
+[[PAGE 108]]
+92 
+ 
+ 
+Keterangan :  
+Proses diawali ketika pengguna (Admin/HRD, Manajer, atau Pimpinan) 
+membuka sistem, kemudian sistem menampilkan halaman login. Selanjutnya 
+pengguna memasukkan username dan password, lalu menekan tombol Login. 
+Sistem akan melakukan validasi terhadap data yang dimasukkan. Apabila data 
+login valid, sistem mengarahkan pengguna ke halaman dashboard sesuai 
+dengan hak aksesnya. Sebaliknya, apabila data tidak valid, sistem akan 
+menampilkan pesan kesalahan sehingga pen gguna dapat mengulangi proses 
+login. 
+  
+2) Activity Diagram Kelola Data Pegawai 
+ 
+Gambar 3. 4 Activity Diagram Data Pegawai 
+
+[[PAGE 109]]
+93 
+ 
+ 
+ 
+ 
+Keterangan:  
+Activity diagram Kelola Data Pegawai menggambarkan alur proses 
+pengelolaan data pegawai yang dilakukan oleh Admin/HRD. Proses dimulai 
+saat Admin/HRD memilih menu Data Pegawai, kemudian sistem menampilkan 
+data pegawai yang tersimpan. Selanjutnya Admin/HRD m emilih salah satu 
+aksi, yaitu tambah, edit, atau hapus data. Untuk aksi tambah dan edit, sistem 
+menampilkan form input yang harus diisi atau diubah oleh Admin/HRD, 
+kemudian sistem melakukan validasi data; jika data tidak valid maka sistem 
+menampilkan pesan  error, dan jika valid maka sistem menyimpan data ke 
+database. Untuk aksi hapus, Admin/HRD memilih data yang akan dihapus dan 
+mengonfirmasi penghapusan, kemudian sistem menghapus data dari database. 
+Proses berakhir setelah sistem menampilkan pesan berhasil  dan menampilkan 
+kembali data pegawai yang telah diperbarui. 
+
+[[PAGE 110]]
+94 
+ 
+3) Activity Diagram Kelola Data Kehadiran 
+ 
+Gambar 3. 5 Kelola Data Kehadiran 
+ 
+Keterangan:  :  
+ Activity diagram Kelola Data Kehadiran menggambarkan alur proses 
+pengelolaan data kehadiran pegawai yang dilakukan oleh Admin/HRD. Proses 
+dimulai saat Admin/HRD memilih menu Data Kehadiran, kemudian sistem 
+menampilkan data kehadiran yang tersimpan. Selanjutnya Admin/HRD memilih 
+salah satu aksi, yaitu tambah, edit, atau hapus data kehadiran. 
+
+
+[[PAGE 111]]
+95 
+ 
+Untuk aksi tambah, Admin/HRD memilih pegawai dan menginput jumlah 
+kehadiran melalui form yang ditampilkan sistem, kemudian menekan tombol 
+simpan. Sistem selanjutnya melakukan validasi data; jika data tidak valid maka 
+sistem menampilkan pesan error, dan jika valid maka data disimpan ke database. 
+Untuk aksi edit, Admin/HRD memilih data kehadiran yang akan diubah, 
+kemudian sistem menampilkan form edit. Admin/HRD mengubah data dan 
+menekan tombol simpan, lalu sistem melakukan validasi dan menyimpan 
+perubahan tersebut, kemudian menampilkan pesan berhas il beserta data yang 
+telah diperbarui. Untuk aksi hapus, Admin/HRD memilih data kehadiran yang 
+akan dihapus, kemudian sistem menampilkan konfirmasi penghapusan. Setelah 
+Admin/HRD menekan tombol Ya, sistem menghapus data kehadiran dari 
+database. Proses berakhir setelah sistem menampilkan pesan berhasil dan 
+menampilkan kembali data kehadiran yang telah diperbarui. 
+1) Activity Diagram Cetak laporan Penilaian 
+Keterangan : 
+Activity diagram Cetak laporan Penilaian menggambarkan alur proses 
+pembuatan dan pencetakan laporan penilaian kinerja pegawai yang dilakukan 
+oleh Admin/HRD. Proses dimulai saat Admin/HRD memilih menu Laporan 
+Penilaian, kemudian sistem menampilkan halaman laporan.  
+Gambar 3. 7 Laporan Penilaian 
+Gambar 3. 6 Cetak Laporan 
+
+[[PAGE 112]]
+96 
+ 
+Selanjutnya Admin/HRD memilih jenis laporan yang diinginkan, yaitu 
+laporan Individu atau laporan Rekap. Apabila Admin/HRD memilih jenis laporan 
+Individu, maka Admin/HRD memilih pegawai yang bersangkutan, kemudian 
+sistem mengambil data penilaian pegawai tersebut dan melakukan generate 
+laporan individu. Apabila Admin/HRD memilih jenis laporan Rekap, maka 
+Admin/HRD memilih periode penilaian, kemudian sistem mengambil data 
+penilaian sesuai periode tersebut dan melakukan generate laporan rekap. Setelah 
+laporan berhasil dibuat, baik laporan individu maupun rekap, sistem 
+menampilkan preview laporan kepada Admin/HRD. 
+Selanjutnya Admin/HRD menekan tombol Cetak/Download, kemudian 
+sistem mengirimkan file laporan dalam bentuk PDF. Proses berakhir setelah file 
+laporan berhasil diunduh oleh Admin/HRD. 
+4) Activity Diagram Kelola Pengguna 
+Gambar 3. 8 Kelola Pengguna 
+Keterangan :  
+Activity diagram Kelola Pengguna menggambarkan alur proses pengelolaan 
+akun pengguna sistem yang dilakukan oleh Admin/HRD, meliputi kegiatan 
+
+
+[[PAGE 113]]
+97 
+ 
+tambah, edit, dan hapus data pengguna. Proses dimulai saat Admin/HRD 
+memilih menu Kelola Pengguna, kemudian sistem menampilkan daftar 
+pengguna yang tersimpan. Selanjutnya Admin/HRD memilih salah satu aksi, 
+yaitu tambah, edit, atau hapus data pengguna. Untuk aksi tambah, Admin/HRD 
+mengisi data pengguna baru, kemudian sistem melakukan validasi data; jika data 
+tidak valid maka sistem menampilkan pesan kesalahan, dan jika valid maka 
+sistem menyimpan data pengguna tersebut.  Untuk aksi edit, Admin/HRD 
+memilih data pengguna yang akan diubah, kemudian sistem menampilkan form 
+edit. Admin/HRD mengubah data pengguna, lalu sistem melakukan validasi dan 
+menyimpan perubahan data tersebut.  Untuk aksi hapus, Admin/HRD memilih 
+data pengguna yang akan dihapus, kemudian sistem menampilkan konfirmasi 
+penghapusan. Setelah Admin/HRD menekan tombol Ya, sistem menghapus data 
+pengguna dari database. Proses berakhir setelah sistem menampilkan pesan 
+berhasil dan menampilkan kembali daftar pengguna yang telah diperbarui. 
+
+[[PAGE 114]]
+98 
+ 
+5) Kelola Kriteria dan Sub Kriteria 
+ 
+Gambar 3. 9 Sub Kriteria 
+ 
+Keterangan : 
+Proses diawali dengan memilih menu Kriteria dan Subkriteria, kemudian sistem 
+menampilkan daftar data yang tersedia. Selanjutnya Admin/HRD dapat memilih 
+aksi berupa tambah, ubah, atau hapus data. Untuk proses tambah dan ubah, 
+sistem akan menampilkan formuli r yang harus diisi atau diperbarui oleh 
+pengguna. Setelah data disimpan, sistem melakukan validasi. Jika data valid, 
+sistem menyimpan data ke dalam basis data dan menampilkan pesan bahwa 
+proses berhasil. Namun, apabila data tidak valid, sistem akan menampi lkan 
+pesan kesalahan sehingga pengguna dapat memperbaiki data yang diinput. 
+Sementara itu, pada proses hapus, sistem akan menampilkan konfirmasi 
+penghapusan. Apabila pengguna menyetujui, sistem akan menghapus data dari 
+basis data dan menampilkan pesan berh asil, sedangkan jika dibatalkan, sistem 
+akan kembali menampilkan daftar data kriteria dan subkriteria. 
+
+
+[[PAGE 115]]
+99 
+ 
+6) KelolaBobot 
+ 
+Gambar 3. 10 Kelola Bobot 
+ 
+Keterangan :  
+Activity Diagram Kelola Bobot menggambarkan alur pengelolaan bobot kriteria 
+yang dilakukan oleh Admin/HRD. Proses diawali dengan memilih menu Bobot, 
+kemudian sistem menampilkan daftar bobot kriteria yang telah tersimpan. 
+Selanjutnya Admin/HRD dapat memilih aksi berupa tambah, ubah, atau hapus data 
+bobot. Pada proses tambah dan ubah, sistem akan menampilkan formulir untuk 
+pengisian atau perubahan data bobot berdasarkan kelompok kerja. Setelah tombol 
+Simpan dipilih, sistem melakukan validasi terhadap data yang diinput. Apabila data 
+valid, sistem menyimpan data ke dalam basis data dan menampilkan pesan bahwa 
+proses berhasil. Sebaliknya, jika data tidak valid, sistem akan menampilkan pesan 
+kesalahan sehingga pengguna dapat memperbaiki data yang diinput. Pada pro ses 
+hapus, sistem akan menampilkan konfirmasi penghapusan. Jika pengguna 
+
+
+[[PAGE 116]]
+100 
+ 
+menyetujui, sistem akan menghapus data bobot dari basis data dan menampilkan 
+pesan berhasil. Setelah seluruh proses selesai, sistem akan kembali menampilkan 
+daftar data bobot yang telah diperbarui. 
+ 
+7) Activity Diagram Kelola Periode  
+ 
+Gambar 3. 11 Kelola Periode 
+Keterangan :  
+Proses dimulai saat Admin/HRD memilih menu Periode, kemudian sistem 
+menampilkan data periode yang tersimpan. Selanjutnya Admin/HRD memilih 
+salah satu aksi, yaitu tambah, edit, atau hapus data. Untuk aksi tambah, sistem 
+menampilkan form input periode, kemud ian Admin/HRD mengisi data periode 
+dan menekan tombol Simpan. Untuk aksi edit, Admin/HRD memilih data 
+periode yang akan diubah sehingga sistem menampilkan form yang telah terisi 
+
+
+[[PAGE 117]]
+101 
+ 
+data sebelumnya, kemudian Admin/HRD mengubah data yang diperlukan dan 
+menekan tombol Simpan. Pada kedua aksi tersebut, sistem melakukan validasi 
+data; jika data tidak valid maka sistem menampilkan pesan error dan 
+Admin/HRD harus mengisi atau mengubah kembali data tersebut, dan jika data 
+valid maka sistem menyimpan data ke database. Untuk aksi hapus, Admin/HRD 
+memilih data periode yang akan dihapus dan menekan tombol Hapus, kemudian 
+sistem menampilkan konfirmasi penghapusan. Admin/HRD dapat memilih 
+Batal unt uk membatalkan aksi, atau memilih Ya untuk melanjutkan sehingga 
+sistem menghapus data periode dari database. Proses berakhir setelah sistem 
+menampilkan pesan berhasil dan menampilkan kembali data periode yang telah 
+diperbarui. 
+ 
+
+[[PAGE 118]]
+102 
+ 
+10) Input Penilaian Kinerja 
+ 
+ 
+Gambar 3. 12 Input Penilaian Kinerja 
+ 
+Keterangan :  
+Activity diagram Input Penilaian Kinerja menggambarkan alur proses penginputan 
+penilaian kinerja pegawai yang dilakukan oleh Manajer. Proses dimulai saat 
+Manajer melakukan login ke sistem, kemudian sistem memverifikasi akun dan 
+menampilkan dashboard. Selan jutnya Manajer memilih menu Penilaian Kinerja, 
+kemudian sistem menampilkan daftar pegawai yang berada dalam divisinya.  
+
+
+[[PAGE 119]]
+103 
+ 
+Manajer selanjutnya memilih pegawai yang akan dinilai, kemudian sistem 
+menampilkan form penilaian. Manajer mengisi nilai untuk setiap kriteria penilaian 
+dan menekan tombol Simpan, kemudian sistem melakukan validasi terhadap data 
+yang diinput. Jika data tidak valid, sistem menampilkan pesan error dan Manajer 
+harus mengisi kembali nilai kriteria tersebut. Jika data valid, sistem menyimpan 
+data penilaian ke database dan menampilkan pesan bahwa penilaian berhasil 
+disimpan. Proses berakhir setelah pesan keberhasilan tersebut ditampilkan. 
+ 
+11) Lihat Hasil Penilaian Pegawai 
+ 
+Keterangan: 
+ Proses dimulai saat Admin/HRD atau Pimpinan memilih menu Hasil Penilaian, 
+kemudian sistem menampilkan daftar periode penilaian yang tersedia. Selanjutnya 
+Admin/HRD atau Pimpinan memilih periode yang diinginkan, kemudian sistem 
+mengambil data hasil penilaia n berdasarkan periode tersebut. Sistem selanjutnya 
+memeriksa ketersediaan data. Jika data tidak tersedia, sistem menampilkan pesan 
+bahwa data belum tersedia, dan pengguna kembali diarahkan untuk memilih 
+periode lain. Jika data tersedia, sistem menampilkan data pegawai, divisi, kelompok 
+Gambar 3. 13 Hasil Perangkingan 
+
+[[PAGE 120]]
+104 
+ 
+kerja, nilai SMART, ranking, kategori, dan rekomendasi. Proses berakhir setelah 
+data hasil penilaian ditampilkan kepada pengguna. 
+ 
+ 
+12)  Cetak Laporan 
+Keterangan: 
+Proses dimulai saat Admin/HRD atau Pimpinan memilih menu Laporan Penilaian, 
+kemudian sistem menampilkan daftar periode yang tersedia. Selanjutnya Admin/HRD 
+atau Pimpinan memilih periode yang diinginkan, kemudian sistem mengambil seluruh 
+hasil penilaian ses uai periode tersebut dan menampilkan data laporan. Admin/HRD 
+atau Pimpinan kemudian menekan tombol Cetak, sehingga sistem membuat laporan 
+dalam format PDF dan menyediakannya untuk diunduh atau ditampilkan. Proses 
+berakhir setelah file PDF berhasil diunduh atau ditampilkan kepada pengguna.  
+ 
+ 
+Gambar 3. 14 Cetak Laporan 
+
+[[PAGE 121]]
+105 
+ 
+ 
+ 
+
+[[PAGE 122]]
+106 
+ 
+3.4.3. Sequence Diagram 
+1) Sequence Diagram Kelola Data Pegawai 
+ 
+ 
+Gambar 3. 15 Sequence Data Pegawai 
+
+[[PAGE 123]]
+107 
+ 
+Keterangan :  
+Proses dimulai saat Admin/HRD memilih menu Periode, kemudian sistem 
+menampilkan data periode yang tersimpan. Selanjutnya Admin/HRD memilih 
+salah satu aksi, yaitu tambah, edit, atau hapus data. Untuk aksi tambah, sistem 
+menampilkan form input periode, kemudian Admin/HRD mengisi data periode 
+(nama periode, tanggal mulai, dan tanggal selesai) dan menekan tombol 
+Simpan. Untuk aksi edit, Admin/HRD memilih data periode yang akan diubah 
+sehingga sistem  menampilkan form yang telah terisi data sebelumnya, 
+kemudian Admin/HRD mengubah data yang diperlukan dan menekan tombol 
+Simpan. Pada kedua aksi tersebut, sistem selanjutnya melakukan validasi data; 
+jika data tidak valid maka sistem menampilkan pesan error  dan Admin/HRD 
+harus mengisi atau mengubah kembali data tersebut, dan jika data valid maka 
+sistem menyimpan data ke database.  Untuk aksi hapus, Admin/HRD memilih 
+data periode yang akan dihapus dan menekan tombol Hapus, kemudian sistem 
+menampilkan konfirmasi penghapusan. Admin/HRD dapat memilih Batal 
+untuk membatalkan aksi, atau memilih Ya untuk melanjutkan sehingga sistem 
+menghapus data periode dari database.  Proses berakhir setelah sistem 
+menampilkan pesan berhasil dan menampilkan kembali data periode yang telah 
+diperbarui. 
+ 
+ 
+
+[[PAGE 124]]
+108 
+ 
+2) Sequence Diagram Data Kehadiran 
+Gambar 3. 16 Data Kehadiran 
+
+[[PAGE 125]]
+109 
+ 
+ 
+ 
+Keterangan :  
+Sequence diagram Kelola Data Kehadiran menggambarkan interaksi antara 
+Admin/HRD dengan objek Halaman Data Kehadiran, KehadiranController, dan 
+KehadiranModel dalam proses tambah, edit, dan hapus data kehadiran. 
+Admin/HRD memilih menu Data Kehadiran untuk me nampilkan daftar data, 
+kemudian dapat melakukan aksi Tambah (mengisi form dan menyimpan data 
+kehadiran baru), Edit (mengubah data kehadiran yang sudah ada), atau Hapus 
+(menghapus data setelah konfirmasi). Setiap aksi simpan/ubah/hapus melalui 
+KehadiranController yang memvalidasi data ke KehadiranModel: jika valid data 
+diproses dan sistem menampilkan pesan berhasil, jika tidak valid sistem 
+menampilkan pesan kesalahan. 
+ 
+3) Sequence Diagram Lihat Hasil Penilaian Pegawai 
+ 
+Gambar 3. 17 Sequence Diagram Lihat Hasil Perangkingan Pegawai 
+ 
+Keterangan :  
+Admin/HRD atau Pimpinan memilih menu Hasil Penilaian, kemudian Halaman 
+Hasil Penilaian memanggil fungsi index() pada HasilPenilaianController. 
+
+
+[[PAGE 126]]
+110 
+ 
+Controller selanjutnya memanggil getAllPeriode() pada PeriodeModel untuk 
+mengambil seluruh data periode yang tersedia, kemudian PeriodeModel 
+mengembalikan data tersebut melalui returnDataPeriode(). Controller lalu 
+memanggil showPeriode() sehingga Halaman Hasil Penilaian menampilkan daftar 
+periode kepada pengguna.  Selanjutnya, Admin/HRD atau Pimpinan memilih 
+periode yang diinginkan, kemudian Halaman Hasil Penilaian memanggil 
+filterByPeriode(id_periode) pada HasilPenilaianController. Controller 
+memanggil getResultByPeriode(id_periode) pada PenilaianModel untuk 
+mengambil data hasil penilaian sesuai periode yang dipilih, kemudian 
+PenilaianModel mengembalikan data tersebut melalui returnDataResult(). 
+Controller selanjutnya memanggil showData() untuk mengirim data ke Halaman 
+Hasil Penilaian.  Sistem kemudian memeriksa ketersediaan data. Jika data 
+ditemukan, Halaman Hasil Penilaian menampilkan hasil penilaian kepada 
+pengguna. Jika data tidak ditemukan, controller memanggil 
+showEmptyMessage() sehingga Halaman Hasil Penilaian menampilkan pesan 
+bahwa data tidak tersedia. 
+4) Sequence Diagram Cetak Laporan Penilaian 
+ 
+
+
+[[PAGE 127]]
+111 
+ 
+Gambar 3. 18 Sequence Diagram Cetak Laporan Penilaian 
+ 
+ 
+Gambar 3. 19 cetak Laporan Penilaian Manajer 
+Keterangan : 
+Sequence diagram ini menggambarkan interaksi antara Admin/HRD atau Pimpinan 
+dengan Halaman Laporan, LaporanController, PenilaianModel, dan PeriodeModel. 
+Pengguna memilih menu Laporan, kemudian sistem menampilkan daftar periode 
+melalui getAllPeriode(). Pengguna memilih periode tertentu untuk memfilter data 
+laporan melalui filterByPeriode(), lalu sistem mengambil data hasil penilaian sesuai 
+periode melalui getReportByPeriode() dan menampilkannya. Selanjutnya 
+pengguna menekan tombol Cetak, sehingga LaporanController kembali mengambil 
+data laporan, memanggil generatePDF() untuk membuat file laporan, dan sistem 
+mengembalikan file tersebut melalui downloadPDF(). 
+
+
+[[PAGE 128]]
+112 
+ 
+Sequence diagram ini menggambarkan interaksi antara Manajer dengan Halaman 
+Laporan Divisi, LaporanController, dan PenilaianModel. Manajer memilih menu 
+Laporan, kemudian sistem menampilkan data hasil penilaian divisinya melalui 
+getResultByDivisi(). Manajer dapat memilih periode tertentu untuk memfilter data 
+melalui filterByPeriode(), sehingga sistem mengambil data melalui 
+getResultByDivisiAndPeriode() dan menampilkannya. Selanjutnya Manajer 
+menekan tombol Cetak, sehingga LaporanController mengambil data lapo ran 
+melalui getReportByDivisi(), memanggil generatePDF(), dan sistem 
+mengembalikan file laporan melalui downloadPDF(). 
+ 
+
+[[PAGE 129]]
+113 
+ 
+5) Sequence Diagram Kelola Pengguna 
+Gambar 3. 20 Kelola Pengguna 
+
+
+[[PAGE 130]]
+114 
+ 
+Keterangan : 
+Sequence diagram Kelola Pengguna menggambarkan interaksi antara Admin/HRD 
+dengan objek Halaman Kelola Pengguna, PenggunaController, dan 
+PenggunaModel dalam proses tambah, edit, dan hapus data pengguna. Admin/HRD 
+memilih menu Pengguna untuk menampilkan daft ar data, kemudian dapat 
+melakukan aksi Tambah (mengisi form dan menyimpan data pengguna baru), Edit 
+(mengubah data pengguna yang sudah ada), atau Hapus (menghapus data setelah 
+konfirmasi). Setiap aksi simpan/ubah/hapus melalui PenggunaController yang 
+memvalidasi data ke PenggunaModel: jika valid data diproses dan sistem 
+menampilkan pesan berhasil, jika tidak valid sistem menampilkan pesan kesalahan. 
+ 
+6) Sequence Diagram Input Penilaian Kinerja  
+ 
+Gambar 3. 21 Sequence Input Penilaian Kinerja 
+
+
+[[PAGE 131]]
+115 
+ 
+Keterangan:  
+Proses diawali ketika Manajer memilih menu Penilaian Kinerja, kemudian sistem 
+melalui PenilaianController mengambil data periode penilaian yang sedang aktif, 
+data pegawai, data kriteria, dan data subkriteria dari masing-masing model. Setelah 
+seluruh data b erhasil diperoleh, sistem menampilkan formulir penilaian kepada 
+Manajer. Selanjutnya Manajer memilih pegawai yang akan dinilai, mengisi nilai 
+pada setiap kriteria berdasarkan subkriteria yang tersedia, kemudian menekan 
+tombol Simpan. Data penilaian yang di kirim akan divalidasi oleh 
+PenilaianController. Apabila data valid, sistem menyimpan data penilaian ke 
+PenilaianModel, kemudian menyimpan rincian nilai setiap kriteria ke 
+DetailPenilaianModel. Setelah seluruh data berhasil disimpan, sistem menampilkan 
+pesan bahwa proses input penilaian berhasil. Namun, apabila data yang diinput 
+tidak valid, sistem akan menampilkan pesan kesalahan sehingga Manajer dapat 
+memperbaiki data yang dimasukkan. 
+ 
+13) Sequence Diagram Lihat Hasil Penilaian Pegawai 
+ 
+Gambar 3. 22 Lihat Hasil Penilaian 
+ 
+Keterangan :  
+Proses diawali ketika pengguna memilih menu Hasil Penilaian, kemudian sistem 
+melalui HasilPenilaianController mengambil data periode penilaian yang tersedia 
+
+
+[[PAGE 132]]
+116 
+ 
+dari PeriodeModel dan menampilkannya kepada pengguna. Setelah pengguna 
+memilih periode penilaian, sistem mengambil data penilaian dari PenilaianModel, 
+data detail penilaian dari DetailPenilaianModel, data pegawai dari PegawaiModel, 
+serta data bobot kriteria berdasarkan kelompok kerja dari BobotModel. Selanjutnya 
+sistem melakukan proses perhitungan menggunakan metode SMART untuk 
+memperoleh nilai akhir setiap pegawai, menentukan peringkat, kategori kinerja, dan 
+rekomendasi keputusan. Hasil perhitungan kemudia n disimpan pada 
+HasilPenilaianModel dan dikembalikan ke HasilPenilaianController untuk 
+ditampilkan pada halaman hasil penilaian. Dengan demikian, Admin/HRD atau 
+Pimpinan dapat melihat hasil penilaian kinerja pegawai secara lengkap berdasarkan 
+periode yang dipilih. 
+ 
+8) Sequence Diagram Kelola Periode  
+ 
+Gambar 3. 23 Sequence Diagram Periode 
+
+[[PAGE 133]]
+117 
+ 
+Keterangan: :  
+Admin/HRD memilih menu Periode, kemudian Halaman Periode Penilaian 
+memanggil index() pada PeriodeController. Controller memanggil getAllPeriode() 
+pada PeriodeModel, yang mengembalikan data melalui returnDataPeriode(), lalu 
+controller memanggil showData() sehingga sistem menampilkan daftar periode. 
+Untuk aksi tambah, Admin/HRD menekan tombol Tambah sehingga controller 
+memanggil create() dan menampilkan form melalui showCreateForm(). 
+Admin/HRD mengisi data periode penilaian dan menekan tombol Simpan, 
+sehingga controller memanggil store() untuk memvali dasi data melalui 
+validasiData(). Jika data valid, controller memanggil save() pada PeriodeModel, 
+yang mengembalikan konfirmasi melalui succes(), kemudian sistem menampilkan 
+pesan berhasil. Jika data tidak valid, sistem menampilkan pesan kesalahan validasi 
+melalui showValidateError(). Untuk aksi mengubah status periode, Admin/HRD 
+menekan tombol Aktifkan/Tutup Periode, sehingga controller memanggil 
+updateStatus(id). Controller memanggil updatestatus() pada PeriodeModel, yang 
+mengembalikan konfirmasi melalui succes(), kemudian sistem menampilkan pesan 
+berhasil melalui showSuccess(). 
+ 
+
+[[PAGE 134]]
+118 
+ 
+9) Sequence Diagram Kriteria 
+ 
+Gambar 3. 24 Data Kriteria 
+
+
+[[PAGE 135]]
+119 
+ 
+Keterangan :  
+Admin/HRD memilih menu Kriteria, kemudian Halaman Kriteria memanggil 
+index() pada KriteriaController. Controller memanggil getAllKriteria() pada 
+KriteriaModel, yang mengembalikan data melalui returnDataKriteria(), lalu 
+controller memanggil showData() sehin gga sistem menampilkan daftar kriteria.  
+Untuk aksi tambah, Admin/HRD menekan tombol Tambah sehingga controller 
+memanggil create() dan menampilkan form melalui showCreateForm(). 
+Admin/HRD menginput kriteria, subkriteria, dan nilai utility, kemudian menekan 
+tombol Simpan sehingga controller memanggil store() untuk memvalidasi data. Jika 
+data valid, controller memanggil save() pada KriteriaModel dan sistem 
+menampilkan pesan berhasil; jika tidak valid, sistem menampilkan pesan kesalahan 
+validasi. Untuk aksi edit, Admin/HRD menekan tombol Edit sehingga controller 
+memanggil edit(id), mengambil data melalui find(id) pada KriteriaModel, dan 
+menampilkan form yang telah terisi melalui showEditForm(). Admin/HRD 
+mengubah data kriteria atau subkriteria dan menekan tombol Simpan, sehingga 
+controller memanggil update() untuk memvalidasi data. Jika data valid, controller 
+memanggil updateData() pada KriteriaModel dan sistem menampilkan pesan 
+berhasil; jika tidak valid, sistem menampilkan pesan kesalahan validasi. Untuk aksi 
+hapus, Admin/HRD menekan tombol Hapus sehingga controller memanggil 
+comfirmDelete(id) untuk menampilkan konfirmasi penghapusan. Jika Admin/HRD 
+memilih Ya, controller memanggil destroy(id) yang meneruskan delete(id) ke 
+KriteriaModel, kemudian sis tem menampilkan pesan berhasil. Jika Admin/HRD 
+memilih Batal, controller memanggil cacelDelete() dan sistem menampilkan 
+kembali data kriteria melalui showData(). 
+ 
+
+[[PAGE 136]]
+120 
+ 
+10) Sequence Diagram Bobot 
+ 
+ 
+Gambar 3. 25 Bobot 
+Keterangan :  
+Admin/HRD memilih menu Bobot Kriteria, kemudian Halaman Kelola Bobot 
+memanggil index() pada BobotController. Controller memanggil getAllBobot() 
+pada BobotModel, yang mengembalikan data melalui returnDataBobot(), lalu 
+controller memanggil showData() sehingg a sistem menampilkan daftar bobot 
+kriteria.Untuk aksi edit, Admin/HRD menekan tombol Edit sehingga controller 
+memanggil edit(id), mengambil data melalui find(id) pada BobotModel, dan 
+menampilkan form yang telah terisi melalui showEditForm(). Admin/HRD 
+menginput bobot baru dan menekan tombol Simpan, sehingga controller memanggil 
+update() untuk memvalidasi data melalui validasiData(), kemudian menghitung total 
+bobot melalui calculateTotalWeight(). Jika total bobot sama dengan 100%, 
+
+
+[[PAGE 137]]
+121 
+ 
+controller memanggil updateBobot() pada BobotModel dan sistem menampilkan 
+pesan berhasil. Jika total bobot kurang dari 100%, sistem menampilkan pesan 
+kesalahan validasi. 
+3.4.4. Class Diagram 
+ 
+ 
+Keterangan :  
+Class Diagram ini menggambarkan struktur data dan relasi antar kelas pada 
+sistem, terdiri dari sebelas kelas utama, yaitu Divisi, Pegawai, Kehadiran, User, 
+Penilaian, Periode, HasilPenilaian, Subkriteria, Kriteria, Bobot, dan 
+Detail_Penilaian. 
+Kelas Divisi menyimpan data divisi beserta kelompok kerjanya (id_divisi, 
+nama_divisi, kelompok_kerja), dengan relasi satu ke banyak terhadap Pegawai, 
+Gambar 3. 26 Class Diagram 
+
+[[PAGE 138]]
+122 
+ 
+artinya satu divisi dapat memiliki banyak pegawai. Kelas Pegawai menyimpan data 
+pegawai (nik, namaPegawai, jabatan, status, statusPegawai, jenis_kelamin, 
+tanggal_masuk) beserta operasi CRUD dan pengambilan data relasinya 
+(getKehadiran, getPenilaian). Satu Pegawai dapat memiliki banyak data Kehadiran 
+dan banyak Penilaian. 
+Kelas User menyimpan data akun pengguna (nama, username, password, 
+role) dengan operasi autentikasi dan pengelolaan akun. Satu User dapat membuat 
+banyak Penilaian. Kelas Penilaian merupakan kelas pusat yang menyimpan data 
+hasil proses penilaian (periode, t otal_nilai, rangking, kategori, rekomendasi, 
+id_user, id_pegawai) dengan operasi CreatePenilaian, hitungSMART, getPenilaian, 
+updatePenilaian, dan inputNilai. Satu Penilaian berelasi dengan satu Periode, dan 
+satu Pegawai maupun satu User dapat memiliki banyak Penilaian. 
+Kelas Periode menyimpan data periode penilaian (nama_periode, 
+tanggal_mulai, tanggal_selesai) dengan operasi bukaperiode dan tutupperiode. 
+Kelas HasilPenilaian menyimpan hasil akhir perhitungan (nilai_smart, rangking, 
+kategori, rekomendasi) dengan operasi hitungSMART, simpanHasil, dan 
+cetakLaporan, berelasi satu ke satu dengan Penilaian. 
+Kelas Kriteria menyimpan data kriteria SMART (kodekriteria, 
+namaKriteria, bobot, atribut) yang digunakan oleh banyak Subkriteria dan banyak 
+Bobot. Kelas Subkriteria menyimpan rubrik nilai per kriteria (nama_subkriteria, 
+nilai). Kelas Bobot menyimpan bobot kriteria berdasarkan kelompok kerja 
+(kelompok_kerja, bobot). Kelas Detail_Penilaian menyimpan rincian nilai per 
+kriteria untuk setiap penilaian (id_penilaian, id_kriteria, id_subkriteria, nilai), 
+dengan operasi getNilai dan setNilai. 
+ 
+
+[[PAGE 139]]
+123 
+ 
+3.4.5. Entity Relationships Diagram  
+ 
+Keterangan: 
+  ERD ini menggambarkan struktur basis data yang terdiri dari sebelas tabel, 
+yaitu Divisi, Pegawai, Kehadiran, User, Penilaian, Periode, Bobot, HasilPenilaian, 
+DetailPenilaian, SubKriteria, dan Kriteria. 
+Tabel Divisi berelasi satu ke banyak dengan tabel Pegawai, artinya satu 
+divisi dapat memiliki banyak pegawai, dengan kolom kelompok_kerja yang 
+menentukan pengelompokan bobot penilaian. Tabel Pegawai berelasi satu ke 
+banyak dengan tabel Kehadiran dan tabel Penilaian, artinya satu pegawai dapat 
+memiliki banyak data kehadiran dan banyak data penilaian. Tabel Kehadiran 
+berelasi dengan tabel Periode, karena rekap kehadiran dicatat per pegawai per 
+periode. 
+Tabel User berelasi satu ke banyak dengan tabel Penilaian, di mana satu user 
+(Manajer) dapat membuat banyak penilaian. Tabel Penilaian merupakan tabel pusat 
+yang berelasi dengan tabel Pegawai (pegawai yang dinilai), tabel User (yang 
+menilai), dan tabel Per iode (periode penilaian berjalan), serta memiliki kolom 
+status_penilaian untuk menandai tahap proses penilaian. Tabel Penilaian berelasi 
+Gambar 3. 27 ERD 
+
+[[PAGE 140]]
+124 
+ 
+satu ke banyak dengan tabel DetailPenilaian, yang menyimpan rincian nilai per 
+kriteria untuk setiap penilaian, dan berelasi satu ke satu dengan tabel 
+HasilPenilaian, yang menyimpan hasil akhir perhitungan SMART (nilai_smart, 
+rangking, kategori, rekomendasi ). Tabel Kriteria berelasi satu ke banyak dengan 
+tabel SubKriteria (rubrik nilai per kriteria) dan tabel Bobot (bobot kriteria 
+berdasarkan kelompok kerja). Tabel DetailPenilaian berelasi dengan tabel Kriteria 
+dan tabel SubKriteria untuk mencatat nilai yang dipilih Manajer pada setiap kriteria 
+penilaian. 
+ 
+3.4.6. Perancangan Antar Muka (Interface) 
+Perancangan antarmuka bertujuan untuk merancang tampilan sistem yang 
+akan digunakan oleh pengguna, meliputi Admin/HRD, Manajer, dan Pimpinan, 
+agar interaksi antara pengguna dengan sistem dapat berjalan dengan mudah, jelas, 
+dan sesuai dengan kebutuhan fungsional yang telah dianalisis sebelumnya. Berikut 
+ini adalah antar muka dari sistem informasi penilaian kiner ja pegawai yang akan 
+dibuat  
+1. Halaman Login 
+  
+Gambar 3. 28 Login Admin 
+
+
+[[PAGE 141]]
+125 
+ 
+2. Halaman Kelola Data Pegawai 
+ 
+ 
+Gambar 3. 29 Anatarmuka Kelola Data Pegawai admin 
+3. Halaman Kelola Data Kehadiran 
+ 
+Gambar 3. 30 Antarmuka Data Kehadiran 
+
+
+[[PAGE 142]]
+126 
+ 
+4. Halaman Hasil Perangkingan 
+ 
+Gambar 3. 31 Hasil Perangkingan 
+5. Halaman Riwayat Penilaian 
+ 
+Gambar 3. 32 Halaman Riwayat Penilaian 
+
+
+[[PAGE 143]]
+127 
+ 
+ 
+6. Halaman Laporan Penilaian 
+ 
+Gambar 3. 33 Laporan Penilaian 
+ 
+7. Halaman Kelola Pengguna 
+ 
+Gambar 3. 34 Kelola Pengguna 
+
+
+[[PAGE 144]]
+128 
+ 
+ 
+8. Halaman Input Penilaian Kinerja 
+ 
+Gambar 3. 35 Input Penilaian Kinerja 
+9. Halaman Riwayat penilaian Role Manajer 
+Gambar 3. 36 Riwayat Penilaian 
+
+[[PAGE 145]]
+129 
+ 
+10. Halaman Hasil Penilaian Role Pimpinan 
+ 
+Gambar 3. 37 Pimpinan Hasil Perangkingan 
+3.4.7. Deployment  
+ 
+ 
+Gambar 3. 38 Deployment 
+
+
+[[PAGE 146]]
+130 
+ 
+Keterangan : 
+Deployment Diagram menggambarkan arsitektur fisik penerapan sistem yang 
+terdiri dari tiga node, yaitu User Client, Web Server, dan DB Server. User Client 
+mengakses sistem melalui komponen Browser via HTTP Internet ke Web Server. 
+Web Server menjalankan environment PHP yang berisi komponen Sistem 
+Informasi Penilaian Kinerja Pegawai, terdiri dari Application Logic (logika bisnis 
+dan perhitungan SMART) dan Router Handler (penanganan routing). Web Server 
+terhubung ke DB Server melalui MySQL Driver, di mana komponen MySQL DB 
+menyimpan seluruh data sistem. 
+ 
+ 
+ 
+
+[[PAGE 147]]
+131 
+ 
+Daftar Pustaka 
+ 
+Abdurrahman, M. A., & Pratama, D. (2025). Penerapan Metode SMART dalam 
+Sistem Pendukung Keputusan untuk Menilai Kinerja Karyawan. 103–109. 
+Ahmad Bairizki. (2020). Manajemen Sumber Daya Manusia (Sigit Ary Wijayanto 
+(ed.); 2 ed.). Pustaka Aksara. 
+https://www.google.co.id/books/edition/Manajemen_Sumber_Daya_Manusia
+_Tinjauan_S/BicTEAAAQBAJ?hl=id&gbpv=1&dq=indikator+penilaian+ki
+nerja&pg=PA76&printsec=frontcover 
+Ahmad Fauzi, & Dani. (2025). Sistem Pendukung Keputusan (Dani (ed.)). CV 
+Eureka Media Aksara. 
+https://www.google.co.id/books/edition/Sistem_Pendukung_Keputusan/_YC
+WEQAAQBAJ?hl=id&gbpv=1&dq=metode+SMART+SPK&pg=PR7&print
+sec=frontcover 
+Ekawati, H., Ratmini, S., Studi, P., Informatika, T., Menentukan, K., Pegawai, P., 
+Berprestasi, P., & Basic, V. (n.d.). SIMPLE MULTI ATTRIBUTE RATING 
+TECHNIQUE ( SMART ) PADA SISTEM PENDUKUNG KEPUTUSAN 
+UNTUK. 1–7. 
+Faqih, A., & Basysyar, F. M. (2022). Sistem Informasi Kepegawaian Mengunakan 
+Metode Agile Development di CV . Angkasa Raya. 12, 30–45. 
+https://doi.org/10.34010/jati.v12i1 
+Fithrie Soufitri. (2023). Konsep Sistem Informasi. PT. Inovasi Pratama 
+Internasional. 
+Huseno, T. (2016). Kinerja Pegawai Tinjauan dari Dimensi Kepemimpinan,Misi 
+Organisasi, Budaya Organisasi, dan Kepuasan Kerja (T. M. Publishing 
+(ed.)). Media Nusa Creative. 
+https://www.google.co.id/books/edition/Kinerja_Pegawai/wQdMEAAAQBA
+J?hl=id&gbpv=1&dq=tujuan+penilaian+kinerja+pegawai&pg=PA89&prints
+ec=frontcover 
+Juliartha, B., Putra, M., Fu, A., Ariani, D., & Yuniarti, F. (2022). Analisa dan 
+Rancangan Sistem Informasi Pariwisata Pacitan dengan UML dan ERD. 
+7(1), 63–72. 
+Kharisma, I. G. I. S. L. P. I., Dr.Fajriana, & khairunnisa. (2023). Penerapan 
+Decision Support System (DSS) Dalam Berbagai Bidang (S. dan A. Juansa 
+(ed.)). PT.Sonpedia Publishing Indonesia. 
+Lestari, D. (2023). Kinerja Karyawan. Widina Medina Utama. 
+Marsa, A. R., Syelly, R., Amelia, R., & Sopandi, A. (2023). Konsep Sistem 
+Informasi. Penamuda Media. 
+Maulana, M., Gumelar, L., & Mukhlis, I. R. (2024). RANCANG BANGUN BASIS 
+DATA DENGAN STUDI KASUS PENJUALAN. 6(1), 51–61. 
+
+[[PAGE 148]]
+132 
+ 
+Maulida, H. (2025). Manajemen Sumber Daya Manusia (A. Pratama (ed.)). 
+PT.Adab Indonesia. 
+Muhammad Hamas, & Zaki Imaduddin. (2019). Jurnal Informatika Terpadu. 
+Informatika Terpadu Vol., 5(2), 49–55. 
+https://doi.org/https://journal.nurulfikri.ac.id/index.php/JIT 
+Nadhiyatul Aulia Putri, Nazhir Hafni Muhtandy, & Sentot Imam Wahjono. 
+(2025). Penilaian Kinerja Dan Metode Penilaian Kinerja. JURNAL 
+EKONOMI , MANAJEMEN , BISNIS DAN SOSIAL, 5(2), 149–153. 
+https://doi.org/https://doi.org/10.59889/embiss.v5i2.367 
+Narulita Syarweny, David Manafe, Filasti Rahma, & Suparmi. (2024). Buku Ajar 
+Manajemen Kinerja (E. dan Sepriano (ed.)). PT.Sonpedia Publishing 
+Indonesia. 
+Norhikmah, M.Farkhan, Farida, & Reski Idrus. (2024). Sistem Pengambil 
+Keputusan (Y. Agusti (ed.)). PT.Sonpedia Publishing Indonesia. 
+Pressman, & Roger S. (2010). Software Engineering: A Practitioner’s Approach 
+(7 ed.). McGraw-Hill Higher Education. 
+Putra, N. P. (2020). Dasar Dasar Teknik Informatika. CV.Budi Utama. 
+Rambe, J. (2025). PENGUKURAN KERJA SUMBER DAYA MANUSIA (C. Dr. 
+Tina Amelia S.H., M.H., M.M. (ed.)). PT. Kaya Ilmu Bermanfaat. 
+Safrizal, M. (2015). Sistem Pendukung Keputusan Pemilihan Karyawan Teladan 
+dengan Metode SMART ( Simple Multi Attribute Rating Technique ). 1(2), 
+25–29. 
+Sampebua Rante Mingset, N. D. K., Loso Judijanto, & Renita Selviana. (2025). 
+Sistem Pendukung Keputusan. PT.Sonpedia Publishing Indonesia. 
+Santoso, Apriyanto, Anton, Sutiyono, Rosmalina, & Siti. (2025). PENGANTAR 
+SISTEM INFROMASI. PT.Sonpedia Publishing Indonesia. 
+Sari, W. P. (2025). Teori dan Aplikasi SMART untuk Sistem Pendukung 
+Keputusan. Eureka Media Aksara. 
+Sarwandi, T, L., Sianturi, Hasibuan, N. H., & Sudipa, I. G. I. (2023). Sistem 
+Pendukung Keputusan (M. Syahrizal (ed.)). CV. Graha Mitra Edukasi. 
+Setiawan, H., & Witanti, A. (2021). SISTEM PEMILIHAN LAPTOP 
+BERDASARKAN KRITERIA KEBUTUHAN DENGAN METODE SIMPLE 
+MULTI ATTRIBUTE RATING TECHNIQUE ( SMART ) ( Studi Kasus : Toko 
+Laptop Guard Yogyakarta ). 70–82. 
+Shafira, A., Baadilla, C., & Sutrisna, J. (2023). Implementasi Metode SMART ( 
+Simple Multi Attribute Rating Technique ) Dengan Menggunakan Sistem 
+Pendukung Keputusan Dalam Menentukan Karyawan Terbaik. 2(1), 221–
+230. 
+
+[[PAGE 149]]
+133 
+ 
+Sihombing, N. E. . (2023). Kualitas Kinerja Karyawan Berdasarkan Budaya 
+Organisasi dan Tingkat Pendidikan (I. Silviani (ed.)). SCOPINDO MEDIA 
+PUSTAKA. 
+Sihontang, H. T. S. E. (2022). Sistem Pendukung Keputusan. CV. Cattleya 
+Darmaya Fortuna. 
+Sudirwo, Abdul Hadi, Luso Judijanto, & Nuraini Purwandari. (2025). Artificial 
+Intelligence (Sepriano (ed.)). PT.Sonpedia Publishing Indonesia. 
+Tarmin Abdulghani. (2026). KECERDASAN BUATAN DAN PERKEMBANGAN 
+TEKNOLOGI CERDAS. Cendekia Mulia Mandiri. 
+Wahyadi, & Ruziq. (2023). Pemodelan Sistem Penerimaan Anggota Baru dengan 
+Unified Modeling Language ( UML ) ( Studi Kasus : Programmer 
+Association of Battuta ). Minfo Polgan Volume, 12, 1514–1521. 
+Wati, R., & Frasiska, W. (2025). Jurnal Teknik Elektro dan Informatika ( JURTIE 
+) Sistem Informasi Kepegawaian Pengadilan Negeri Takengon. 7(2), 23–42. 
+ 
+
+[[PAGE 150]]
+134 
+ 
+Data Pengusul Laporan Tugas Akhir 
+ 
+                                                     
+Nama  : Isma Meinawati 
+NPM  : 5520122093 
+e-mail  : ismameinawati27@gmail.com 
+No.HP  : 086624906189 
+Alamat  :Kp.Nyalempet RT/RW 01/02, Ds. Kadupandak, Kec. Kadupandak, 
+Kab. Cianjur 
+Asal Judul : [ √] Ide Sendiri 
+    [    ] Melanjutkan KP Dosen Pembimbing KP 
+    [    ] Rekomendasi/Ide Penelitian Dosen  
+       Cianjur, 25 Mei 2026 
+       Pengusul Proposal TA 
+ 
+ 
+Isma Meinawati 
+           NPM.5520122093 
+ 
+ 
+ 
+Foto Berwarna  
+ 
+ 
+ 

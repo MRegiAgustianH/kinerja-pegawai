@@ -1,0 +1,121 @@
+<?php
+
+namespace App\Services;
+
+use App\Models\HasilPenilaian;
+use App\Models\Penilaian;
+use Illuminate\Support\Collection;
+
+/**
+ * Metode SMART (Simple Multi-Attribute Rating Technique).
+ *
+ * Rumus (Bab 2.2.1 laporan):
+ *   - Normalisasi bobot: Wj = wj / Sum(wj)
+ *   - Utility benefit:   u = (Cout - Cmin) / (Cmax - Cmin)
+ *   - Utility cost:      u = (Cmax - Cout) / (Cmax - Cmin)
+ *   - Skor akhir:        Sum (utility x Wj)
+ *
+ * Skala 1-5, Cmin=1, Cmax=5 -> utility benefit = (nilai-1)/4.
+ * Bobot per divisi sudah dalam % (Sum=100), jadi Wj = bobot/100.
+ */
+class SmartService
+{
+    private const CMIN = 1;
+    private const CMAX = 5;
+
+    public function utility(int $nilai, string $atribut): float
+    {
+        $nilai = max(self::CMIN, min(self::CMAX, $nilai));
+        if ($atribut === 'cost') {
+            return (self::CMAX - $nilai) / (self::CMAX - self::CMIN);
+        }
+        return ($nilai - self::CMIN) / (self::CMAX - self::CMIN);
+    }
+
+    public function normalisasiBobot(float $bobot, float $totalBobot): float
+    {
+        if ($totalBobot <= 0) {
+            return 0.0;
+        }
+        return $bobot / $totalBobot;
+    }
+
+    public function skorAkhir(Collection $details): float
+    {
+        $total = $details->sum(fn ($d) => (float) $d->kriteria->bobot);
+        $skor = 0.0;
+        foreach ($details as $d) {
+            $u = $this->utility($d->nilai, $d->kriteria->atribut);
+            $w = $this->normalisasiBobot((float) $d->kriteria->bobot, $total);
+            $skor += $u * $w;
+        }
+        return round($skor, 4);
+    }
+
+    public function kategori(float $skor): string
+    {
+        return match (true) {
+            $skor > 0.80 => 'Sangat Baik',
+            $skor >= 0.60 => 'Baik',
+            $skor >= 0.40 => 'Cukup',
+            default => 'Kurang',
+        };
+    }
+
+    public function rekomendasi(string $kategori): string
+    {
+        return match ($kategori) {
+            'Sangat Baik' => 'Pegawai terbaik, kandidat pemberian bonus, kandidat promosi jabatan, diprioritaskan dipanggil kembali jika pegawai kontrak.',
+            'Baik' => 'Kandidat pemberian bonus, dipertahankan, dapat dipanggil kembali jika pegawai kontrak.',
+            'Cukup' => 'Perlu pembinaan dan peningkatan kinerja, dipertimbangkan untuk dipanggil kembali jika pegawai kontrak.',
+            default => 'Perlu evaluasi lanjutan, tidak direkomendasikan dipanggil kembali jika pegawai kontrak.',
+        };
+    }
+
+    /**
+     * Hitung + simpan hasil SMART untuk semua penilaian final pada sebuah periode.
+     * Ranking dihitung per kelompok_kerja (sesuai DESAIN poin 5).
+     */
+    public function prosesPeriode(int $idPeriode): void
+    {
+        $penilaians = Penilaian::with([
+            'detailPenilaian.kriteria',
+            'pegawai.divisi',
+        ])
+            ->where('id_periode', $idPeriode)
+            ->where('status_penilaian', 'final')
+            ->get();
+
+        $hasil = [];
+        foreach ($penilaians as $p) {
+            $skor = $this->skorAkhir($p->detailPenilaian);
+            $hasil[] = [
+                'penilaian' => $p,
+                'skor' => $skor,
+                'kelompok' => $p->pegawai->divisi->kelompok_kerja ?? '-',
+            ];
+        }
+
+        $grouped = collect($hasil)->groupBy('kelompok');
+        foreach ($grouped as $items) {
+            $sorted = $items->sortByDesc('skor')->values();
+            foreach ($sorted as $i => $row) {
+                $this->simpanHasil($row['penilaian']->id, $row['skor'], $i + 1);
+            }
+        }
+    }
+
+    private function simpanHasil(int $idPenilaian, float $skor, int $rank): void
+    {
+        $kategori = $this->kategori($skor);
+        HasilPenilaian::updateOrCreate(
+            ['id_penilaian' => $idPenilaian],
+            [
+                'nilai_smart' => $skor,
+                'rangking' => $rank,
+                'kategori' => $kategori,
+                'rekomendasi' => $this->rekomendasi($kategori),
+            ]
+        );
+    }
+}
