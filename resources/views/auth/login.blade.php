@@ -27,10 +27,7 @@
                         </div>
                         <button class="btn btn-primary w-100">Masuk</button>
                     </form>
-                    <div class="mt-4 small text-muted">
-                        <p class="mb-1"><strong>Akun demo:</strong></p>
-                        <code>admin / admin123</code> · <code>manajer / manajer123</code> · <code>pimpinan / pimpinan123</code>
-                    </div>
+                    
                 </div>
             </div>
         </div>
