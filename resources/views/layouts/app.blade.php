@@ -55,5 +55,45 @@
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 @stack('scripts')
-</body>
+<!-- Modal Konfirmasi Global -->
+<div class="modal fade" id="confirmModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title"><i class="bi bi-exclamation-triangle-fill me-2"></i><span id="confirmTitle">Konfirmasi</span></h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body"><span id="confirmMessage">Apakah Anda yakin?</span></div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Batal</button>
+                <button type="button" class="btn btn-danger" id="confirmOkBtn"><i class="bi bi-check-lg me-1"></i> Ya, Lanjutkan</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+(function(){
+    let activeForm = null;
+    const modalEl = document.getElementById('confirmModal');
+    const bsModal = new bootstrap.Modal(modalEl);
+    document.addEventListener('submit', function(e){
+        const form = e.target;
+        if (form.dataset.confirm && !form.dataset.confirmed) {
+            e.preventDefault();
+            activeForm = form;
+            document.getElementById('confirmTitle').textContent = form.dataset.confirmTitle || 'Konfirmasi';
+            document.getElementById('confirmMessage').textContent = form.dataset.confirm;
+            bsModal.show();
+        }
+    });
+    document.getElementById('confirmOkBtn').addEventListener('click', function(){
+        if (activeForm) {
+            activeForm.dataset.confirmed = '1';
+            bsModal.hide();
+            activeForm.submit();
+            activeForm.dataset.confirmed = '';
+        }
+    });
+})();
+</script></body>
 </html>

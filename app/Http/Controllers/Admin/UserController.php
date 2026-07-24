@@ -23,7 +23,7 @@ class UserController extends Controller
         $data = $request->validate([
             'nama' => 'required|string|max:100',
             'username' => 'required|string|unique:users,username',
-            'password' => 'required|string|min:4',
+            'password' => 'required|string|min:6',
             'role' => 'required|in:admin,manajer,pimpinan',
             'id_divisi' => 'nullable|exists:divisi,id',
         ]);
@@ -41,7 +41,7 @@ class UserController extends Controller
         $data = $request->validate([
             'nama' => 'required|string|max:100',
             'username' => 'required|string|unique:users,username,' . $user->id,
-            'password' => 'nullable|string|min:4',
+            'password' => 'nullable|string|min:6',
             'role' => 'required|in:admin,manajer,pimpinan',
             'id_divisi' => 'nullable|exists:divisi,id',
         ]);

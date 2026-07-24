@@ -12,8 +12,8 @@
                         <td>{{ $p->nama_periode }}</td><td>{{ $p->tanggal_mulai->format('d/m/Y') }}</td><td>{{ $p->tanggal_selesai->format('d/m/Y') }}</td>
                         <td><span class="badge text-bg-{{ $p->status=='aktif'?'success':'secondary' }}">{{ $p->status }}</span></td>
                         <td><form method="post" action="{{ route('admin.periode.toggle', $p) }}" class="d-inline">@csrf<button class="btn btn-sm btn-outline-{{ $p->status=='aktif'?'warning':'success' }}">{{ $p->status=='aktif'?'Tutup':'Buka' }}</button></form>
-                            <form method="post" action="{{ route('admin.periode.proses', $p) }}" class="d-inline" onsubmit="return confirm('Jalankan perhitungan SMART untuk periode ini?')">@csrf<button class="btn btn-sm btn-primary"><i class="bi bi-calculator"></i> Proses SMART</button></form></td>
-                        <td class="text-end"><form method="post" action="{{ route('admin.periode.destroy', $p) }}" class="d-inline" onsubmit="return confirm('Hapus periode?')">@csrf @method('DELETE')<button class="btn btn-sm btn-outline-danger">Hapus</button></form></td>
+                            <form method="post" action="{{ route('admin.periode.proses', $p) }}" class="d-inline" data-confirm="Jalankan perhitungan SMART untuk periode ini?" data-confirm-title="Konfirmasi">@csrf<button class="btn btn-sm btn-primary"><i class="bi bi-calculator"></i> Proses SMART</button></form></td>
+                        <td class="text-end"><form method="post" action="{{ route('admin.periode.destroy', $p) }}" class="d-inline" data-confirm="Hapus periode?" data-confirm-title="Konfirmasi">@csrf @method('DELETE')<button class="btn btn-sm btn-outline-danger">Hapus</button></form></td>
                     </tr>
                 @empty <tr><td colspan="6" class="text-center text-muted py-3">Belum ada periode.</td></tr>@endforelse
                 </tbody>

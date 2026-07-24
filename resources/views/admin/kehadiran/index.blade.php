@@ -17,7 +17,7 @@
                     <tr>
                         <td>{{ $k->pegawai->nik }}</td><td>{{ $k->pegawai->nama }}</td><td>{{ $k->hari_kerja }}</td><td>{{ $k->hari_hadir }}</td><td>{{ $k->hari_terlambat }}</td>
                         <td>{{ $k->hari_kerja ? round($k->hari_hadir / $k->hari_kerja * 100) : 0 }}%</td>
-                        <td class="text-end"><form method="post" action="{{ route('admin.kehadiran.destroy', $k) }}" class="d-inline" onsubmit="return confirm('Hapus?')">@csrf @method('DELETE')<button class="btn btn-sm btn-outline-danger">Hapus</button></form></td>
+                        <td class="text-end"><form method="post" action="{{ route('admin.kehadiran.destroy', $k) }}" class="d-inline" data-confirm="Hapus?" data-confirm-title="Konfirmasi">@csrf @method('DELETE')<button class="btn btn-sm btn-outline-danger">Hapus</button></form></td>
                     </tr>
                 @empty <tr><td colspan="7" class="text-center text-muted py-3">Belum ada data.</td></tr>@endforelse
                 </tbody>

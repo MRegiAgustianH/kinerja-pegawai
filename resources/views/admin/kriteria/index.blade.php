@@ -60,7 +60,7 @@
                                 <button class="btn btn-sm btn-outline-info" data-bs-toggle="modal" data-bs-target="#rubrikKriteria{{ $k->id }}">
                                     <i class="bi bi-list-ol"></i>
                                 </button>
-                                <form method="post" action="{{ route('admin.kriteria.destroy', $k) }}" class="d-inline" onsubmit="return confirm('Hapus kriteria?')">
+                                <form method="post" action="{{ route('admin.kriteria.destroy', $k) }}" class="d-inline" data-confirm="Hapus kriteria?" data-confirm-title="Konfirmasi">
                                     @csrf 
                                     @method('DELETE')
                                     <button class="btn btn-sm btn-outline-danger">
@@ -192,7 +192,7 @@
                                     <span class="badge bg-secondary me-2">Skala {{ $s->nilai }}</span>
                                     <span>{{ $s->nama_subkriteria }}</span>
                                 </div>
-                                <form method="post" action="{{ route('admin.kriteria.sub.destroy', $s) }}" class="d-inline" onsubmit="return confirm('Hapus rubrik ini?')">
+                                <form method="post" action="{{ route('admin.kriteria.sub.destroy', $s) }}" class="d-inline" data-confirm="Hapus rubrik ini?" data-confirm-title="Konfirmasi">
                                     @csrf 
                                     @method('DELETE')
                                     <button class="btn btn-sm btn-link text-danger p-0"><i class="bi bi-x-circle-fill"></i></button>

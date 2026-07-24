@@ -12,7 +12,7 @@
                         <td>{{ $d->nama_divisi }}</td><td><span class="badge text-bg-{{ $d->kelompok_kerja === 'Lapangan' ? 'info' : 'light' }} text-dark">{{ $d->kelompok_kerja }}</span></td>
                         <td>{{ $d->pegawai_count }}</td><td>{{ $d->kriteria_count }}</td>
                         <td class="text-end"><button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#edit{{ $d->id }}">Edit</button>
-                            <form method="post" action="{{ route('admin.divisi.destroy', $d) }}" class="d-inline" onsubmit="return confirm('Hapus divisi?')">@csrf @method('DELETE')<button class="btn btn-sm btn-outline-danger">Hapus</button></form></td>
+                            <form method="post" action="{{ route('admin.divisi.destroy', $d) }}" class="d-inline" data-confirm="Hapus divisi?" data-confirm-title="Konfirmasi">@csrf @method('DELETE')<button class="btn btn-sm btn-outline-danger">Hapus</button></form></td>
                     </tr>
                     <div class="modal fade" id="edit{{ $d->id }}"><div class="modal-dialog"><div class="modal-content"><div class="modal-body">
                         <form method="post" action="{{ route('admin.divisi.update', $d) }}">@csrf @method('PUT')

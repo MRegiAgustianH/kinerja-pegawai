@@ -16,7 +16,7 @@
                     <td><span class="badge text-bg-{{ $p->status === 'Aktif' ? 'success' : 'secondary' }}">{{ $p->status }}</span></td>
                     <td>{{ $p->status_pegawai }}</td>
                     <td class="text-end"><a href="{{ route('admin.pegawai.edit', $p) }}" class="btn btn-sm btn-outline-secondary">Edit</a>
-                        <form method="post" action="{{ route('admin.pegawai.destroy', $p) }}" class="d-inline" onsubmit="return confirm('Hapus pegawai?')">@csrf @method('DELETE')<button class="btn btn-sm btn-outline-danger">Hapus</button></form></td>
+                        <form method="post" action="{{ route('admin.pegawai.destroy', $p) }}" class="d-inline" data-confirm="Hapus pegawai?" data-confirm-title="Konfirmasi">@csrf @method('DELETE')<button class="btn btn-sm btn-outline-danger">Hapus</button></form></td>
                 </tr>
             @empty <tr><td colspan="7" class="text-center text-muted py-3">Belum ada data.</td></tr>@endforelse
             </tbody>
