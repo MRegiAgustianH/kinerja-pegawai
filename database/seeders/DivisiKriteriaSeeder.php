@@ -11,12 +11,6 @@ use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
-/**
- * Seed 10 divisi/jabatan + KPI (bobot) sesuai Bab 3.3.3 laporan.
- * Pola: setiap divisi punya KPI spesifik + 2 kriteria umum
- * (Tingkat Kehadiran 7.5% & Disiplin Kehadiran 7.5%) = total 15%.
- * Semua benefit, skala 1-5.
- */
 class DivisiKriteriaSeeder extends Seeder
 {
     private const SUB_RUBRIK = [

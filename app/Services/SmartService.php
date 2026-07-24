@@ -6,18 +6,6 @@ use App\Models\HasilPenilaian;
 use App\Models\Penilaian;
 use Illuminate\Support\Collection;
 
-/**
- * Metode SMART (Simple Multi-Attribute Rating Technique).
- *
- * Rumus (Bab 2.2.1 laporan):
- *   - Normalisasi bobot: Wj = wj / Sum(wj)
- *   - Utility benefit:   u = (Cout - Cmin) / (Cmax - Cmin)
- *   - Utility cost:      u = (Cmax - Cout) / (Cmax - Cmin)
- *   - Skor akhir:        Sum (utility x Wj)
- *
- * Skala 1-5, Cmin=1, Cmax=5 -> utility benefit = (nilai-1)/4.
- * Bobot per divisi sudah dalam % (Sum=100), jadi Wj = bobot/100.
- */
 class SmartService
 {
     private const CMIN = 1;
@@ -72,10 +60,6 @@ class SmartService
         };
     }
 
-    /**
-     * Hitung + simpan hasil SMART untuk semua penilaian final pada sebuah periode.
-     * Ranking dihitung per kelompok_kerja (sesuai DESAIN poin 5).
-     */
     public function prosesPeriode(int $idPeriode): void
     {
         $penilaians = Penilaian::with([
