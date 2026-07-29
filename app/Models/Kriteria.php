@@ -11,12 +11,12 @@ class Kriteria extends Model
     protected $table = 'kriteria';
 
     protected $fillable = [
-        'id_divisi', 'kode_kriteria', 'nama_kriteria', 'bobot', 'atribut', 'target',
+        'id_divisi', 'kode_kriteria', 'nama_kriteria', 'bobot', 'atribut', 'tipe', 'satuan', 'target_angka', 'target',
     ];
 
     protected function casts(): array
     {
-        return ['bobot' => 'decimal:2'];
+        return ['bobot' => 'decimal:2', 'target_angka' => 'decimal:2'];
     }
 
     public function divisi(): BelongsTo

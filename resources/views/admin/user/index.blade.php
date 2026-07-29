@@ -13,7 +13,7 @@
                         <tr>
                             <td>{{ $u->nama }}</td>
                             <td>{{ $u->username }}</td>
-                            <td><span class="badge text-bg-secondary text-capitalize">{{ $u->role }}</span></td>
+                            <td><span class="badge text-bg-secondary text-capitalize">{{ $u->role === 'kadiv' ? 'Kepala Divisi' : $u->role }}</span></td>
                             <td>{{ $u->divisi->nama_divisi ?? '-' }}</td>
                             <td class="text-end">
                                 <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editUser{{ $u->id }}"><i class="bi bi-pencil-square"></i></button>
@@ -53,16 +53,17 @@
                     <div class="mb-3">
                         <label class="form-label small fw-bold">Role</label>
                         <select name="role" class="form-select form-select-sm" id="roleSelect">
-                            <option value="admin">Admin</option>
-                            <option value="manajer">Manajer</option>
+                            <option value="admin">Admin / HRD</option>
+                            <option value="kadiv">Kepala Divisi</option>
                             <option value="pimpinan">Pimpinan</option>
+                            <option value="pegawai">Pegawai</option>
                         </select>
                     </div>
                     <div class="mb-3" id="divisiField" style="display:none;">
-                        <label class="form-label small fw-bold">Divisi (khusus Manajer)</label>
+                        <label class="form-label small fw-bold">Divisi (khusus Kadiv & Pegawai)</label>
                         <select name="id_divisi" class="form-select form-select-sm">
                             <option value="">- pilih divisi -</option>
-                            @foreach(\App\Models\Divisi::orderBy('nama_divisi')->get() as $d)
+                            @foreach($divisi as $d)
                                 <option value="{{ $d->id }}">{{ $d->nama_divisi }}</option>
                             @endforeach
                         </select>
@@ -86,19 +87,21 @@
                     <div class="modal-body">
                         <div class="mb-3"><label class="form-label small fw-bold">Nama</label><input name="nama" value="{{ $u->nama }}" class="form-control" required></div>
                         <div class="mb-3"><label class="form-label small fw-bold">Username</label><input name="username" value="{{ $u->username }}" class="form-control" required></div>
-                        <div class="mb-3"><label class="form-label small fw-bold">Password <small class="text-muted">(kosongkan jika tetap, min. 6 karakter)</small></label><input type="password" name="password" class="form-control @error('password') is-invalid @enderror"></div>
+                        <div class="mb-3"><label class="form-label small fw-bold">Password (kosongkan jika tetap)</label><input type="password" name="password" class="form-control @error('password') is-invalid @enderror"></div>
                         @error('password')<div class="invalid-feedback d-block">{{ $message }}</div>@enderror
                         <div class="mb-3"><label class="form-label small fw-bold">Role</label>
-                            <select name="role" class="form-select">
-                                <option value="admin" {{ $u->role=='admin'?'selected':'' }}>Admin</option>
-                                <option value="manajer" {{ $u->role=='manajer'?'selected':'' }}>Manajer</option>
+                            <select name="role" class="form-select" id="roleEditSelect{{ $u->id }}">
+                                <option value="admin" {{ $u->role=='admin'?'selected':'' }}>Admin / HRD</option>
+                                <option value="kadiv" {{ $u->role=='kadiv'?'selected':'' }}>Kepala Divisi</option>
                                 <option value="pimpinan" {{ $u->role=='pimpinan'?'selected':'' }}>Pimpinan</option>
+                                <option value="pegawai" {{ $u->role=='pegawai'?'selected':'' }}>Pegawai</option>
                             </select>
                         </div>
-                        <div class="mb-3"><label class="form-label small fw-bold">Divisi (khusus Manajer)</label>
+                        <div class="mb-3" id="divisiEditField{{ $u->id }}" style="display: {{ in_array($u->role, ['kadiv', 'pegawai']) ? 'block' : 'none' }};">
+                            <label class="form-label small fw-bold">Divisi (khusus Kadiv & Pegawai)</label>
                             <select name="id_divisi" class="form-select">
                                 <option value="">-</option>
-                                @foreach(\App\Models\Divisi::orderBy('nama_divisi')->get() as $d)
+                                @foreach($divisi as $d)
                                     <option value="{{ $d->id }}" {{ $u->id_divisi==$d->id?'selected':'' }}>{{ $d->nama_divisi }}</option>
                                 @endforeach
                             </select>
@@ -112,11 +115,16 @@
             </div>
         </div>
     </div>
+    <script>
+    document.getElementById('roleEditSelect{{ $u->id }}')?.addEventListener('change', function(){
+        document.getElementById('divisiEditField{{ $u->id }}').style.display = (this.value === 'kadiv' || this.value === 'pegawai') ? 'block' : 'none';
+    });
+    </script>
 @endforeach
 
 <script>
 document.getElementById('roleSelect')?.addEventListener('change', function(){
-    document.getElementById('divisiField').style.display = this.value === 'manajer' ? '' : 'none';
+    document.getElementById('divisiField').style.display = (this.value === 'kadiv' || this.value === 'pegawai') ? 'block' : 'none';
 });
 </script>
 @endsection

@@ -15,7 +15,10 @@ return new class extends Migration
             $table->string('nama_kriteria');
             $table->decimal('bobot', 5, 2)->default(0);
             $table->enum('atribut', ['benefit', 'cost'])->default('benefit');
-            $table->text('target')->nullable();
+            $table->enum('tipe', ['kuantitatif', 'kualitatif'])->default('kuantitatif');
+            $table->string('satuan')->nullable();
+            $table->decimal('target_angka', 12, 2)->nullable();
+            $table->text('target')->nullable(); // Target penjelasan / teks
             $table->timestamps();
         });
     }

@@ -11,7 +11,7 @@ class Penilaian extends Model
 {
     protected $table = 'penilaian';
 
-    protected $fillable = ['id_pegawai', 'id_user', 'id_periode', 'status_penilaian'];
+    protected $fillable = ['id_pegawai', 'id_user', 'id_periode', 'status_penilaian', 'catatan_revisi'];
 
     public function pegawai(): BelongsTo
     {

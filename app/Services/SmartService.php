@@ -11,9 +11,9 @@ class SmartService
     private const CMIN = 1;
     private const CMAX = 5;
 
-    public function utility(int $nilai, string $atribut): float
+    public function utility(float $nilai, string $atribut): float
     {
-        $nilai = max(self::CMIN, min(self::CMAX, $nilai));
+        $nilai = max((float) self::CMIN, min((float) self::CMAX, $nilai));
         if ($atribut === 'cost') {
             return (self::CMAX - $nilai) / (self::CMAX - self::CMIN);
         }
@@ -33,7 +33,7 @@ class SmartService
         $total = $details->sum(fn ($d) => (float) $d->kriteria->bobot);
         $skor = 0.0;
         foreach ($details as $d) {
-            $u = $this->utility($d->nilai, $d->kriteria->atribut);
+            $u = $this->utility((float) $d->nilai, $d->kriteria->atribut);
             $w = $this->normalisasiBobot((float) $d->kriteria->bobot, $total);
             $skor += $u * $w;
         }
@@ -67,7 +67,7 @@ class SmartService
             'pegawai.divisi',
         ])
             ->where('id_periode', $idPeriode)
-            ->where('status_penilaian', 'final')
+            ->where('status_penilaian', 'approved')
             ->get();
 
         $hasil = [];

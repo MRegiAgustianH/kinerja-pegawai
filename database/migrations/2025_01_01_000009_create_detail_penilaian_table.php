@@ -13,7 +13,9 @@ return new class extends Migration
             $table->foreignId('id_penilaian')->constrained('penilaian')->cascadeOnDelete();
             $table->foreignId('id_kriteria')->constrained('kriteria')->restrictOnDelete();
             $table->foreignId('id_sub_kriteria')->nullable()->constrained('sub_kriteria')->nullOnDelete();
-            $table->tinyInteger('nilai')->unsigned()->default(1);
+            $table->decimal('realisasi', 12, 2)->nullable();
+            $table->string('bukti_pdf')->nullable();
+            $table->decimal('nilai', 5, 2)->default(1.00); // Nilai final skala 1-5 setelah input / kalkulasi
             $table->timestamps();
             $table->unique(['id_penilaian', 'id_kriteria']);
         });

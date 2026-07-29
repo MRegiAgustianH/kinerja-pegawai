@@ -14,6 +14,7 @@ use App\Http\Controllers\Manajer\PenilaianController;
 use App\Http\Controllers\Manajer\HasilController as ManajerHasil;
 use App\Http\Controllers\Pimpinan\DashboardController as PimpinanDashboard;
 use App\Http\Controllers\Pimpinan\HasilController as PimpinanHasil;
+use App\Http\Controllers\Pegawai\KinerjaController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', fn () => redirect()->route('login'));
@@ -23,6 +24,12 @@ Route::middleware('guest')->group(function () {
     Route::post('/login', [LoginController::class, 'login']);
 });
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout')->middleware('auth');
+
+// Pegawai / Staf
+Route::middleware(['auth', 'role:pegawai'])->prefix('pegawai')->name('pegawai.')->group(function () {
+    Route::get('/kinerja', [KinerjaController::class, 'index'])->name('kinerja.index');
+    Route::post('/kinerja', [KinerjaController::class, 'store'])->name('kinerja.store');
+});
 
 // Admin/HRD
 Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->group(function () {
@@ -66,13 +73,14 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->grou
     Route::get('/hasil/pdf', [AdminHasil::class, 'pdf'])->name('hasil.pdf');
 });
 
-// Manajer
-Route::middleware(['auth', 'role:manajer'])->prefix('manajer')->name('manajer.')->group(function () {
+// Kepala Divisi (Kadiv) / Manajer
+Route::middleware(['auth', 'role:kadiv'])->prefix('manajer')->name('manajer.')->group(function () {
     Route::get('/dashboard', [ManajerDashboard::class, 'index'])->name('dashboard');
 
     Route::get('/penilaian', [PenilaianController::class, 'index'])->name('penilaian.index');
-    Route::get('/penilaian/{pegawai}/create', [PenilaianController::class, 'create'])->name('penilaian.create');
-    Route::post('/penilaian/{pegawai}', [PenilaianController::class, 'store'])->name('penilaian.store');
+    Route::get('/penilaian/{penilaian}/detail', [PenilaianController::class, 'detail'])->name('penilaian.detail');
+    Route::post('/penilaian/{penilaian}/approve', [PenilaianController::class, 'approve'])->name('penilaian.approve');
+    Route::post('/penilaian/{penilaian}/reject', [PenilaianController::class, 'reject'])->name('penilaian.reject');
 
     Route::get('/hasil', [ManajerHasil::class, 'index'])->name('hasil.index');
 });

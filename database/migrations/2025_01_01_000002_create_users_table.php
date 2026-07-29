@@ -13,7 +13,7 @@ return new class extends Migration
             $table->string('nama');
             $table->string('username')->unique();
             $table->string('password');
-            $table->enum('role', ['admin', 'manajer', 'pimpinan'])->default('manajer');
+            $table->enum('role', ['admin', 'kadiv', 'pimpinan', 'pegawai'])->default('pegawai');
             $table->foreignId('id_divisi')->nullable()->constrained('divisi')->nullOnDelete();
             $table->rememberToken();
             $table->timestamps();

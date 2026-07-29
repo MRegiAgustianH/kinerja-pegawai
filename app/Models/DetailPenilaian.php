@@ -9,7 +9,15 @@ class DetailPenilaian extends Model
 {
     protected $table = 'detail_penilaian';
 
-    protected $fillable = ['id_penilaian', 'id_kriteria', 'id_sub_kriteria', 'nilai'];
+    protected $fillable = ['id_penilaian', 'id_kriteria', 'id_sub_kriteria', 'realisasi', 'bukti_pdf', 'nilai'];
+
+    protected function casts(): array
+    {
+        return [
+            'realisasi' => 'decimal:2',
+            'nilai' => 'decimal:2',
+        ];
+    }
 
     public function penilaian(): BelongsTo
     {

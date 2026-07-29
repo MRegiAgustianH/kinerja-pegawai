@@ -8,6 +8,7 @@ use App\Models\Kriteria;
 use App\Models\Pegawai;
 use App\Models\Penilaian;
 use App\Models\Periode;
+use App\Services\SmartService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -17,45 +18,72 @@ class PenilaianController extends Controller
     public function index(Request $request): View
     {
         $idDivisi = auth()->user()->id_divisi;
-        $periode = Periode::where('status', 'aktif')->get();
+        $periode = Periode::latest()->get();
         $idPeriode = $request->get('periode', Periode::where('status', 'aktif')->value('id') ?? $periode->first()?->id);
+
+        // Ambil semua pegawai di divisi kadiv tersebut
         $pegawai = Pegawai::where('id_divisi', $idDivisi)
-            ->when($idPeriode, fn ($q) => $q->with(['penilaian' => fn ($q2) => $q2->where('id_periode', $idPeriode)]))
-            ->latest()->paginate(10)->withQueryString();
+            ->with(['penilaian' => fn ($q) => $q->where('id_periode', $idPeriode)])
+            ->latest()
+            ->paginate(10)
+            ->withQueryString();
 
         return view('manajer.penilaian.index', compact('periode', 'idPeriode', 'pegawai'));
     }
 
-    public function create(Pegawai $pegawai): View
+    public function detail(Penilaian $penilaian): View
     {
-        $kriteria = Kriteria::where('id_divisi', $pegawai->id_divisi)->orderBy('id')->get();
-        $periode = Periode::where('status', 'aktif')->first();
-        abort_unless($periode, 403, 'Belum ada periode aktif.');
+        $penilaian->load(['pegawai.divisi', 'detailPenilaian.kriteria']);
+        $kriteria = Kriteria::where('id_divisi', $penilaian->pegawai->id_divisi)->orderBy('id')->get();
 
-        return view('manajer.penilaian.form', compact('pegawai', 'kriteria', 'periode'));
+        return view('manajer.penilaian.detail', compact('penilaian', 'kriteria'));
     }
 
-    public function store(Request $request, Pegawai $pegawai): RedirectResponse
+    public function approve(Request $request, Penilaian $penilaian, SmartService $smart): RedirectResponse
     {
         $data = $request->validate([
-            'id_periode' => 'required|exists:periode,id',
             'nilai' => 'required|array',
-            'nilai.*' => 'required|integer|min:1|max:5',
+            'nilai.*' => 'required|numeric|min:1|max:5',
         ]);
 
-        $penilaian = Penilaian::updateOrCreate(
-            ['id_pegawai' => $pegawai->id, 'id_periode' => $data['id_periode']],
-            ['id_user' => auth()->id(), 'status_penilaian' => 'final']
-        );
-        DetailPenilaian::where('id_penilaian', $penilaian->id)->delete();
-        foreach ($data['nilai'] as $idKriteria => $nilai) {
-            DetailPenilaian::create([
-                'id_penilaian' => $penilaian->id,
-                'id_kriteria' => $idKriteria,
-                'nilai' => $nilai,
-            ]);
+        // Simpan nilai kualitatif yang diinput Kadiv
+        foreach ($data['nilai'] as $idKriteria => $nilaiVal) {
+            DetailPenilaian::updateOrCreate(
+                [
+                    'id_penilaian' => $penilaian->id,
+                    'id_kriteria' => $idKriteria,
+                ],
+                [
+                    'nilai' => $nilaiVal,
+                ]
+            );
         }
 
-        return redirect()->route('manajer.penilaian.index')->with('success', 'Penilaian disimpan.');
+        // Set status approved & penilai (id_user)
+        $penilaian->update([
+            'status_penilaian' => 'approved',
+            'id_user' => auth()->id(),
+            'catatan_revisi' => null,
+        ]);
+
+        // Jalankan perhitungan SMART otomatis setelah disetujui (Back-end)
+        $smart->prosesPeriode($penilaian->id_periode);
+
+        return redirect()->route('manajer.penilaian.index')->with('success', 'Laporan disetujui dan nilai berhasil dikalkulasi otomatis.');
+    }
+
+    public function reject(Request $request, Penilaian $penilaian): RedirectResponse
+    {
+        $data = $request->validate([
+            'catatan_revisi' => 'required|string',
+        ]);
+
+        $penilaian->update([
+            'status_penilaian' => 'rejected',
+            'catatan_revisi' => $data['catatan_revisi'],
+            'id_user' => auth()->id(),
+        ]);
+
+        return redirect()->route('manajer.penilaian.index')->with('success', 'Laporan ditolak untuk revisi pegawai.');
     }
 }

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->enum('jenis_kelamin', ['L', 'P']);
             $table->date('tanggal_masuk');
             $table->foreignId('id_divisi')->constrained('divisi')->restrictOnDelete();
+            $table->foreignId('id_user')->nullable()->constrained('users')->nullOnDelete();
             $table->timestamps();
         });
     }

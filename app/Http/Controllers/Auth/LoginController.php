@@ -27,8 +27,9 @@ class LoginController extends Controller
 
             return match (Auth::user()->role) {
                 'admin' => redirect()->route('admin.dashboard'),
-                'manajer' => redirect()->route('manajer.dashboard'),
+                'kadiv' => redirect()->route('manajer.dashboard'),
                 'pimpinan' => redirect()->route('pimpinan.dashboard'),
+                'pegawai' => redirect()->route('pegawai.kinerja.index'),
                 default => redirect()->route('login'),
             };
         }

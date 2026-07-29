@@ -11,9 +11,10 @@ return new class extends Migration
         Schema::create('penilaian', function (Blueprint $table) {
             $table->id();
             $table->foreignId('id_pegawai')->constrained('pegawai')->cascadeOnDelete();
-            $table->foreignId('id_user')->constrained('users')->restrictOnDelete();
+            $table->foreignId('id_user')->nullable()->constrained('users')->nullOnDelete(); // Penilai (Kadiv)
             $table->foreignId('id_periode')->constrained('periode')->cascadeOnDelete();
-            $table->enum('status_penilaian', ['draft', 'final'])->default('draft');
+            $table->enum('status_penilaian', ['draft', 'pending', 'approved', 'rejected'])->default('draft');
+            $table->text('catatan_revisi')->nullable();
             $table->timestamps();
             $table->unique(['id_pegawai', 'id_periode']);
         });

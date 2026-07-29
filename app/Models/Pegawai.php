@@ -12,7 +12,7 @@ class Pegawai extends Model
 
     protected $fillable = [
         'nik', 'nama', 'jabatan', 'status', 'status_pegawai',
-        'jenis_kelamin', 'tanggal_masuk', 'id_divisi',
+        'jenis_kelamin', 'tanggal_masuk', 'id_divisi', 'id_user',
     ];
 
     protected function casts(): array
@@ -23,6 +23,11 @@ class Pegawai extends Model
     public function divisi(): BelongsTo
     {
         return $this->belongsTo(Divisi::class, 'id_divisi');
+    }
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'id_user');
     }
 
     public function kehadiran(): HasMany

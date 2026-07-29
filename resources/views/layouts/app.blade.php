@@ -29,7 +29,7 @@
                 <div class="px-2"><a href="{{ route('admin.periode.index') }}" class="{{ request()->routeIs('admin.periode.*') ? 'active' : '' }}"><i class="bi bi-calendar3"></i> Periode</a></div>
                 <div class="px-2"><a href="{{ route('admin.user.index') }}" class="{{ request()->routeIs('admin.user.*') ? 'active' : '' }}"><i class="bi bi-person-gear"></i> Akun Pengguna</a></div>
                 <div class="px-2"><a href="{{ route('admin.hasil.index') }}" class="{{ request()->routeIs('admin.hasil.*') ? 'active' : '' }}"><i class="bi bi-trophy"></i> Hasil Penilaian</a></div>
-            @elseif(auth()->user()->role === 'manajer')
+            @elseif(auth()->user()->role === 'kadiv')
                 <div class="px-2 mt-1"><a href="{{ route('manajer.dashboard') }}" class="{{ request()->routeIs('manajer.dashboard') ? 'active' : '' }}"><i class="bi bi-speedometer2"></i> Dashboard</a></div>
                 <div class="px-2"><a href="{{ route('manajer.penilaian.index') }}" class="{{ request()->routeIs('manajer.penilaian.*') ? 'active' : '' }}"><i class="bi bi-clipboard-check"></i> Input Penilaian</a></div>
                 <div class="px-2"><a href="{{ route('manajer.hasil.index') }}" class="{{ request()->routeIs('manajer.hasil.*') ? 'active' : '' }}"><i class="bi bi-trophy"></i> Hasil Divisi</a></div>

@@ -14,8 +14,9 @@ class UserController extends Controller
     public function index(): View
     {
         $users = User::with('divisi')->latest()->paginate(10);
+        $divisi = Divisi::orderBy('nama_divisi')->get();
 
-        return view('admin.user.index', compact('users'));
+        return view('admin.user.index', compact('users', 'divisi'));
     }
 
     public function store(Request $request): RedirectResponse
@@ -24,13 +25,15 @@ class UserController extends Controller
             'nama' => 'required|string|max:100',
             'username' => 'required|string|unique:users,username',
             'password' => 'required|string|min:6',
-            'role' => 'required|in:admin,manajer,pimpinan',
+            'role' => 'required|in:admin,kadiv,pimpinan,pegawai',
             'id_divisi' => 'nullable|exists:divisi,id',
         ]);
         $data['password'] = bcrypt($data['password']);
-        if ($data['role'] !== 'manajer') {
+        
+        if (!in_array($data['role'], ['kadiv', 'pegawai'])) {
             $data['id_divisi'] = null;
         }
+        
         User::create($data);
 
         return redirect()->route('admin.user.index')->with('success', 'Akun ditambahkan.');
@@ -42,17 +45,20 @@ class UserController extends Controller
             'nama' => 'required|string|max:100',
             'username' => 'required|string|unique:users,username,' . $user->id,
             'password' => 'nullable|string|min:6',
-            'role' => 'required|in:admin,manajer,pimpinan',
+            'role' => 'required|in:admin,kadiv,pimpinan,pegawai',
             'id_divisi' => 'nullable|exists:divisi,id',
         ]);
-        if ($data['role'] !== 'manajer') {
+        
+        if (!in_array($data['role'], ['kadiv', 'pegawai'])) {
             $data['id_divisi'] = null;
         }
+        
         if (! empty($data['password'])) {
             $data['password'] = bcrypt($data['password']);
         } else {
             unset($data['password']);
         }
+        
         $user->update($data);
 
         return redirect()->route('admin.user.index')->with('success', 'Akun diperbarui.');
