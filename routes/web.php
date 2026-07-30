@@ -54,10 +54,6 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->grou
     Route::post('/kriteria/sub', [KriteriaController::class, 'storeSub'])->name('kriteria.sub.store');
     Route::delete('/kriteria/sub/{subKriteria}', [KriteriaController::class, 'destroySub'])->name('kriteria.sub.destroy');
 
-    Route::get('/kehadiran', [KehadiranController::class, 'index'])->name('kehadiran.index');
-    Route::post('/kehadiran', [KehadiranController::class, 'store'])->name('kehadiran.store');
-    Route::delete('/kehadiran/{kehadiran}', [KehadiranController::class, 'destroy'])->name('kehadiran.destroy');
-
     Route::get('/periode', [PeriodeController::class, 'index'])->name('periode.index');
     Route::post('/periode', [PeriodeController::class, 'store'])->name('periode.store');
     Route::post('/periode/{periode}/toggle', [PeriodeController::class, 'toggleStatus'])->name('periode.toggle');

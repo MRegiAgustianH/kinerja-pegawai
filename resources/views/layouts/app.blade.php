@@ -25,7 +25,6 @@
                 <div class="px-2"><a href="{{ route('admin.pegawai.index') }}" class="{{ request()->routeIs('admin.pegawai.*') ? 'active' : '' }}"><i class="bi bi-people"></i> Pegawai</a></div>
                 <div class="px-2"><a href="{{ route('admin.divisi.index') }}" class="{{ request()->routeIs('admin.divisi.*') ? 'active' : '' }}"><i class="bi bi-diagram-3"></i> Divisi</a></div>
                 <div class="px-2"><a href="{{ route('admin.kriteria.index') }}" class="{{ request()->routeIs('admin.kriteria.*') ? 'active' : '' }}"><i class="bi bi-list-check"></i> Kriteria & Bobot</a></div>
-                <div class="px-2"><a href="{{ route('admin.kehadiran.index') }}" class="{{ request()->routeIs('admin.kehadiran.*') ? 'active' : '' }}"><i class="bi bi-calendar-check"></i> Kehadiran</a></div>
                 <div class="px-2"><a href="{{ route('admin.periode.index') }}" class="{{ request()->routeIs('admin.periode.*') ? 'active' : '' }}"><i class="bi bi-calendar3"></i> Periode</a></div>
                 <div class="px-2"><a href="{{ route('admin.user.index') }}" class="{{ request()->routeIs('admin.user.*') ? 'active' : '' }}"><i class="bi bi-person-gear"></i> Akun Pengguna</a></div>
                 <div class="px-2"><a href="{{ route('admin.hasil.index') }}" class="{{ request()->routeIs('admin.hasil.*') ? 'active' : '' }}"><i class="bi bi-trophy"></i> Hasil Penilaian</a></div>

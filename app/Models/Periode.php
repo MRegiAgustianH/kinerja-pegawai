@@ -19,10 +19,7 @@ class Periode extends Model
         ];
     }
 
-    public function kehadiran(): HasMany
-    {
-        return $this->hasMany(Kehadiran::class, 'id_periode');
-    }
+
 
     public function penilaian(): HasMany
     {
