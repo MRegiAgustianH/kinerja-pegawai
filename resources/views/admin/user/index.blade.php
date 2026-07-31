@@ -47,7 +47,10 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label small fw-bold">Password <small class="text-muted">(min. 6 karakter)</small></label>
-                        <input type="password" name="password" class="form-control form-control-sm @error('password') is-invalid @enderror" required>
+                        <div class="input-group input-group-sm">
+                            <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" required>
+                            <button class="btn btn-outline-secondary toggle-password" type="button" tabindex="-1"><i class="bi bi-eye"></i></button>
+                        </div>
                         @error('password')<div class="invalid-feedback d-block">{{ $message }}</div>@enderror
                     </div>
                     <div class="mb-3">
@@ -87,8 +90,14 @@
                     <div class="modal-body">
                         <div class="mb-3"><label class="form-label small fw-bold">Nama</label><input name="nama" value="{{ $u->nama }}" class="form-control" required></div>
                         <div class="mb-3"><label class="form-label small fw-bold">Username</label><input name="username" value="{{ $u->username }}" class="form-control" required></div>
-                        <div class="mb-3"><label class="form-label small fw-bold">Password (kosongkan jika tetap)</label><input type="password" name="password" class="form-control @error('password') is-invalid @enderror"></div>
-                        @error('password')<div class="invalid-feedback d-block">{{ $message }}</div>@enderror
+                        <div class="mb-3">
+                            <label class="form-label small fw-bold">Password (kosongkan jika tetap)</label>
+                            <div class="input-group">
+                                <input type="password" name="password" class="form-control @error('password') is-invalid @enderror">
+                                <button class="btn btn-outline-secondary toggle-password" type="button" tabindex="-1"><i class="bi bi-eye"></i></button>
+                            </div>
+                            @error('password')<div class="invalid-feedback d-block">{{ $message }}</div>@enderror
+                        </div>
                         <div class="mb-3"><label class="form-label small fw-bold">Role</label>
                             <select name="role" class="form-select" id="roleEditSelect{{ $u->id }}">
                                 <option value="admin" {{ $u->role=='admin'?'selected':'' }}>Admin / HRD</option>
@@ -125,6 +134,23 @@
 <script>
 document.getElementById('roleSelect')?.addEventListener('change', function(){
     document.getElementById('divisiField').style.display = (this.value === 'kadiv' || this.value === 'pegawai') ? 'block' : 'none';
+});
+
+// Toggle password visibility untuk semua tombol .toggle-password
+document.querySelectorAll('.toggle-password').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        const input = this.parentElement.querySelector('input');
+        const icon = this.querySelector('i');
+        if (input.type === 'password') {
+            input.type = 'text';
+            icon.classList.remove('bi-eye');
+            icon.classList.add('bi-eye-slash');
+        } else {
+            input.type = 'password';
+            icon.classList.remove('bi-eye-slash');
+            icon.classList.add('bi-eye');
+        }
+    });
 });
 </script>
 @endsection

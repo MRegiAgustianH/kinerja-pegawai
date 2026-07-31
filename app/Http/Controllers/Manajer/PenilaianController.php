@@ -42,12 +42,12 @@ class PenilaianController extends Controller
     public function approve(Request $request, Penilaian $penilaian, SmartService $smart): RedirectResponse
     {
         $data = $request->validate([
-            'nilai' => 'required|array',
-            'nilai.*' => 'required|numeric|min:1|max:5',
+            'nilai' => 'nullable|array',
+            'nilai.*' => 'nullable|numeric|min:1|max:5',
         ]);
 
         // Simpan nilai kualitatif yang diinput Kadiv
-        foreach ($data['nilai'] as $idKriteria => $nilaiVal) {
+        foreach (($data['nilai'] ?? []) as $idKriteria => $nilaiVal) {
             DetailPenilaian::updateOrCreate(
                 [
                     'id_penilaian' => $penilaian->id,
