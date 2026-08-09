@@ -107,7 +107,7 @@ class KinerjaController extends Controller
                 [
                     'realisasi' => $k->tipe === 'kuantitatif' ? $realisasiVal : null,
                     'bukti_pdf' => $pdfPath,
-                    'nilai' => $existingDetail?->nilai ?? $nilaiAwal, // Jangan override nilai jika sudah diinput Kadiv
+                    'nilai' => ($k->tipe === 'kuantitatif') ? $nilaiAwal : ($existingDetail?->nilai ?? 3.0),
                 ]
             );
         }
