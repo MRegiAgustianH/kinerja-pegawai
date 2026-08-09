@@ -30,11 +30,13 @@
                 <div class="px-2"><a href="{{ route('admin.hasil.index') }}" class="{{ request()->routeIs('admin.hasil.*') ? 'active' : '' }}"><i class="bi bi-trophy"></i> Hasil Penilaian</a></div>
             @elseif(auth()->user()->role === 'kadiv')
                 <div class="px-2 mt-1"><a href="{{ route('manajer.dashboard') }}" class="{{ request()->routeIs('manajer.dashboard') ? 'active' : '' }}"><i class="bi bi-speedometer2"></i> Dashboard</a></div>
-                <div class="px-2"><a href="{{ route('manajer.penilaian.index') }}" class="{{ request()->routeIs('manajer.penilaian.*') ? 'active' : '' }}"><i class="bi bi-clipboard-check"></i> Input Penilaian</a></div>
+                <div class="px-2"><a href="{{ route('manajer.penilaian.index') }}" class="{{ request()->routeIs('manajer.penilaian.*') ? 'active' : '' }}"><i class="bi bi-clipboard-check"></i> Verifikasi & Nilai</a></div>
                 <div class="px-2"><a href="{{ route('manajer.hasil.index') }}" class="{{ request()->routeIs('manajer.hasil.*') ? 'active' : '' }}"><i class="bi bi-trophy"></i> Hasil Divisi</a></div>
-            @else
+            @elseif(auth()->user()->role === 'pimpinan')
                 <div class="px-2 mt-1"><a href="{{ route('pimpinan.dashboard') }}" class="{{ request()->routeIs('pimpinan.dashboard') ? 'active' : '' }}"><i class="bi bi-speedometer2"></i> Dashboard</a></div>
                 <div class="px-2"><a href="{{ route('pimpinan.hasil.index') }}" class="{{ request()->routeIs('pimpinan.hasil.*') ? 'active' : '' }}"><i class="bi bi-trophy"></i> Hasil Penilaian</a></div>
+            @elseif(auth()->user()->role === 'pegawai')
+                <div class="px-2 mt-1"><a href="{{ route('pegawai.kinerja.index') }}" class="{{ request()->routeIs('pegawai.kinerja.*') ? 'active' : '' }}"><i class="bi bi-card-list"></i> Kinerja Saya</a></div>
             @endif
         </nav>
         <main class="col-md-10 ms-sm-auto px-md-4 py-4">

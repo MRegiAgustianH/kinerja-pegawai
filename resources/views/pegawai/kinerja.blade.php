@@ -46,6 +46,39 @@
     </div>
 @endif
 
+@if($penilaian && $penilaian->status_penilaian === 'approved' && $penilaian->hasil)
+    <!-- Card Hasil SMART Pegawai -->
+    <div class="card shadow-sm border-0 mb-4 bg-light">
+        <div class="card-header bg-white py-3 fw-bold text-success">
+            <i class="bi bi-award-fill me-2"></i> HASIL PENILAIAN SMART
+        </div>
+        <div class="card-body">
+            <div class="row g-3 text-center">
+                <div class="col-md-4 border-end">
+                    <div class="small text-muted mb-1">Skor Akhir SMART</div>
+                    <h3 class="fw-bold text-primary mb-0">{{ number_format($penilaian->hasil->nilai_smart, 4) }}</h3>
+                </div>
+                <div class="col-md-4 border-end">
+                    <div class="small text-muted mb-1">Kategori Kinerja</div>
+                    @php 
+                        $c = ['Sangat Baik'=>'success','Baik'=>'primary','Cukup'=>'warning','Kurang'=>'danger'][$penilaian->hasil->kategori] ?? 'secondary';
+                    @endphp
+                    <span class="badge text-bg-{{ $c }} fs-6 px-3 py-2 mt-1 text-uppercase">{{ $penilaian->hasil->kategori }}</span>
+                </div>
+                <div class="col-md-4">
+                    <div class="small text-muted mb-1">Peringkat Divisi</div>
+                    <h3 class="fw-bold text-warning mb-0">#{{ $penilaian->hasil->rangking }}</h3>
+                </div>
+            </div>
+            <hr>
+            <div class="px-2">
+                <strong class="small text-muted">Rekomendasi Keputusan:</strong>
+                <p class="mb-0 mt-1 fw-semibold text-dark">{{ $penilaian->hasil->rekomendasi }}</p>
+            </div>
+        </div>
+    </div>
+@endif
+
 <div class="card shadow-sm border-0">
     <div class="card-header bg-white py-3 fw-bold">
         <i class="bi bi-card-list me-2 text-primary"></i> Target KPI & Pengisian Realisasi
@@ -59,14 +92,16 @@
                 <input type="hidden" name="id_periode" value="{{ $selectedPeriodeId }}">
                 <div class="table-responsive">
                     <table class="table table-bordered align-middle">
-                        <thead class="table-light">
+                        <thead class="table-light text-center">
                             <tr>
                                 <th style="width: 80px;">Kode</th>
                                 <th>Kriteria & Sasaran Kerja</th>
-                                <th style="width: 100px;">Bobot</th>
-                                <th style="width: 120px;">Tipe</th>
+                                <th style="width: 80px;">Bobot</th>
+                                <th style="width: 100px;">Tipe</th>
                                 <th>Target</th>
-                                <th style="width: 180px;">Realisasi</th>
+                                <th style="width: 150px;">Realisasi</th>
+                                <th style="width: 120px;">Capaian (%)</th>
+                                <th style="width: 100px;">Nilai (1-5)</th>
                                 <th style="width: 250px;">Dokumen Bukti (PDF)</th>
                             </tr>
                         </thead>
@@ -77,19 +112,30 @@
                                 $realVal = $detail ? $detail->realisasi : '';
                                 $pdfPath = $detail ? $detail->bukti_pdf : '';
                                 $isLocked = $penilaian && in_array($penilaian->status_penilaian, ['pending', 'approved']);
+                                
+                                // Kalkulasi Capaian & Nilai Skala 1-5
+                                $capaianPersen = '-';
+                                $nilaiSkala = $detail ? $detail->nilai : '-';
+                                if ($k->tipe === 'kuantitatif' && $detail && $detail->realisasi !== null && $k->target_angka > 0) {
+                                    if ($k->atribut === 'cost') {
+                                        $capaianPersen = round(($k->target_angka / $detail->realisasi) * 100, 1) . '%';
+                                    } else {
+                                        $capaianPersen = round(($detail->realisasi / $k->target_angka) * 100, 1) . '%';
+                                    }
+                                }
                             @endphp
                             <tr>
-                                <td><span class="badge bg-secondary">{{ $k->kode_kriteria }}</span></td>
+                                <td class="text-center"><span class="badge bg-secondary">{{ $k->kode_kriteria }}</span></td>
                                 <td>
                                     <div class="fw-bold">{{ $k->nama_kriteria }}</div>
                                 </td>
-                                <td><span class="fw-bold">{{ $k->bobot }}%</span></td>
-                                <td>
+                                <td class="text-center"><span class="fw-bold">{{ $k->bobot }}%</span></td>
+                                <td class="text-center">
                                     <span class="badge text-bg-{{ $k->tipe === 'kuantitatif' ? 'primary' : 'info' }}">
                                         {{ $k->tipe }}
                                     </span>
                                 </td>
-                                <td>{{ $k->target ?: '-' }}</td>
+                                <td class="text-center">{{ $k->target_angka ? $k->target_angka . ' ' . $k->satuan : '-' }}</td>
                                 <td>
                                     @if($k->tipe === 'kuantitatif')
                                         <div class="input-group input-group-sm">
@@ -106,6 +152,8 @@
                                         <span class="text-muted small">Dinilai Kepala Divisi</span>
                                     @endif
                                 </td>
+                                <td class="text-center fw-semibold text-primary">{{ $capaianPersen }}</td>
+                                <td class="text-center fw-bold">{{ $nilaiSkala }}</td>
                                 <td>
                                     @if($k->tipe === 'kuantitatif')
                                         @if(!$isLocked)
@@ -133,7 +181,7 @@
                         <button class="btn btn-primary"><i class="bi bi-send me-1"></i> Submit Laporan Kinerja</button>
                     </div>
                 @else
-                    <div class="alert alert-info mt-3 text-center">
+                    <div class="alert alert-info mt-3 text-center mb-0">
                         <i class="bi bi-info-circle-fill me-2"></i>Laporan telah dikirim dan dikunci. Anda tidak dapat mengubah data kecuali laporan ditolak/revisi oleh Kepala Divisi.
                     </div>
                 @endif

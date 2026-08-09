@@ -25,7 +25,7 @@
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-bordered align-middle">
-                        <thead class="table-light">
+                        <thead class="table-light text-center">
                             <tr>
                                 <th style="width: 80px;">Kode</th>
                                 <th>Kriteria (KPI)</th>
@@ -33,6 +33,8 @@
                                 <th>Tipe</th>
                                 <th>Target</th>
                                 <th>Realisasi</th>
+                                <th>Capaian (%)</th>
+                                <th>Nilai (1-5)</th>
                                 <th>Bukti PDF</th>
                             </tr>
                         </thead>
@@ -42,13 +44,24 @@
                                 $detail = $penilaian->detailPenilaian->firstWhere('id_kriteria', $k->id);
                                 $realVal = $detail ? $detail->realisasi : '-';
                                 $pdfPath = $detail ? $detail->bukti_pdf : '';
+                                
+                                // Kalkulasi Capaian
+                                $capaianPersen = '-';
+                                $nilaiSkala = $detail ? $detail->nilai : '-';
+                                if ($k->tipe === 'kuantitatif' && $detail && $detail->realisasi !== null && $k->target_angka > 0) {
+                                    if ($k->atribut === 'cost') {
+                                        $capaianPersen = round(($k->target_angka / $detail->realisasi) * 100, 1) . '%';
+                                    } else {
+                                        $capaianPersen = round(($detail->realisasi / $k->target_angka) * 100, 1) . '%';
+                                    }
+                                }
                             @endphp
                             <tr>
-                                <td><span class="badge bg-secondary">{{ $k->kode_kriteria }}</span></td>
+                                <td class="text-center"><span class="badge bg-secondary">{{ $k->kode_kriteria }}</span></td>
                                 <td>{{ $k->nama_kriteria }}</td>
-                                <td>{{ $k->bobot }}%</td>
-                                <td><span class="badge text-bg-{{ $k->tipe==='kuantitatif'?'primary':'info' }}">{{ $k->tipe }}</span></td>
-                                <td>{{ $k->target }}</td>
+                                <td class="text-center">{{ $k->bobot }}%</td>
+                                <td class="text-center"><span class="badge text-bg-{{ $k->tipe==='kuantitatif'?'primary':'info' }}">{{ $k->tipe }}</span></td>
+                                <td class="text-center">{{ $k->target_angka ? $k->target_angka . ' ' . $k->satuan : '-' }}</td>
                                 <td>
                                     @if($k->tipe === 'kuantitatif')
                                         <strong>{{ $realVal }}</strong> {{ $k->satuan }}
@@ -56,6 +69,8 @@
                                         <span class="text-muted small">Dinilai manual</span>
                                     @endif
                                 </td>
+                                <td class="text-center fw-semibold text-primary">{{ $capaianPersen }}</td>
+                                <td class="text-center fw-bold">{{ $nilaiSkala }}</td>
                                 <td>
                                     @if($pdfPath)
                                         <a href="{{ asset($pdfPath) }}" target="_blank" class="btn btn-sm btn-link text-danger p-0">
